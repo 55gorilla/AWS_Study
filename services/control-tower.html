@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Control Tower | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="control-tower">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>ガバナンス</span><span>›</span><span>Control Tower</span>
+      </nav>
+      <div class="page-title">
+        <h1>🏛 AWS Control Tower <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS Control Tower は、<strong>セキュアなマルチアカウント環境を自動的にセットアップ・管理するサービス</strong>です。
+          Organizations・Config・CloudFormationなどを組み合わせ、ベストプラクティスに沿った「ランディングゾーン」を簡単に構築します。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Control Tower の概要</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Control Tower.rtfd/28082.jpg" alt="Control Tower概要" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">複数のAWSアカウントを使う組織で、ガードレール（予防的・発見的統制）を自動適用し、ガバナンスを効かせた環境を素早く立ち上げられます。</p>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA）</div>
+        <ul>
+          <li><strong>「セキュアなマルチアカウント環境を自動構築 → Control Tower」</strong></li>
+          <li>ランディングゾーンを自動セットアップ（Organizations + Config + CloudFormation）</li>
+          <li>ガードレールでガバナンスを自動適用</li>
+          <li>Organizations（アカウント管理の基盤）の上位で、ベストプラクティスを自動化</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="iam.html" class="chip">🔐 IAM / Organizations</a>
+          <a href="aws-config.html" class="chip">⚙️ AWS Config</a>
+          <a href="cloudformation.html" class="chip">🏗 CloudFormation</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS WAF / AWS Shield | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="waf-shield">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item active" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>セキュリティ</span><span>›</span><span>WAF / Shield</span>
+      </nav>
+      <div class="page-title">
+        <h1>🛡 AWS WAF / AWS Shield <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          不特定多数のユーザーがアクセスするWebサービスには、インターネットからの攻撃に対して保護が必要です。AWSでは、AWSリソースを保護するためのサービスとして「<strong>AWS WAF</strong>」と「<strong>AWS Shield</strong>」が提供されています。どちらもマネージド型のサービスです。
+        </p>
+      </div>
+
+      <!-- WAF -->
+      <div class="section">
+        <h2 class="section-title">AWS WAF（Web Application Firewall）</h2>
+        <div class="img-block">
+          <img src="../知見/AWS WAF, AWS Shield.rtfd/118143.jpg" alt="AWS WAFのイメージ図" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:16px">
+          AWS WAF（Web Application Firewall）は、<strong>脆弱性を狙った外部からの攻撃や不正アクセスから、WebアプリケーションをWeb ACLで保護するサービス</strong>です。
+        </p>
+        <div class="feature-grid" style="margin-top:16px">
+          <div class="feature-item">
+            <div class="feature-title">🚫 防御できる攻撃</div>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li><strong>SQLインジェクション</strong>: 悪意のあるSQLを送り込んで情報を盗み出す攻撃</li>
+              <li><strong>XSS（クロスサイトスクリプティング）</strong>: 悪意のあるスクリプトをWebフォームに埋め込む攻撃</li>
+              <li>特定の国からのアクセスを全てブロック（地理的一致ルール）</li>
+              <li>短時間に異常に多くのリクエストを送ってくるIPを自動的にブロック（レートベースのルール）</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">⚙️ Web ACL（アクセス制御リスト）</div>
+            <p>ユーザーは「Web ACL」と呼ばれるアクセス制御リストで、訪問者のIPアドレスや、ウェブページへのリクエスト内容（例：HTTPヘッダー、HTTP本文、ウェブページのアドレスなど）に基づいて、どのようなアクセスを許可し、どのようなアクセスを遮断するかを細かく決めることができます。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🔗 アタッチ先サービス</div>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li><strong>Amazon CloudFront</strong></li>
+              <li><strong>Application Load Balancer（ALB）</strong></li>
+              <li><strong>Amazon API Gateway</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shield -->
+      <div class="section">
+        <h2 class="section-title">AWS Shield（DDoS対策）</h2>
+        <p style="margin-bottom:16px">
+          AWS Shieldは、<strong>DDoS攻撃からの保護に特化したサービス</strong>です。DDoS攻撃とは、Webサイトやサーバーに大量のアクセスを送り込むことで、サービスを停止させる攻撃のことです。
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-item" style="border-left:4px solid #10B981">
+            <div class="feature-title">🆓 AWS Shield Standard（無料）</div>
+            <p>ネットワーク層およびトランスポート層への一般的なDDoS攻撃からAWSリソースを保護します。<strong>デフォルトで有効</strong>になっています。すべてのAWSユーザーが無料で利用できます。</p>
+          </div>
+          <div class="feature-item" style="border-left:4px solid #7C3AED">
+            <div class="feature-title">💎 AWS Shield Advanced（有料）</div>
+            <p>EC2インスタンス、Elastic Load Balancing、Amazon CloudFrontなどを標的としたDDoS攻撃に対して、高度な保護サービスを利用できます。</p>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li>高度な大規模攻撃からの保護</li>
+              <li>DDoS攻撃発生時のモニタリングやレポート</li>
+              <li>AWSのDDoS対応チーム（DRT）によるサポート</li>
+              <li>攻撃によって増加したAWS利用料金の補填</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- WAF vs Shield の整理 -->
+      <div class="section">
+        <h2 class="section-title">WAF と Shield の違い</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>比較項目</th><th>AWS WAF</th><th>AWS Shield Standard</th><th>AWS Shield Advanced</th></tr></thead>
+            <tbody>
+              <tr><td>主な対象</td><td>アプリ層攻撃（SQLi・XSS）</td><td>ネットワーク/トランスポート層DDoS</td><td>大規模・高度なDDoS</td></tr>
+              <tr><td>費用</td><td>有料</td><td><strong>無料（自動有効）</strong></td><td>有料</td></tr>
+              <tr><td>カスタムルール</td><td>◎ Web ACLで細かく制御</td><td>✕</td><td>◎</td></tr>
+              <tr><td>AWSサポート</td><td>なし</td><td>なし</td><td>◎ DRTチームサポート</td></tr>
+              <tr><td>アタッチ先</td><td>CloudFront/ALB/API GW</td><td>全AWSリソース</td><td>EC2/ELB/CloudFront等</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 試験ポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA 頻出）</div>
+        <ul>
+          <li><strong>SQLインジェクション・XSS対策 → AWS WAF</strong></li>
+          <li><strong>DDoS対策 → AWS Shield</strong>（Standard は全ユーザー無料・自動有効）</li>
+          <li>Shield Advancedは有料だが、攻撃による追加コストの補填もある</li>
+          <li>WAFはCloudFront・ALB・API Gatewayにアタッチして使用</li>
+          <li>WAFとShieldは別サービスだが、組み合わせて使うことが多い（WAF=アプリ層、Shield=ネットワーク層）</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="elb.html" class="chip">⚖️ ELB（ALBへのWAF適用）</a>
+          <a href="cloudtrail.html" class="chip">🔍 CloudTrail（攻撃ログ記録）</a>
+          <a href="../concepts/shared-responsibility.html" class="chip">🤝 責任共有モデル</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

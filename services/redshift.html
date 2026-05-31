@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Redshift | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="redshift">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>データベース</span><span>›</span><span>Amazon Redshift</span>
+      </nav>
+      <div class="page-title">
+        <h1>📉 Amazon Redshift <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon Redshift は、<strong>ペタバイト規模に対応するフルマネージドのデータウェアハウス（DWH）サービス</strong>です。
+          大量のデータに対する集計・分析クエリを高速に実行でき、BI（ビジネスインテリジェンス）や経営判断のためのデータ分析に使われます。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">データウェアハウス（DWH）とは</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon Redshift.rtfd/28121.jpg" alt="AWSデータベースサービス" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">データウェアハウスとは、複数のシステムから収集した大量のデータを統合・蓄積し、<strong>分析・レポート用に最適化したデータベース</strong>です。通常のRDB（トランザクション処理向け）とは異なり、大規模な集計・分析クエリに特化しています。</p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Redshift の主な特徴</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">📊 カラムナー（列指向）ストレージ</div>
+            <p>データを列単位で保存。集計クエリ（特定列の合計・平均等）が高速。圧縮効率も高くストレージコストを削減。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🚀 ペタバイト規模のスケーラビリティ</div>
+            <p>複数ノードのクラスター構成で大規模データに対応。MPP（超並列処理）でクエリを分散実行。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🗄 SQL互換</div>
+            <p>標準SQLでクエリ可能。既存のBIツール（Tableau等）やSQLクライアントから接続できる。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">⚡ Redshift Serverless</div>
+            <p>クラスター管理不要のサーバーレスオプション。クエリに応じて自動スケーリング、使用分のみ課金。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="decision-frame">
+        <div class="decision-frame-title">🧭 どちらを選ぶ？ — RDS/Aurora vs Redshift</div>
+        <div class="decision-compare">
+          <div class="decision-option">
+            <h4>🗃 RDS / Aurora（OLTP）</h4>
+            <div class="when-use">
+              トランザクション処理（注文・登録）<br>
+              頻繁な読み書き・更新<br>
+              行単位のデータアクセス<br>
+              例：WebアプリのバックエンドDB
+            </div>
+            <div class="keywords">
+              <span class="decision-kw">OLTP</span>
+              <span class="decision-kw">トランザクション</span>
+              <span class="decision-kw">行指向</span>
+            </div>
+          </div>
+          <div class="decision-vs">VS</div>
+          <div class="decision-option">
+            <h4>📉 Redshift（OLAP）</h4>
+            <div class="when-use">
+              大規模データの集計・分析<br>
+              BI・レポート・経営ダッシュボード<br>
+              列単位の集計クエリ<br>
+              例：売上分析、ログ分析、DWH
+            </div>
+            <div class="keywords">
+              <span class="decision-kw">OLAP</span>
+              <span class="decision-kw">DWH</span>
+              <span class="decision-kw">列指向</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li><strong>「ペタバイト規模のデータ分析・DWH → Amazon Redshift」</strong></li>
+          <li>カラムナー（列指向）ストレージで集計クエリが高速</li>
+          <li><strong>OLAP（分析）はRedshift、OLTP（トランザクション）はRDS/Aurora</strong></li>
+          <li>標準SQLで分析可能、BIツールと連携</li>
+          <li>Redshift Serverless = クラスター管理不要・自動スケーリング</li>
+          <li>S3のデータを直接クエリする「Redshift Spectrum」もある</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="rds.html" class="chip">🗃 RDS（OLTP比較）</a>
+          <a href="s3.html" class="chip">🪣 S3（データソース）</a>
+          <a href="kinesis.html" class="chip">🌊 Kinesis（データ取り込み）</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

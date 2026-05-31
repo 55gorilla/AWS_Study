@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS CloudTrail | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="cloudtrail">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item active" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>監視・管理</span><span>›</span><span>AWS CloudTrail</span>
+      </nav>
+      <div class="page-title">
+        <h1>🔍 AWS CloudTrail <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS CloudTrail は、AWS環境内の<strong>「いつ」「誰によって（ユーザーやAWSサービス、APIなど）」「どのような操作が行われたのか」を記録・保存するサービス</strong>です。利用登録なしに過去90日間のログを無料で参照できます。
+        </p>
+      </div>
+
+      <!-- ダッシュボード画面 -->
+      <div class="section">
+        <h2 class="section-title">CloudTrail のダッシュボード</h2>
+        <div class="img-block">
+          <img src="../知見/AWS CloudTrail.rtfd/28051.jpg" alt="CloudTrailダッシュボード" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">イベントの発生日時と操作したユーザー、対象のリソース名などが表示されているのがわかります。左端の「▶」マークをクリックすることで、詳細情報を参照することもできます。</p>
+        <p style="margin-top:8px">例えば、操作した覚えがないのにリソースが増加されていたり、インスタンスが削除されていたような場合でも、CloudTrailのログを参照することで誰がどのような操作を行ったのかを確認できます。</p>
+      </div>
+
+      <!-- イベント種類 -->
+      <div class="section">
+        <h2 class="section-title">記録対象となるイベント</h2>
+        <div class="feature-grid">
+          <div class="feature-item" style="border-left:4px solid var(--orange)">
+            <div class="feature-title">📋 管理イベント（デフォルト記録）</div>
+            <p>ユーザーのログイン、AWSリソース自体の作成・変更・削除といった操作（例：EC2インスタンスの作成など）</p>
+          </div>
+          <div class="feature-item" style="border-left:4px solid var(--blue)">
+            <div class="feature-title">📄 データイベント（要有効化）</div>
+            <p>AWSリソースへの細かな操作（例：S3内のデータ操作、Lambda関数の実行など）</p>
+          </div>
+          <div class="feature-item" style="border-left:4px solid #7C3AED">
+            <div class="feature-title">🔎 インサイトイベント（要有効化）</div>
+            <p>通常と異なる操作（例：書き込みAPIの異なる呼び出しなど）</p>
+          </div>
+        </div>
+        <div class="key-point" style="margin-top:16px">管理イベントはデフォルトで記録されますが、データイベントおよびインサイトイベントはイベントの記録を有効にする必要があります。</div>
+      </div>
+
+      <!-- アーキテクチャ図 -->
+      <div class="section">
+        <h2 class="section-title">CloudTrail → S3 → CloudWatch の流れ</h2>
+        <div class="mermaid">
+sequenceDiagram
+  participant U as 👤 ユーザー/サービス
+  participant API as AWS API
+  participant CT as CloudTrail
+  participant S3 as S3バケット
+  participant CW as CloudWatch Logs
+  participant SNS as SNS通知
+
+  U->>API: コンソール/CLI/SDK操作
+  API->>CT: APIコール記録（イベント）
+  Note over CT: 管理イベントはデフォルト記録<br/>90日間無料で参照可能
+  CT->>S3: 証跡情報設定で長期保存<br/>（JSON形式→gz圧縮）
+  CT->>CW: CloudWatch Logsへ転送
+  CW->>CW: メトリクスフィルター作成
+  CW-->>SNS: 不審な操作検知 → アラート
+  SNS-->>U: メール/SMS通知 📧
+        </div>
+      </div>
+
+      <!-- 証跡情報 -->
+      <div class="section">
+        <h2 class="section-title">証跡情報（Trail）設定</h2>
+        <div class="img-block">
+          <img src="../知見/AWS CloudTrail.rtfd/28052.jpg" alt="CloudTrail証跡情報設定" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">CloudTrailのログは「証跡情報」を設定することでS3バケットに保存できます。これにより90日を超える長期間のログ保存が可能となり、セキュリティ監査やコンプライアンス報告のニーズに対応します。ログはJSON形式で出力され、gz形式で圧縮されてS3に保存されます。Amazon KMSを利用してログデータを暗号化するオプションも提供されています。</p>
+      </div>
+
+      <!-- S3に保存したログ例 -->
+      <div class="section">
+        <h2 class="section-title">S3バケットに保存したCloudTrailのログ例</h2>
+        <div class="img-block">
+          <img src="../知見/AWS CloudTrail.rtfd/28053.jpg" alt="CloudTrailログ例" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <!-- CloudWatch vs CloudTrail -->
+      <div class="decision-frame">
+        <div class="decision-frame-title">🧭 どちらを選ぶ？ — CloudWatch vs CloudTrail</div>
+        <div class="decision-compare">
+          <div class="decision-option">
+            <h4>📈 Amazon CloudWatch</h4>
+            <div class="when-use">
+              リソースの<strong>パフォーマンス監視</strong><br>
+              CPU使用率・メモリ・ネットワーク等のメトリクス<br>
+              アラーム設定→Auto Scalingトリガー<br>
+              ログの収集・分析（アプリケーションログ）<br>
+              「今のリソース状態は？」に答える
+            </div>
+            <div class="keywords">
+              <span class="decision-kw">メトリクス</span>
+              <span class="decision-kw">アラーム</span>
+              <span class="decision-kw">リソース監視</span>
+            </div>
+          </div>
+          <div class="decision-vs">VS</div>
+          <div class="decision-option">
+            <h4>🔍 AWS CloudTrail</h4>
+            <div class="when-use">
+              AWS操作の<strong>監査ログ・証跡</strong><br>
+              「誰が・何を・いつ操作したか」の記録<br>
+              セキュリティ調査・コンプライアンス対応<br>
+              不正アクセス・意図しない操作の特定<br>
+              「誰がやったか？」に答える
+            </div>
+            <div class="keywords">
+              <span class="decision-kw">API監査</span>
+              <span class="decision-kw">セキュリティ</span>
+              <span class="decision-kw">コンプライアンス</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 試験ポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA 頻出）</div>
+        <ul>
+          <li><strong>「誰がいつどの操作をしたか知りたい → CloudTrail」</strong></li>
+          <li><strong>CloudTrail は90日間無料でログ参照可能</strong>（長期保存には証跡情報設定 → S3が必要）</li>
+          <li>管理イベントはデフォルト記録、データイベント・インサイトイベントは有効化が必要</li>
+          <li>CloudWatch（パフォーマンス監視）とCloudTrail（操作監査）の違いをしっかり区別する</li>
+          <li>CloudTrailのログをCloudWatch Logsに転送し、メトリクスフィルター+アラームで不審操作を通知できる</li>
+          <li>ログはJSON形式でgz圧縮 → S3に保存（KMSで暗号化オプションあり）</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="cloudwatch.html" class="chip">📈 CloudWatch（パフォーマンス監視）</a>
+          <a href="s3.html" class="chip">🪣 Amazon S3（ログ保存先）</a>
+          <a href="../concepts/shared-responsibility.html" class="chip">🤝 責任共有モデル</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#FF9900',primaryTextColor:'#16191F',lineColor:'#0073BB',background:'#f8fafc'}});</script>
+</body>
+</html>

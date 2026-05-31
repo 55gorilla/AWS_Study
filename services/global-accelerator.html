@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Global Accelerator | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="global-accelerator">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item active" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>ネットワーキング</span>
+        <span>›</span><span>AWS Global Accelerator</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🌐 AWS Global Accelerator <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS Global Accelerator は、ユーザーからAWSリソースまでのアクセス経路を
+          <strong>AWSグローバルネットワークを利用して最適化するサービス</strong>です。
+          通常、インターネット経由でAWSリソースへアクセスする際に遅延やパケットロスのリスクがありますが、
+          Global Accelerator はユーザー近くのエッジロケーションから高速なAWSバックボーン経由でアクセスすることでそのリスクを最小化します。
+        </p>
+      </div>
+
+      <!-- 通常 vs Global Accelerator -->
+      <div class="section">
+        <h2 class="section-title">通常のアクセス vs Global Accelerator 経由</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Global Accelerator.rtfd/28101.jpg" alt="通常のアクセス経路" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+          <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted);text-align:center">通常のアクセス：パブリックインターネット経由で遅延・パケットロスのリスクあり</p>
+        </div>
+        <div class="img-block" style="margin-top:20px">
+          <img src="../知見/AWS Global Accelerator.rtfd/28102.jpg" alt="Global Accelerator経由" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+          <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted);text-align:center">Global Accelerator 経由：最寄りエッジ → AWSグローバルネットワーク → リソース</p>
+        </div>
+      </div>
+
+      <!-- 主な機能 -->
+      <div class="section">
+        <h2 class="section-title">Global Accelerator の機能</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">🌍 リージョン間の負荷分散</div>
+            <p>複数リージョンで展開しているWebアプリケーションなどへのリージョン間の負荷分散が可能です。</p>
+            <p style="margin-top:8px">負荷分散先（エンドポイント）として指定できるもの：</p>
+            <ul style="padding-left:18px;margin-top:4px;line-height:1.8">
+              <li><strong>ALB</strong>（Application Load Balancer）</li>
+              <li><strong>NLB</strong>（Network Load Balancer）</li>
+              <li><strong>EC2インスタンス</strong></li>
+              <li><strong>Elastic IPアドレス</strong></li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">❤️ エンドポイントのヘルスチェック</div>
+            <p>ELBと同様に、Global AcceleratorにもヘルスチェックI機能があります。</p>
+            <p style="margin-top:8px">ヘルスチェックで異常となったエンドポイントは自動的に負荷分散先から除外され、正常なエンドポイントへトラフィックが転送されます。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📌 固定パブリックIPアドレス</div>
+            <p>Global Acceleratorは<strong>2つの固定パブリックIPアドレス（Anycast IP）</strong>を保有します。</p>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li>エンドポイントが変更してもIPアドレスは変わらない → 可用性向上</li>
+              <li>Elastic IPを割り当てられないALBでも固定IPアクセスが可能になる</li>
+              <li>IPアドレスのホワイトリスト管理が容易</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 詳細図 -->
+      <div class="section">
+        <h2 class="section-title">固定IP・マルチリージョン構成</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Global Accelerator.rtfd/28103.jpg" alt="Global Accelerator固定IPと構成図" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <!-- CloudFront との違い -->
+      <div class="section">
+        <h2 class="section-title">CloudFront との違い</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>比較項目</th>
+                <th>AWS Global Accelerator</th>
+                <th>Amazon CloudFront</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>主な用途</td>
+                <td>TCP/UDP トラフィックの高速化・負荷分散</td>
+                <td>静的・動的コンテンツのキャッシュ配信（CDN）</td>
+              </tr>
+              <tr>
+                <td>プロトコル</td>
+                <td>TCP / UDP（HTTP/S以外も対応）</td>
+                <td>HTTP / HTTPS のみ</td>
+              </tr>
+              <tr>
+                <td>キャッシュ</td>
+                <td>なし（高速転送のみ）</td>
+                <td>あり（エッジにコンテンツキャッシュ）</td>
+              </tr>
+              <tr>
+                <td>固定IP</td>
+                <td><strong>あり（2つの固定Anycast IP）</strong></td>
+                <td>なし</td>
+              </tr>
+              <tr>
+                <td>向いているケース</td>
+                <td>ゲーム・IoT・VoIP・グローバルWebアプリ</td>
+                <td>静的サイト・動画配信・画像配信</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 試験のポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li><strong>「固定IPアドレスでグローバルアクセスを最適化 → Global Accelerator」</strong></li>
+          <li>エンドポイントはALB・NLB・EC2・Elastic IP が指定可能</li>
+          <li>ヘルスチェックで異常なエンドポイントを自動除外 → 高可用性</li>
+          <li><strong>CloudFront との違い</strong>：Global Accelerator はキャッシュしない（高速化のみ）、CloudFront はコンテンツをキャッシュ</li>
+          <li>Global Accelerator は TCP/UDP に対応（ゲームサーバー等にも利用可能）</li>
+          <li>ALBには元々Elastic IPを割り当てられないが、Global Accelerator経由で固定IPアクセスが可能になる</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="cloudwatch.html" class="chip">📈 CloudWatch</a>
+          <a href="auto-scaling.html" class="chip">📈 Auto Scaling</a>
+          <a href="ec2-purchase-options.html" class="chip">🖥 EC2 購入オプション</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

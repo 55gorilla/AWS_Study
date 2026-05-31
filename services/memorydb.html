@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon MemoryDB | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="memorydb">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>データベース</span><span>›</span><span>MemoryDB</span>
+      </nav>
+      <div class="page-title">
+        <h1>🧠 Amazon MemoryDB <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon MemoryDB は、<strong>Redis互換の、耐久性を備えたインメモリデータベースサービス</strong>です。
+          ElastiCacheがキャッシュ用途なのに対し、MemoryDBは<strong>データの永続性・耐久性を持ち、プライマリデータベースとしても使える</strong>点が特徴です。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">MemoryDB の特徴</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">⚡ インメモリの超高速性</div>
+            <p>メモリ上で動作するためマイクロ秒の読み取り・ミリ秒の書き込みレイテンシ。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">💾 データの耐久性</div>
+            <p>複数AZにトランザクションログを保存。<strong>キャッシュではなくプライマリDBとして使える</strong>。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🔴 Redis互換</div>
+            <p>既存のRedisアプリケーション・データ構造をそのまま利用可能。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="decision-frame">
+        <div class="decision-frame-title">🧭 どちらを選ぶ？ — ElastiCache vs MemoryDB</div>
+        <div class="decision-compare">
+          <div class="decision-option">
+            <h4>⚡ ElastiCache for Redis</h4>
+            <div class="when-use">
+              既存DBの<strong>キャッシュ層</strong>として<br>
+              データはRDS等が正本<br>
+              キャッシュ消失しても再生成可能
+            </div>
+            <div class="keywords"><span class="decision-kw">キャッシュ</span><span class="decision-kw">補助</span></div>
+          </div>
+          <div class="decision-vs">VS</div>
+          <div class="decision-option">
+            <h4>🧠 MemoryDB</h4>
+            <div class="when-use">
+              <strong>プライマリDB</strong>として<br>
+              超高速かつデータ永続化が必要<br>
+              マイクロ秒レイテンシの本番DB
+            </div>
+            <div class="keywords"><span class="decision-kw">永続化</span><span class="decision-kw">プライマリ</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA）</div>
+        <ul>
+          <li><strong>「超高速かつデータ永続性のあるプライマリDB → MemoryDB」</strong></li>
+          <li>ElastiCache（キャッシュ）と違い、MemoryDBはデータが永続化される</li>
+          <li>Redis互換で、複数AZにトランザクションログを保存し耐久性を確保</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="elasticache.html" class="chip">⚡ ElastiCache（キャッシュ比較）</a>
+          <a href="dynamodb.html" class="chip">📊 DynamoDB</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

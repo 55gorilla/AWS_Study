@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Storage Gateway | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="storage-gateway">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>ストレージ</span><span>›</span><span>Storage Gateway</span>
+      </nav>
+      <div class="page-title">
+        <h1>🔌 AWS Storage Gateway <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS Storage Gateway は、<strong>オンプレミス環境とAWSクラウドストレージをシームレスに接続するハイブリッドストレージサービス</strong>です。
+          オンプレミスのアプリケーションから、AWSのS3やGlacierなどのストレージを、まるでローカルストレージのように利用できます。
+        </p>
+      </div>
+
+      <!-- 全体像 -->
+      <div class="section">
+        <h2 class="section-title">Storage Gateway の全体像</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Storage Gateway.rtfd/28024.jpg" alt="Storage Gateway全体像" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="key-point" style="margin-top:16px">
+          オンプレミス側に「ゲートウェイ」（仮想アプライアンスまたは物理アプライアンス）を配置し、これを介してAWSストレージへアクセスします。<strong>頻繁にアクセスするデータはローカルにキャッシュ</strong>され、低レイテンシを実現します。
+        </div>
+      </div>
+
+      <!-- 3種類のゲートウェイ -->
+      <div class="section">
+        <h2 class="section-title">3種類のゲートウェイタイプ</h2>
+        <div class="feature-grid">
+          <div class="feature-item" style="border-left:4px solid var(--orange)">
+            <div class="feature-title">📁 ファイルゲートウェイ（S3 File Gateway）</div>
+            <p><strong>NFS / SMB</strong>プロトコルでファイルとしてアクセス。ファイルはS3オブジェクトとして保存される。</p>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">用途：ファイルサーバーのクラウド化、バックアップ</p>
+            <div class="img-block" style="margin-top:8px">
+              <img src="../知見/AWS Storage Gateway.rtfd/28026.jpg" alt="ファイルゲートウェイ" style="max-width:100%;border-radius:8px">
+            </div>
+          </div>
+          <div class="feature-item" style="border-left:4px solid var(--blue)">
+            <div class="feature-title">💾 ボリュームゲートウェイ（Volume Gateway）</div>
+            <p><strong>iSCSI</strong>でブロックストレージとしてアクセス。スナップショットをS3に保存。</p>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li><strong>キャッシュ型</strong>：データの実体はS3、頻繁アクセス分のみローカルキャッシュ</li>
+              <li><strong>保存型</strong>：データの実体はオンプレミス、S3に非同期バックアップ</li>
+            </ul>
+            <div class="img-block" style="margin-top:8px">
+              <img src="../知見/AWS Storage Gateway.rtfd/28027.jpg" alt="ボリュームゲートウェイ" style="max-width:100%;border-radius:8px">
+            </div>
+          </div>
+          <div class="feature-item" style="border-left:4px solid #7C3AED">
+            <div class="feature-title">📼 テープゲートウェイ（Tape Gateway）</div>
+            <p>仮想テープライブラリ（VTL）として動作。既存のバックアップソフトをそのまま使い、<strong>S3 / S3 Glacier</strong>へアーカイブ。</p>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">用途：物理テープからの移行、長期アーカイブ</p>
+            <div class="img-block" style="margin-top:8px">
+              <img src="../知見/AWS Storage Gateway.rtfd/28028.jpg" alt="テープゲートウェイ" style="max-width:100%;border-radius:8px">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 比較表 -->
+      <div class="section">
+        <h2 class="section-title">ゲートウェイタイプ比較</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Storage Gateway.rtfd/28029.jpg" alt="ゲートウェイ比較" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="table-wrap" style="margin-top:16px">
+          <table>
+            <thead><tr><th>タイプ</th><th>プロトコル</th><th>データ形式</th><th>主な用途</th></tr></thead>
+            <tbody>
+              <tr><td>ファイルゲートウェイ</td><td>NFS / SMB</td><td>S3オブジェクト</td><td>ファイル共有・バックアップ</td></tr>
+              <tr><td>ボリュームゲートウェイ</td><td>iSCSI</td><td>EBSスナップショット</td><td>ブロックストレージ・DR</td></tr>
+              <tr><td>テープゲートウェイ</td><td>iSCSI VTL</td><td>仮想テープ→Glacier</td><td>長期アーカイブ・テープ置換</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 試験ポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li><strong>「オンプレミスからS3にアクセス → Storage Gateway」</strong></li>
+          <li>ファイルゲートウェイ = NFS/SMB（ファイル共有）</li>
+          <li>ボリュームゲートウェイ = iSCSI（ブロック）、キャッシュ型と保存型がある</li>
+          <li>テープゲートウェイ = 既存バックアップソフトで仮想テープ → Glacierアーカイブ</li>
+          <li>頻繁にアクセスするデータはローカルキャッシュで低レイテンシ</li>
+          <li>「物理テープ運用をクラウドに移行 → テープゲートウェイ」</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="s3.html" class="chip">🪣 Amazon S3（保存先）</a>
+          <a href="efs.html" class="chip">📁 Amazon EFS</a>
+          <a href="../concepts/on-premise-cloud.html" class="chip">🏢 オンプレミスとクラウド</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

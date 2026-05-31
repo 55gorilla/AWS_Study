@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Cost Explorer / Budgets | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="cost-explorer">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item active" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>監視・管理</span><span>›</span><span>Cost Explorer / Budgets</span>
+      </nav>
+      <div class="page-title">
+        <h1>💰 AWS Cost Explorer / AWS Budgets <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          AWSのコスト最適化では、どのサービスにどれだけのコストがかかっているかを把握し、将来のコストを予測することが重要です。
+          <strong>AWS Cost Explorer</strong>はコストを可視化・分析するサービス、<strong>AWS Budgets</strong>は予算のアラートを設定するサービスです。
+        </p>
+      </div>
+
+      <!-- Cost Explorer -->
+      <div class="section">
+        <h2 class="section-title">AWS Cost Explorer — コスト可視化・分析</h2>
+        <p style="margin-bottom:16px">AWS Cost Explorerは、AWSリソースの使用量やコストをグラフで可視化し、データを詳細に分析できるサービスです。例えば、EC2やRDSなどのサービスごとに使用状況やコストを詳細に分析し、使用量の変化を時間軸で分析したり、コスト増加の要因を特定するグラフを作成することが可能です。</p>
+
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">📊 可視化・分析</div>
+            <p>過去<strong>13ヶ月分</strong>のコストデータをグラフで確認できます。デフォルトで用意されているレポートには、よく使われるグラフ構成が含まれており、ユーザーはすぐに分析を始めることができます。</p>
+            <p style="margin-top:8px">レポートは日次や月次で作成可能で、毎月のコストの推移を確認したり、請求額が高いユーザーを特定して利用状況を見直すなどの分析が行えます。フィルタリング機能を使うことで、サービスごとやアベイラビリティーゾーンごとの料金などより詳細な分析を行うこともできます。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🔮 予測</div>
+            <p>過去の使用状況を分析し、<strong>将来のコストを予測</strong>することができます。この機能を活用することで、将来的な予算計画が立てやすくなります。予測の範囲は、1ヶ月後から最大12ヶ月後までです。</p>
+          </div>
+        </div>
+
+        <!-- 画像群 -->
+        <div class="img-block" style="margin-top:20px">
+          <img src="../知見/AWS Cost Explorer, AWS Budgets.rtfd/28071.jpg" alt="Cost Explorerデフォルトレポート" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+          <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted);text-align:center">デフォルトで用意されているレポート一覧</p>
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/AWS Cost Explorer, AWS Budgets.rtfd/28064.jpg" alt="サービスごとの月別使用料推移" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+          <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted);text-align:center">サービスごとの月別使用料推移（Monthly costs by service レポート）</p>
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/AWS Cost Explorer, AWS Budgets.rtfd/28065.jpg" alt="コスト予測グラフ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+          <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted);text-align:center">今後12ヶ月のコスト予測グラフ</p>
+        </div>
+      </div>
+
+      <!-- コスト配分タグ -->
+      <div class="section">
+        <h2 class="section-title">コスト配分タグ</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Cost Explorer, AWS Budgets.rtfd/28066.jpg" alt="コスト配分タグ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">コスト配分タグは、AWSリソースのコスト管理と追跡を効率化するための機能です。タグはキーと値から構成され、リソースにタグ付けすることで、コストをプロジェクト、部署、チーム、環境（開発、テスト、本番）などのカテゴリーに分類できます。またAWS Cost Explorerでタグごとのコストレポートを作成できるので、詳細なコスト分析を行えます。</p>
+      </div>
+
+      <!-- AWS Budgets -->
+      <div class="section">
+        <h2 class="section-title">AWS Budgets — 予算アラート</h2>
+        <p style="margin-bottom:16px">AWS Budgetsは、AWSの各サービスの使用状況を監視し、設定した金額や使用状況のしきい値に近づいたり超えた場合にアラートやアクションを実行するサービスです。アラートはメールやAmazon SNSの通知で受け取ることができます。また、しきい値を超えた時のアクションとして、特定のEC2インスタンス、RDSインスタンスの停止設定なども可能で、これによりさらなるコスト発生を抑制できます。</p>
+
+        <div class="img-block">
+          <img src="../知見/AWS Cost Explorer, AWS Budgets.rtfd/28067.jpg" alt="Budgetsコンソール" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+          <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted);text-align:center">Budgetsのコンソール画面</p>
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/AWS Cost Explorer, AWS Budgets.rtfd/28068.jpg" alt="予算超過時のメール通知" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+          <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted);text-align:center">予算超過時のメール通知</p>
+        </div>
+      </div>
+
+      <!-- Pricing Calculator -->
+      <div class="section">
+        <h2 class="section-title">AWS Pricing Calculator — 事前見積もり</h2>
+        <p style="margin-bottom:16px">AWS Pricing Calculator（料金見積もりツール）は、AWSの各サービスについて事前にコスト見積もりを行うツールです。必要な設定を入力することで、個々のサービスや複数サービスの組み合わせに基づいた総コストを計算できます。このツールは無料で提供されており、AWSアカウントがなくても利用可能です。例えば、オンプレミス環境からAWSへの移行コストを事前に試算したい場合や、異なるリージョンでのサーバー増加にかかる費用などを見積もりたい時に便利です。</p>
+
+        <div class="img-block">
+          <img src="../知見/AWS Cost Explorer, AWS Budgets.rtfd/28069.jpg" alt="Pricing Calculator見積もり作成" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/AWS Cost Explorer, AWS Budgets.rtfd/28070.jpg" alt="料金確認画面" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <!-- コスト管理サービス比較 -->
+      <div class="section">
+        <h2 class="section-title">コスト管理サービス比較</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>サービス</th><th>主な用途</th><th>特徴</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Cost Explorer</strong></td>
+                <td>過去コストの可視化・分析・予測</td>
+                <td>過去13ヶ月分グラフ、将来12ヶ月予測</td>
+              </tr>
+              <tr>
+                <td><strong>AWS Budgets</strong></td>
+                <td>予算設定・超過時アラート</td>
+                <td>メール/SNS通知、EC2/RDS停止アクション</td>
+              </tr>
+              <tr>
+                <td><strong>Pricing Calculator</strong></td>
+                <td>事前コスト見積もり</td>
+                <td>AWSアカウント不要・無料</td>
+              </tr>
+              <tr>
+                <td><strong>コスト配分タグ</strong></td>
+                <td>リソース別コスト管理</td>
+                <td>プロジェクト/部署/環境別のコスト追跡</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 試験ポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF 頻出）</div>
+        <ul>
+          <li><strong>「過去コストを可視化・分析したい → Cost Explorer」</strong></li>
+          <li><strong>「予算超過をメール通知したい → AWS Budgets」</strong></li>
+          <li><strong>「移行前のコスト見積もりをしたい → Pricing Calculator」</strong>（アカウント不要）</li>
+          <li>Cost Explorerは過去13ヶ月分のデータを参照可能</li>
+          <li>Budgetsはアクションとして「EC2/RDSを停止する」設定も可能</li>
+          <li>コスト配分タグでプロジェクト/部署別コスト管理が可能</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="trusted-advisor.html" class="chip">💡 Trusted Advisor（コスト最適化チェック）</a>
+          <a href="ec2-purchase-options.html" class="chip">🖥 EC2 購入オプション（コスト削減）</a>
+          <a href="../concepts/aws-cloud-benefits.html" class="chip">☁️ クラウドの利点</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

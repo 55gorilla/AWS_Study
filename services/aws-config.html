@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Config | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="aws-config">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>監視・管理</span><span>›</span><span>AWS Config</span>
+      </nav>
+      <div class="page-title">
+        <h1>⚙️ AWS Config <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS Config は、<strong>AWSリソースの設定状態を継続的に記録・監視・評価するサービス</strong>です。
+          「リソースがいつ・どう変更されたか」を追跡し、設定がコンプライアンス基準（ルール）に準拠しているかを自動判定します。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">AWS Config の概要</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Config.rtfd/28076.jpg" alt="AWS Config概要" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="key-point" style="margin-top:16px">
+          <strong>CloudTrailとの違い</strong>：CloudTrailは「誰が何の操作をしたか」（API操作の記録）、AWS Configは「リソースが今どういう設定で、過去どう変化したか」（設定状態の記録）。
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">主な機能</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">📸 設定の記録・変更追跡</div>
+            <p>各リソースの設定変更を時系列で記録。「いつ・誰が・どの設定をどう変えたか」を追跡できる。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">✅ コンプライアンス評価（Configルール）</div>
+            <p>ルールを定義してリソースが基準に準拠しているか自動判定。「準拠」「非準拠」を表示。</p>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">例：S3バケットが暗号化されているか、必須タグが付いているか</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🔔 通知</div>
+            <p>Amazon SNS / EventBridge と連携して、非準拠を検知したら通知。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🔧 自動修復</div>
+            <p>Systems Manager Automation と連携して、非準拠リソースを自動的に修正できる。</p>
+          </div>
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/AWS Config.rtfd/28077.jpg" alt="Configルール" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/AWS Config.rtfd/28078.jpg" alt="Config準拠状況" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li><strong>「リソースの設定変更を追跡・コンプライアンス確認 → AWS Config」</strong></li>
+          <li><strong>Config = 設定状態の記録、CloudTrail = API操作の記録</strong>（この違いは頻出）</li>
+          <li>Configルールで「準拠/非準拠」を自動判定</li>
+          <li>非準拠時にSNS通知、Systems Manager Automationで自動修復</li>
+          <li>「S3バケットが暗号化されているか自動チェック → Config」</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="cloudtrail.html" class="chip">🔍 CloudTrail（API操作の記録）</a>
+          <a href="systems-manager.html" class="chip">🛠 Systems Manager（自動修復）</a>
+          <a href="trusted-advisor.html" class="chip">💡 Trusted Advisor</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

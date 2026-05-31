@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon RDS | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="rds">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item active" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>データベース</span><span>›</span><span>Amazon RDS</span>
+      </nav>
+      <div class="page-title">
+        <h1>🗃 Amazon RDS <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">Amazon RDS（Relational Database Service）は、<strong>フルマネージド型のリレーショナルデータベースサービス</strong>です。AWSがバックアップ・パッチ適用・高可用性確保などを自動化するため、ユーザーはアプリケーション開発に集中できます。</p>
+      </div>
+
+      <!-- DBサービス比較 -->
+      <div class="section">
+        <h2 class="section-title">AWSのデータベースサービス一覧</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon RDS.rtfd/28121.jpg" alt="AWSデータベースサービス比較" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <!-- 主な機能 -->
+      <div class="section">
+        <h2 class="section-title">RDS の主な特徴</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">🗄 対応エンジン（7種）</div>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li><strong>Aurora</strong>（AWS独自、MySQL/PostgreSQL互換・高性能）</li>
+              <li>MySQL</li><li>MariaDB</li><li>PostgreSQL</li>
+              <li>Oracle</li><li>Microsoft SQL Server</li><li>IBM Db2</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">⚙️ AWSが自動化する運用タスク</div>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li>バックアップ・スナップショット取得</li>
+              <li>OSパッチ適用</li>
+              <li>ストレージの自動拡張</li>
+              <li>レプリケーション設定</li>
+              <li>メンテナンス（ダウンタイム最小）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- マルチAZ -->
+      <div class="section">
+        <h2 class="section-title">高可用性：マルチAZ構成</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon RDS.rtfd/28126.jpg" alt="RDS マルチAZ構成" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:16px">マルチAZ構成では、異なる2つのAZにプライマリDBインスタンスとスタンバイDBインスタンスを1つずつ配置することで、可用性が向上します。スタンバイ側は<strong>常に同期レプリケーション</strong>されているため、フェイルオーバーが発生してもデータ損失が発生しません。また、フェイルオーバーは自動的に行われ、運用は継続できます。</p>
+        <div class="key-point" style="margin-top:16px">
+          <strong>マルチAZの重要ポイント</strong>：スタンバイDBインスタンスへのアクセスは読み取り専用も含めてできません（あくまで障害時の自動切替専用）。
+        </div>
+
+        <div class="mermaid">
+flowchart LR
+  App[アプリケーション] -->|DNS エンドポイント| PRI[(プライマリDB\nAZ-A)]
+  PRI -->|同期レプリケーション| STB[(スタンバイDB\nAZ-B)]
+  PRI -.->|障害発生⚡| FAIL{自動フェイルオーバー\n60〜120秒}
+  FAIL -->|DNSが自動切替| STB2[(新プライマリ\n旧スタンバイ昇格)]
+  STB2 --> App2[アプリケーション\n接続継続]
+  style PRI fill:#0073BB,color:white
+  style STB fill:#10B981,color:white
+  style FAIL fill:#EF4444,color:white
+  style STB2 fill:#FF9900,color:#16191F
+        </div>
+      </div>
+
+      <!-- リードレプリカ -->
+      <div class="section">
+        <h2 class="section-title">パフォーマンス：リードレプリカ（RR）</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon RDS.rtfd/28127.jpg" alt="RDSリードレプリカ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:16px">リードレプリカは<strong>読み取り専用の非同期レプリカ</strong>です。SELECT（読み取り）トラフィックをリードレプリカに分散させ、プライマリDBの負荷を軽減します。異なるAZや異なるリージョンにも配置可能です。</p>
+
+        <div class="table-wrap" style="margin-top:16px">
+          <table>
+            <thead><tr><th>比較項目</th><th>マルチAZ（スタンバイ）</th><th>リードレプリカ</th></tr></thead>
+            <tbody>
+              <tr><td>目的</td><td><strong>高可用性（HA）</strong></td><td><strong>読み取り性能向上</strong></td></tr>
+              <tr><td>レプリケーション</td><td>同期（常に最新）</td><td>非同期（若干遅れる）</td></tr>
+              <tr><td>読み取りアクセス</td><td>不可（フェイルオーバー専用）</td><td>可（SELECT専用）</td></tr>
+              <tr><td>フェイルオーバー</td><td>自動（DNS切替）</td><td>手動で昇格</td></tr>
+              <tr><td>クロスリージョン</td><td>同一リージョン内</td><td>可能</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- セキュリティ -->
+      <div class="section">
+        <h2 class="section-title">セキュリティ</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon RDS.rtfd/28128.jpg" alt="RDSセキュリティ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/Amazon RDS.rtfd/28129.jpg" alt="RDS暗号化" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:16px">
+          <div class="feature-item">
+            <div class="feature-title">🔒 ネットワークアクセス制御</div>
+            <p>基本的にRDSはVPC内からの接続のみ許可。EC2からアクセスする場合は、RDS専用のセキュリティグループを作成し、EC2からのアクセスを許可するルールを設定して接続します。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🔐 データ暗号化</div>
+            <p>DBインスタンスはAWS KMSと連携して暗号化できます。バックアップ・スナップショット・ログ・リードレプリカにも暗号化が適用されます。<strong>暗号化の設定は作成時のみ指定可能</strong>（後から変更不可）。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 決断フレームワーク -->
+      <div class="decision-frame">
+        <div class="decision-frame-title">🧭 どちらを選ぶ？ — RDS vs DynamoDB</div>
+        <div class="decision-compare">
+          <div class="decision-option">
+            <h4>🗃 Amazon RDS</h4>
+            <div class="when-use">
+              SQLを使った複雑なクエリが必要<br>
+              トランザクション（ACID特性）が必要<br>
+              既存のRDBアプリをそのまま移行<br>
+              スキーマ（テーブル構造）が決まっている<br>
+              例：ERPシステム、金融システム
+            </div>
+            <div class="keywords">
+              <span class="decision-kw">SQL</span>
+              <span class="decision-kw">ACID</span>
+              <span class="decision-kw">リレーショナル</span>
+              <span class="decision-kw">JOIN</span>
+            </div>
+          </div>
+          <div class="decision-vs">VS</div>
+          <div class="decision-option">
+            <h4>📊 Amazon DynamoDB</h4>
+            <div class="when-use">
+              ミリ秒以下の超高速レスポンスが必要<br>
+              急激なトラフィック増加に対応<br>
+              スキーマが柔軟（変化する）<br>
+              シンプルなキーバリュー/ドキュメント操作<br>
+              例：ゲーム、IoT、Eコマースカート
+            </div>
+            <div class="keywords">
+              <span class="decision-kw">NoSQL</span>
+              <span class="decision-kw">サーバーレス</span>
+              <span class="decision-kw">低レイテンシ</span>
+              <span class="decision-kw">スケール</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 試験ポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA 頻出）</div>
+        <ul>
+          <li><strong>マルチAZはHA（高可用性）目的、リードレプリカはパフォーマンス（読み取り）目的</strong></li>
+          <li>マルチAZのスタンバイには読み取りアクセス不可 — リードレプリカとの違いを混同しない</li>
+          <li><strong>フェイルオーバーは自動、リードレプリカの昇格は手動</strong></li>
+          <li>暗号化は作成時にのみ設定可能（後から有効化するにはスナップショットからコピー）</li>
+          <li>RDSはEC2インスタンスクラス変更でスケールアップ/ダウン可能（縦スケーリング）</li>
+          <li>EC2のゲストOSパッチはユーザー責任、RDSのDBパッチはAWS責任（責任共有モデル）</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="dynamodb.html" class="chip">📊 DynamoDB（NoSQL比較）</a>
+          <a href="cloudwatch.html" class="chip">📈 CloudWatch（DB監視）</a>
+          <a href="../concepts/shared-responsibility.html" class="chip">🤝 責任共有モデル</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#FF9900',primaryTextColor:'#16191F',lineColor:'#0073BB',background:'#f8fafc'}});</script>
+</body>
+</html>

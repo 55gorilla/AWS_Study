@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon S3 | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="s3">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item active" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>ストレージ</span>
+        <span>›</span><span>Amazon S3</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🪣 Amazon S3 <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon S3（Simple Storage Service）は、<strong>インターネット経由でオブジェクト（ファイル）を保存・取得できるオブジェクトストレージサービス</strong>です。
+          高い耐久性（99.999999999%、イレブンナイン）と可用性を持ち、無制限のストレージ容量を提供します。
+          静的Webサイトのホスティング、バックアップ、データレイク、メディア配信など幅広い用途に使われます。
+        </p>
+      </div>
+
+      <!-- 概要図 -->
+      <div class="section">
+        <h2 class="section-title">S3 の基本構造</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon S3.rtfd/27951.jpg" alt="S3基本構造" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:20px">
+          <div class="feature-item">
+            <div class="feature-title">🪣 バケット（Bucket）</div>
+            <p>オブジェクトを格納するコンテナ。グローバルに一意の名前が必要。バケット自体は特定のリージョンに作成される。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📄 オブジェクト（Object）</div>
+            <p>保存されるファイル本体（データ）とメタデータのセット。1オブジェクトの最大サイズは5TB。キー（ファイルパス）で識別。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ストレージクラス -->
+      <div class="section">
+        <h2 class="section-title">ストレージクラス</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon S3.rtfd/27952.jpg" alt="S3ストレージクラス" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="table-wrap" style="margin-top:20px">
+          <table>
+            <thead>
+              <tr>
+                <th>ストレージクラス</th>
+                <th>可用性</th>
+                <th>最短保存期間</th>
+                <th>取得時間</th>
+                <th>用途</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>S3 Standard</strong></td>
+                <td>99.99%</td>
+                <td>なし</td>
+                <td>即時</td>
+                <td>頻繁にアクセスするデータ</td>
+              </tr>
+              <tr>
+                <td><strong>S3 Standard-IA</strong></td>
+                <td>99.9%</td>
+                <td>30日</td>
+                <td>即時</td>
+                <td>低頻度アクセス・長期バックアップ</td>
+              </tr>
+              <tr>
+                <td><strong>S3 One Zone-IA</strong></td>
+                <td>99.5%（単一AZ）</td>
+                <td>30日</td>
+                <td>即時</td>
+                <td>再作成可能なデータの低頻度アクセス</td>
+              </tr>
+              <tr>
+                <td><strong>S3 Intelligent-Tiering</strong></td>
+                <td>99.9%</td>
+                <td>なし</td>
+                <td>即時</td>
+                <td>アクセスパターン不明なデータ（自動最適化）</td>
+              </tr>
+              <tr>
+                <td><strong>S3 Glacier Instant Retrieval</strong></td>
+                <td>99.9%</td>
+                <td>90日</td>
+                <td>即時（ミリ秒）</td>
+                <td>年1〜2回アクセスするアーカイブ</td>
+              </tr>
+              <tr>
+                <td><strong>S3 Glacier Flexible Retrieval</strong></td>
+                <td>99.99%</td>
+                <td>90日</td>
+                <td>数分〜数時間</td>
+                <td>長期アーカイブ（旧Glacier）</td>
+              </tr>
+              <tr>
+                <td><strong>S3 Glacier Deep Archive</strong></td>
+                <td>99.99%</td>
+                <td>180日</td>
+                <td>12〜48時間</td>
+                <td>最長期保存・最安値アーカイブ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Glacier取得オプション -->
+        <div style="margin-top:24px">
+          <h3 style="margin-bottom:12px">Glacier 取得オプション</h3>
+          <div class="img-block">
+            <img src="../知見/Amazon S3.rtfd/27953.jpg" alt="Glacier取得オプション" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+          </div>
+          <div class="table-wrap" style="margin-top:16px">
+            <table>
+              <thead>
+                <tr><th>取得オプション</th><th>取得時間</th><th>コスト</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>迅速取得（Expedited）</strong></td><td>1〜5分</td><td>最も高い</td></tr>
+                <tr><td><strong>標準取得（Standard）</strong></td><td>3〜5時間</td><td>中程度</td></tr>
+                <tr><td><strong>大容量取得（Bulk）</strong></td><td>5〜12時間</td><td>最も安い</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ライフサイクルポリシー -->
+      <div class="section">
+        <h2 class="section-title">ライフサイクルポリシー</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon S3.rtfd/27954.jpg" alt="S3ライフサイクル" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:16px">
+          オブジェクトの経過日数に応じて<strong>ストレージクラスを自動的に移行したり、オブジェクトを削除したりするルール</strong>を設定できます。
+        </p>
+        <div class="key-point" style="margin-top:16px">
+          <strong>典型的なライフサイクル例</strong><br>
+          作成後30日 → Standard-IA へ移行<br>
+          作成後90日 → Glacier Flexible Retrieval へ移行<br>
+          作成後365日 → 削除
+        </div>
+      </div>
+
+      <!-- バージョニング -->
+      <div class="section">
+        <h2 class="section-title">バージョニング</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon S3.rtfd/27955.jpg" alt="S3バージョニング" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:16px">
+          <div class="feature-item">
+            <div class="feature-title">🔄 バージョニングとは</div>
+            <p>同じキー（パス）のオブジェクトを上書きしても、過去のバージョンを全て保持する機能。</p>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li>誤削除・上書きからの復旧が可能</li>
+              <li>バケット単位で有効化</li>
+              <li>一度有効化すると「無効化」はできない（中断のみ可）</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🔐 MFA Delete</div>
+            <p>バージョニングが有効なバケットで、オブジェクトの<strong>完全削除にMFA（多要素認証）を必要とする</strong>設定。</p>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li>誤操作や不正アクセスによる削除を防止</li>
+              <li>バケット所有者のルートアカウントのみが設定可能</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- アクセス制御 -->
+      <div class="section">
+        <h2 class="section-title">アクセス制御</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon S3.rtfd/27956.jpg" alt="S3アクセス制御" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:20px">
+          <div class="feature-item">
+            <div class="feature-title">🚫 パブリックアクセスブロック</div>
+            <p>バケットやオブジェクトを誤ってパブリック公開しないよう防ぐ設定。4つの設定項目があり、デフォルトでは全てブロックが有効。</p>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">静的Webサイトホスティングやパブリック公開には解除が必要。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📜 バケットポリシー</div>
+            <p>JSONで記述するバケット単位のアクセス制御ポリシー。特定のIPアドレスからのアクセス許可、クロスアカウントアクセスの設定などに使用。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">👤 IAMポリシー</div>
+            <p>IAMユーザー・ロールに対してS3へのアクセス権限を付与するポリシー。同一AWSアカウント内のユーザー管理に使用。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📋 ACL（アクセスコントロールリスト）</div>
+            <p>バケット・オブジェクト単位の旧来のアクセス制御方式。現在は原則バケットポリシーが推奨。レガシー設定として残っている。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 暗号化 -->
+      <div class="section">
+        <h2 class="section-title">暗号化</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon S3.rtfd/27957.jpg" alt="S3暗号化" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:20px">
+          <div class="feature-item">
+            <div class="feature-title">🔒 SSE-S3（サーバーサイド暗号化 - S3管理キー）</div>
+            <p>AWSがキーを管理するサーバーサイド暗号化（AES-256）。設定が最も簡単。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🔑 SSE-KMS（KMS管理キー）</div>
+            <p>AWS KMSを使ってキーを管理する暗号化。キーの利用状況をCloudTrailで監査可能。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🗝 SSE-C（顧客提供キー）</div>
+            <p>顧客がキーを提供し、AWSはキーを保存しない暗号化方式。最もキー管理の制御が強い。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🏠 クライアントサイド暗号化（CSE）</div>
+            <p>ユーザーがS3にアップロードする前にデータを暗号化する方式。AWSはデータの復号に関与しない。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transfer Acceleration -->
+      <div class="section">
+        <h2 class="section-title">S3 Transfer Acceleration</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon S3.rtfd/27958.jpg" alt="S3 Transfer Acceleration" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:16px">
+          CloudFront のエッジロケーション経由でS3へのアップロードを高速化する機能です。
+          地理的に離れた場所からの大容量ファイルアップロードに有効です。
+          エッジロケーションからAWSバックボーンネットワーク経由でS3へ転送するため、インターネット経由よりも高速・安定しています。
+        </p>
+      </div>
+
+      <!-- S3 Inventory -->
+      <div class="section">
+        <h2 class="section-title">S3 Inventory</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon S3.rtfd/27959.jpg" alt="S3 Inventory" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:16px">
+          バケット内のオブジェクトの一覧とメタデータ（サイズ・最終更新日・ストレージクラス・暗号化状態など）を
+          定期的にCSV/ORC/Parquet形式で出力する機能です。
+          コンプライアンス・監査・コスト分析などに活用できます。
+        </p>
+      </div>
+
+      <!-- ストレージタイプ比較 -->
+      <div class="section">
+        <h2 class="section-title">ストレージサービス比較（S3 / EBS / EFS）</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon S3.rtfd/27960.jpg" alt="ストレージ比較" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="table-wrap" style="margin-top:20px">
+          <table>
+            <thead>
+              <tr>
+                <th>比較項目</th>
+                <th>Amazon S3</th>
+                <th>Amazon EBS</th>
+                <th>Amazon EFS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ストレージ種別</td>
+                <td>オブジェクト</td>
+                <td>ブロック</td>
+                <td>ファイル（NFS）</td>
+              </tr>
+              <tr>
+                <td>アクセス方法</td>
+                <td>HTTP/S（API）</td>
+                <td>EC2にアタッチ</td>
+                <td>EC2にマウント（NFS）</td>
+              </tr>
+              <tr>
+                <td>同時アクセス</td>
+                <td>無制限</td>
+                <td>原則1インスタンス</td>
+                <td>複数インスタンス</td>
+              </tr>
+              <tr>
+                <td>容量</td>
+                <td>無制限（自動）</td>
+                <td>最大16TB（手動拡張）</td>
+                <td>自動スケーリング</td>
+              </tr>
+              <tr>
+                <td>主な用途</td>
+                <td>静的ファイル保存・バックアップ・データレイク</td>
+                <td>OSドライブ・DB</td>
+                <td>共有コンテンツ・Webファーム</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 試験のポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA 頻出）</div>
+        <ul>
+          <li><strong>S3の耐久性はイレブンナイン（99.999999999%）</strong> — 数字が問われることがある</li>
+          <li>Standard-IA と One Zone-IA には<strong>最短30日の保存期間</strong>がある（それより前に削除すると課金）</li>
+          <li>Glacier の取得オプション：迅速（1〜5分）・標準（3〜5時間）・大容量（5〜12時間）</li>
+          <li><strong>MFA Delete はバージョニング有効時のみ設定可能</strong>、ルートアカウントのみ設定可能</li>
+          <li>パブリックアクセスブロックはデフォルト有効 → 静的Webサイトには解除が必要</li>
+          <li><strong>暗号化の種類と誰がキーを管理するか</strong>はSAAで頻出</li>
+          <li>Transfer Acceleration はCloudFrontエッジ経由でアップロードを高速化</li>
+          <li>「コスト最適化 → ライフサイクルポリシーでGlacierへ自動移行」</li>
+          <li>S3はオブジェクトストレージ、EBSはブロック（OSに直結）、EFSはファイル共有</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="efs.html" class="chip">📁 Amazon EFS（ファイルストレージ）</a>
+          <a href="lambda.html" class="chip">⚡ Lambda（S3トリガー）</a>
+          <a href="cloudwatch.html" class="chip">📈 CloudWatch（監視）</a>
+          <a href="../concepts/shared-responsibility.html" class="chip">🤝 責任共有モデル（暗号化責任）</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

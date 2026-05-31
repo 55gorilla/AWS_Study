@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Backup | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="backup">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>監視・管理</span><span>›</span><span>AWS Backup</span>
+      </nav>
+      <div class="page-title">
+        <h1>💾 AWS Backup <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS Backup は、<strong>複数のAWSサービスのバックアップを一元的に管理・自動化するフルマネージドサービス</strong>です。
+          EC2・EBS・RDS・DynamoDB・EFSなど多様なリソースのバックアップを、一つの場所からポリシーで統合管理できます。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">AWS Backup の概要</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Backup.rtfd/28040.jpg" alt="AWS Backup概要" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">主な機能</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">🗂 一元管理</div>
+            <p>EC2・EBS・RDS・DynamoDB・EFS・Storage Gatewayなどのバックアップを統合管理。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📅 バックアップポリシー</div>
+            <p>スケジュール・保持期間（リテンション）をバックアッププランで自動化。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🌍 リージョン間コピー</div>
+            <p>バックアップを別リージョンにコピーしてディザスタリカバリ（DR）に対応。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA）</div>
+        <ul>
+          <li><strong>「複数サービスのバックアップを一元管理・自動化 → AWS Backup」</strong></li>
+          <li>バックアッププランでスケジュール・保持期間を自動化</li>
+          <li>リージョン間コピーでDR（災害復旧）対応</li>
+          <li>個別サービスのスナップショット機能をまとめて統合管理できる</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="ebs.html" class="chip">💿 EBS（スナップショット）</a>
+          <a href="rds.html" class="chip">🗃 RDS</a>
+          <a href="s3.html" class="chip">🪣 S3</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

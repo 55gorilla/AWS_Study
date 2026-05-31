@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS CAF | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="aws-caf">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="aws-caf.html" class="nav-item active" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="../services/ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="../services/s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="../services/dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="../services/elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="../services/kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="../services/cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="../services/trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>基礎概念</span>
+        <span>›</span><span>AWS CAF</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>📋 AWS クラウド導入フレームワーク <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          AWS CAF（Cloud Adoption Framework）は、企業や組織がAWSクラウドを効果的かつ効率的に導入するための
+          ガイドラインとベストプラクティスをまとめたものです。
+          クラウド移行や運用における技術的・ビジネス的・運用的な課題を解決し、
+          スムーズな導入を支援します。
+        </p>
+      </div>
+
+      <!-- 概要 -->
+      <div class="section">
+        <h2 class="section-title">AWS CAF とは</h2>
+        <div class="card">
+          <p>AWS CAFは、クラウド導入時に考慮すべき「<strong>6つの視点（パースペクティブ）</strong>」と、
+            クラウド導入のプロセスを示す「<strong>クラウドトランスフォーメーションジャーニー</strong>」、
+            そしてクラウドによって組織がどのように変化するかを示す「<strong>クラウドトランスフォーメーション</strong>」から構成されています。</p>
+          <p style="margin-top:12px">これらを適切に活用することで、企業はクラウド導入を戦略的に進め、
+            ビジネス価値を最大化することができます。</p>
+        </div>
+
+        <!-- CAF図 -->
+        <div class="img-block">
+          <img src="../知見/クラウド導入フレームワーク.rtfd/28154.jpg"
+               alt="AWS CAF クラウドトランスフォーメーションジャーニー図" loading="lazy">
+          <p class="img-caption">クラウドトランスフォーメーションジャーニー（4フェーズ）</p>
+        </div>
+      </div>
+
+      <!-- 6つの視点 -->
+      <div class="section">
+        <h2 class="section-title">6つの視点（パースペクティブ）</h2>
+        <p style="margin-bottom:16px; color:var(--muted);">
+          クラウド導入において考慮すべき視点や領域を示したもので、
+          クラウド移行や運用の計画を立てる際に利害関係者の役割やニーズを反映し、
+          包括的な戦略を立てるために利用されます。6つの視点があり、それぞれが特定の問題領域をカバーしています。
+        </p>
+
+        <div class="perspective-grid">
+
+          <div class="perspective-card" style="border-top-color:#FF9900">
+            <div class="perspective-title">① ビジネスの視点</div>
+            <div class="perspective-role">CEO / CFO / COO / CIO / CTO</div>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:10px">
+              クラウドへの投資を通じてデジタルトランスフォーメーション（デジタル変革）を成功させ、
+              ビジネスの成果をより早く実現することに焦点を当てています。
+            </p>
+            <ul class="perspective-funcs">
+              <li>戦略管理</li>
+              <li>ポートフォリオ管理</li>
+              <li>イノベーション管理</li>
+              <li>製品管理</li>
+              <li>戦略的パートナーシップ</li>
+              <li>データの収益化</li>
+              <li>ビジネスインサイト</li>
+              <li>データサイエンス</li>
+            </ul>
+          </div>
+
+          <div class="perspective-card" style="border-top-color:#10B981">
+            <div class="perspective-title">② 人材の視点</div>
+            <div class="perspective-role">CIO / CTO / COO / クラウドディレクター</div>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:10px">
+              クラウド移行を成功させるための人材と組織の変革に焦点を当てた視点です。
+              テクノロジーとビジネスの橋け渡しとなり、クラウド導入に伴うスキルの習得や、
+              新しい働き方の導入、リーダーシップの発展を通じて変化に対応できる企業体質を構築します。
+            </p>
+            <ul class="perspective-funcs">
+              <li>文化の進化</li>
+              <li>トランスフォーメーションのリーダーシップ</li>
+              <li>クラウドフルエンシー</li>
+              <li>ワークフォースのトランスフォーメーション</li>
+              <li>変革の促進</li>
+              <li>組織設計</li>
+              <li>組織の連携</li>
+            </ul>
+          </div>
+
+          <div class="perspective-card" style="border-top-color:#F59E0B">
+            <div class="perspective-title">③ ガバナンスの視点</div>
+            <div class="perspective-role">CIO / CTO / CFO / CRO</div>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:10px">
+              クラウドに関する取り組みを統制しながら、変化に伴うリスクを最小化し、
+              組織のベネフィットを最大化することを目的としています。
+              ルールやポリシーの策定、リスク管理、法規制や業界基準への適合を通じて、
+              組織全体でクラウドの活用を最適化します。
+            </p>
+            <ul class="perspective-funcs">
+              <li>プログラムおよびプロジェクト管理</li>
+              <li>ベネフィット管理</li>
+              <li>リスク管理</li>
+              <li>クラウド財務管理</li>
+              <li>アプリケーションポートフォリオ管理</li>
+              <li>データガバナンス</li>
+              <li>データキュレーション</li>
+            </ul>
+          </div>
+
+          <div class="perspective-card" style="border-top-color:#8B5CF6">
+            <div class="perspective-title">④ プラットフォームの視点</div>
+            <div class="perspective-role">CTO / アーキテクト / エンジニア</div>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:10px">
+              適切なクラウド基盤とデータおよび分析アーキテクチャを設計し、
+              スケーラブルで効率的な環境を構築することで、ワークロードの迅速な運用を目指します。
+            </p>
+            <ul class="perspective-funcs">
+              <li>プラットフォームアーキテクチャ</li>
+              <li>データアーキテクチャ</li>
+              <li>プラットフォームエンジニアリング</li>
+              <li>データエンジニアリング</li>
+              <li>プロビジョニングとオーケストレーション</li>
+              <li>モダンアプリケーション開発</li>
+              <li>継続的インテグレーションと継続的デリバリー</li>
+            </ul>
+          </div>
+
+          <div class="perspective-card" style="border-top-color:#EF4444">
+            <div class="perspective-title">⑤ セキュリティの視点</div>
+            <div class="perspective-role">CISO / CCO / セキュリティアーキテクト</div>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:10px">
+              クラウド環境でのデータやシステムの機密性や完全性、可用性を確保することに焦点を当てた指針です。
+            </p>
+            <ul class="perspective-funcs">
+              <li>セキュリティガバナンス</li>
+              <li>セキュリティ保証</li>
+              <li>アイデンティティおよび許可管理</li>
+              <li>脅威の検出</li>
+              <li>脆弱性管理</li>
+              <li>インフラストラクチャの保護</li>
+              <li>データ保護</li>
+              <li>アプリケーションのセキュリティ</li>
+              <li>インシデント対応</li>
+            </ul>
+          </div>
+
+          <div class="perspective-card" style="border-top-color:#6B7280">
+            <div class="perspective-title">⑥ オペレーションの視点</div>
+            <div class="perspective-role">インフラリーダー / ITサービスマネージャー</div>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:10px">
+              運用プロセスの効率化と信頼性向上に重点を置いた視点です。
+              運用の自動化や最適化を通じて、クラウドサービスがビジネスのステークホルダーと
+              合意したレベルで提供されることを目指します。
+            </p>
+            <ul class="perspective-funcs">
+              <li>可観測性（オブザーバビリティ）</li>
+              <li>イベント管理（AIOps）</li>
+              <li>インシデントおよび問題管理</li>
+              <li>変更およびリリース管理</li>
+              <li>パフォーマンスおよびキャパシティ管理</li>
+              <li>構成管理</li>
+              <li>パッチ管理</li>
+              <li>可用性および継続性管理</li>
+              <li>アプリケーション管理</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- クラウドトランスフォーメーションジャーニー -->
+      <div class="section">
+        <h2 class="section-title">クラウドトランスフォーメーションジャーニー（4フェーズ）</h2>
+        <p style="margin-bottom:16px;color:var(--muted);">
+          クラウド導入プロセスを段階的に進めるための手順を示したものです。
+          クラウド導入のライフサイクルを明確化し、各段階で必要な活動や成果を定義します。
+          4つのフェーズがあり、順序立てて進行することで、導入プロセス全体を管理できます。
+        </p>
+
+        <div class="phase-flow">
+          <div class="phase-item">
+            <div class="phase-num">Phase 1</div>
+            <div class="phase-name">構想</div>
+            <div class="phase-en">Envision</div>
+            <div class="phase-desc">クラウド導入がビジネスにどのように貢献できるかを明確にするフェーズ。具体的なトランスフォーメーションの機会を特定し、優先順位をつけます。</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-num">Phase 2</div>
+            <div class="phase-name">連携・整備</div>
+            <div class="phase-en">Align</div>
+            <div class="phase-desc">クラウド導入を進めるために、現状のシステムや業務を評価し、必要な能力や不足している要素（ギャップ）を特定するフェーズ。</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-num">Phase 3</div>
+            <div class="phase-name">起動</div>
+            <div class="phase-en">Launch</div>
+            <div class="phase-desc">クラウド導入の価値を実証するために、小規模な試験的導入（パイロットプロジェクト）を実施し、ビジネス上の成果を確認するフェーズ。</div>
+          </div>
+          <div class="phase-item">
+            <div class="phase-num">Phase 4</div>
+            <div class="phase-name">スケール</div>
+            <div class="phase-en">Scale</div>
+            <div class="phase-desc">パイロットプロジェクトの成功事例を基に、クラウド導入を全社規模に拡大するフェーズ。クラウドの活用範囲を広げ、持続可能な形でビジネス価値を最大化します。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- クラウドトランスフォーメーションの価値連鎖 -->
+      <div class="section">
+        <h2 class="section-title">クラウドトランスフォーメーションの価値連鎖（バリューチェーン）</h2>
+        <p style="margin-bottom:16px;color:var(--muted);">
+          クラウド導入によって、組織がどのように変化するかを示したものです。
+          クラウドは単なるシステム移行ではなく、業務のやり方やビジネスの仕組みそのものを変える力を持っています。
+          4つの領域で適切な変革を進めることで、クラウドの価値を最大限に活用し、
+          ビジネス上の目標をより早期に達成できるようになります。
+        </p>
+        <div class="feature-list">
+          <li class="feature-item">
+            <span class="feature-icon">💻</span>
+            <div class="feature-content">
+              <h4>技術（Technology）変革</h4>
+              <p>クラウドを活用して、古いITインフラやアプリケーションを最新化し、
+                よりアジャイルで効率的なシステムにすることに重点を置きます。
+                AWSに移行することで、コスト削減、システム管理の効率化、
+                ダウンタイムやセキュリティリスクの低減が可能になります。</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">⚙️</span>
+            <div class="feature-content">
+              <h4>プロセス（Process）変革</h4>
+              <p>ビジネスのデジタル化・自動化を進め、業務の効率を向上させることに重点を置きます。
+                データ分析や機械学習を活用することで、カスタマーサービスの改善、
+                業務の最適化、意思決定の迅速化を実現し、
+                コスト削減と従業員の生産性向上につながります。</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">🏢</span>
+            <div class="feature-content">
+              <h4>組織（Organization）変革</h4>
+              <p>ビジネスチームとテクノロジーチームの連携を強化し、
+                価値を迅速に届けるためのオペレーションモデルを再構築することに重点を置きます。
+                製品や価値の流れ（バリューストリーム）を基にチームを編成することで、
+                部門間の壁をなくし、開発から提供までのプロセスを効率化できます。</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon">📦</span>
+            <div class="feature-content">
+              <h4>製品（Product）変革</h4>
+              <p>クラウドの力を活用して、新しい製品・サービスやビジネスモデルを生み出すことに重点を置きます。
+                開発スピードを向上させることで、新機能やアプリケーションの市場投入を加速し、
+                新しい市場の開拓や収益の拡大を可能にします。</p>
+            </div>
+          </li>
+        </div>
+      </div>
+
+      <!-- 試験のポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF頻出）</div>
+        <ul>
+          <li><strong>6つの視点の名称</strong>を覚える：ビジネス・人材・ガバナンス・プラットフォーム・セキュリティ・オペレーション</li>
+          <li>各視点の<strong>主なステークホルダー（役職）</strong>を問う問題が出る。CISO→セキュリティ、CFO→ガバナンスなど</li>
+          <li><strong>ジャーニーの4フェーズ</strong>：構想（Envision）→連携・整備（Align）→起動（Launch）→スケール（Scale）</li>
+          <li>CAFは「どの視点で何を改善すべきか」を特定するフレームワーク。<strong>具体的なサービスではなく指針・方針</strong>である点に注意</li>
+          <li><strong>バリューチェーンの4変革</strong>：技術・プロセス・組織・製品（順不同）</li>
+        </ul>
+      </div>
+
+      <!-- 関連 -->
+      <div class="section">
+        <h2 class="section-title">関連する概念</h2>
+        <div class="chip-list">
+          <a href="aws-cloud-benefits.html" class="chip">☁️ クラウドの利点</a>
+          <a href="#" class="chip" style="opacity:.5">🤝 責任共有モデル</a>
+          <a href="#" class="chip" style="opacity:.5">🌐 グローバルインフラ</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

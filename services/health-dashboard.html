@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Health Dashboard | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="health-dashboard">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>監視・管理</span><span>›</span><span>Health Dashboard</span>
+      </nav>
+      <div class="page-title">
+        <h1>🩺 AWS Health Dashboard <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          AWS Health Dashboard は、<strong>AWSサービスの稼働状況や、自分のアカウントに影響するイベントをリアルタイムで確認できるダッシュボード</strong>です。
+          障害・メンテナンス・リソースへの影響情報を把握できます。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">2つのビュー</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">🌐 Service Health（サービス全体）</div>
+            <p>AWS全体のサービス稼働状況を表示。各リージョン・サービスの障害情報を確認できる。</p>
+            <div class="img-block" style="margin-top:8px">
+              <img src="../知見/AWS Health Dashboard.rtfd/28084.jpg" alt="Service Health" style="max-width:100%;border-radius:8px">
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">👤 Account Health（アカウント固有）</div>
+            <p>自分のアカウントのリソースに影響するイベント（メンテナンス予定・障害影響等）を個別に表示。</p>
+            <div class="img-block" style="margin-top:8px">
+              <img src="../知見/AWS Health Dashboard.rtfd/28085.jpg" alt="Account Health" style="max-width:100%;border-radius:8px">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF）</div>
+        <ul>
+          <li><strong>「AWSサービスの障害・自分のリソースへの影響を確認 → Health Dashboard」</strong></li>
+          <li>Service Health（全体）と Account Health（アカウント固有）の2ビュー</li>
+          <li>メンテナンス予定・障害イベントの通知を受け取れる</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="cloudwatch.html" class="chip">📈 CloudWatch</a>
+          <a href="trusted-advisor.html" class="chip">💡 Trusted Advisor</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

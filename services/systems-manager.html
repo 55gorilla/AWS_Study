@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Systems Manager | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="systems-manager">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>監視・管理</span><span>›</span><span>Systems Manager</span>
+      </nav>
+      <div class="page-title">
+        <h1>🛠 AWS Systems Manager <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS Systems Manager（SSM）は、<strong>複数のAWSリソース（EC2やオンプレミスサーバー）を一元的に管理・運用するためのサービス群</strong>です。
+          OSパッチ適用、設定値の管理、運用タスクの自動化などをまとめて行えます。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">主な機能</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">🩹 Patch Manager（パッチ管理）</div>
+            <p>EC2やオンプレミスサーバーのOSパッチ適用を自動化。パッチベースラインを定義して一括適用。</p>
+            <div class="img-block" style="margin-top:8px">
+              <img src="../知見/AWS Systems Manager.rtfd/28079.jpg" alt="Patch Manager" style="max-width:100%;border-radius:8px">
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📋 Parameter Store（パラメータストア）</div>
+            <p>設定値・環境変数・パスワードなどを安全に保管。SecureStringで暗号化も可能。<strong>標準利用は無料</strong>。</p>
+            <div class="img-block" style="margin-top:8px">
+              <img src="../知見/AWS Systems Manager.rtfd/28080.jpg" alt="Parameter Store" style="max-width:100%;border-radius:8px">
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🤖 Automation（自動化）</div>
+            <p>運用タスクをランブック（手順書）として定義し自動実行。AWS Configと連携して非準拠リソースの自動修復も可能。</p>
+            <div class="img-block" style="margin-top:8px">
+              <img src="../知見/AWS Systems Manager.rtfd/28081.jpg" alt="Automation" style="max-width:100%;border-radius:8px">
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">💻 Session Manager</div>
+            <p>SSHキーや踏み台サーバーなしでEC2に安全に接続。操作ログも記録され監査に有用。</p>
+          </div>
+        </div>
+        <div class="key-point" style="margin-top:16px">
+          利用には対象リソースに <strong>SSM Agent</strong> がインストールされている必要があります（Amazon Linux等には標準でプリインストール）。
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li><strong>「複数EC2のOSパッチを一括管理 → Systems Manager（Patch Manager）」</strong></li>
+          <li><strong>「設定値・環境変数を安全に保管（無料） → Parameter Store」</strong></li>
+          <li><strong>「SSHキーなしでEC2に安全接続 → Session Manager」</strong></li>
+          <li>Automation で運用タスクを自動化、Config と連携して自動修復</li>
+          <li>Parameter Store（無料・設定値）と Secrets Manager（有料・自動ローテーション）の使い分け</li>
+          <li>SSM Agent が対象リソースに必要</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="aws-config.html" class="chip">⚙️ AWS Config（自動修復連携）</a>
+          <a href="secrets-manager.html" class="chip">🔒 Secrets Manager</a>
+          <a href="ec2.html" class="chip">🖥 EC2（管理対象）</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

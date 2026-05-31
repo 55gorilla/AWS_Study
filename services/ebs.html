@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon EBS | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="ebs">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item active" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>ストレージ</span><span>›</span><span>Amazon EBS</span>
+      </nav>
+      <div class="page-title">
+        <h1>💿 Amazon EBS <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon EBS（Elastic Block Store）は、<strong>EC2インスタンスにアタッチするブロックストレージサービス</strong>です。ブロックストレージとは記憶媒体を固定長の「ブロック」という単位で分割して管理するストレージのことです。EBSの記憶領域のことを「EBSボリューム」といい、EC2インスタンスに指名することを「アタッチ」といいます。
+        </p>
+      </div>
+
+      <!-- 概要図 -->
+      <div class="section">
+        <h2 class="section-title">EBSの基本構造</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon EBS.rtfd/28008.jpg" alt="EBS基本構造" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="key-point" style="margin-top:16px">
+          EBSボリュームをEC2インスタンスにアタッチすると、AWS内のプライベートネットワーク経由でEC2インスタンスとEBSボリュームが接続されます。EC2インスタンスにアタッチされたEBSボリュームは、EC2インスタンスのOSやミドルウェア、アプリケーションなどを格納します。<strong>EBSボリュームは単一AZ内にのみ存在</strong>し、EC2インスタンスは同じAZに存在する1つ以上のEBSボリュームをアタッチできますが、他のAZのEBSボリュームはアタッチできません。
+        </div>
+      </div>
+
+      <!-- ボリュームタイプ -->
+      <div class="section">
+        <h2 class="section-title">EBS ボリュームタイプ</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon EBS.rtfd/28009.jpg" alt="EBSボリュームタイプ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:20px">
+          <div class="feature-item" style="border-left:4px solid var(--orange)">
+            <div class="feature-title">💽 SSD ベース（I/O性能重視）</div>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li><strong>汎用SSD</strong>: バランス型。OSのルートボリューム（※）に指定できる。最大64,000 IOPS</li>
+              <li><strong>プロビジョンドIOPS SSD</strong>: 高I/O保証型。最大256,000 IOPS。DBなど高負荷用途</li>
+            </ul>
+            <p style="font-size:.85rem;color:var(--text-muted);margin-top:8px">※ルートボリュームとは、OSの起動に必要なシステムファイルが保存されている領域のこと。LinuxではCドライブ、Windowsでは「/」（ルートディレクトリ）として使用される。</p>
+          </div>
+          <div class="feature-item" style="border-left:4px solid var(--blue)">
+            <div class="feature-title">🗄 HDD ベース（大容量・低コスト）</div>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li><strong>スループット最適化HDD</strong>: 大容量データを安く保存。ビッグデータ・ログ処理向け</li>
+              <li><strong>Cold HDD</strong>: 最安値。アクセス頻度が低いデータ向け。ルートボリュームには使用不可</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 利用料 -->
+      <div class="section">
+        <h2 class="section-title">EBS の利用料</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon EBS.rtfd/28010.jpg" alt="EBS利用料" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">EBSボリュームはEC2インスタンスとは独立して利用料が発生します。EBSボリュームはアタッチされたEC2インスタンスを停止（削除）したときに、同時に削除するかどうかを設定できます。なお、EC2インスタンスのルートに指定されたEBSボリュームは「削除する」、それ以外のボリュームは「削除しない」に設定されています。</p>
+      </div>
+
+      <!-- スナップショット -->
+      <div class="section">
+        <h2 class="section-title">スナップショット（バックアップ）</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon EBS.rtfd/28011.jpg" alt="EBSスナップショット" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">EBSはデータのバックアップ手段としてスナップショット機能を備えています。スナップショット（snapshot）とはある時点のストレージの状態（保存されているファイル群など）を取得したものです。データが破損した場合やある時点のデータに戻したい場合、スナップショットをリストア（restore）することでストレージ上のデータが復元されます。</p>
+        <div class="key-point" style="margin-top:12px">
+          EBSスナップショットから新しいEBSボリュームを作成することもできます。スナップショットからEBSボリュームを作成するときは、暗号化機能の付与や、他のEBSボリュームを作成することもできます。
+        </div>
+      </div>
+
+      <!-- 暗号化 -->
+      <div class="section">
+        <h2 class="section-title">暗号化</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon EBS.rtfd/28012.jpg" alt="EBS暗号化設定" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">EBS、ボリュームやスナップショットを暗号化することで機密性を高めることができます。暗号化するときはAWS KMS（Key Management Serviceというサービス：暗号化に使うキーを作成・管理するサービス）を利用します。暗号化の設定はEBSボリューム作成時に指定します。<strong>作成したボリュームの暗号化ステータスは後から変更できません。</strong></p>
+      </div>
+
+      <!-- 決断フレームワーク: S3 vs EBS vs EFS -->
+      <div class="decision-frame">
+        <div class="decision-frame-title">🧭 ストレージ選択 — S3 vs EBS vs EFS</div>
+        <div class="decision-compare-3">
+          <div class="decision-option">
+            <h4>🪣 Amazon S3</h4>
+            <div class="when-use">
+              静的ファイル・バックアップ<br>
+              HTTP経由で直接配信<br>
+              EC2不要でアクセス可能<br>
+              無制限ストレージ<br>
+              例：画像/動画、データレイク
+            </div>
+            <div class="keywords">
+              <span class="decision-kw">オブジェクト</span>
+              <span class="decision-kw">HTTP</span>
+              <span class="decision-kw">無制限</span>
+            </div>
+          </div>
+          <div class="decision-option">
+            <h4>💿 Amazon EBS</h4>
+            <div class="when-use">
+              EC2のOSドライブ（ルート）<br>
+              DBのデータボリューム<br>
+              <strong>単一EC2に直接アタッチ</strong><br>
+              低レイテンシ・高I/O<br>
+              例：RDS、Oracle DB
+            </div>
+            <div class="keywords">
+              <span class="decision-kw">ブロック</span>
+              <span class="decision-kw">単一EC2</span>
+              <span class="decision-kw">低レイテンシ</span>
+            </div>
+          </div>
+          <div class="decision-option">
+            <h4>📁 Amazon EFS</h4>
+            <div class="when-use">
+              <strong>複数EC2で同時アクセス</strong><br>
+              WebサーバーのNFSファイル共有<br>
+              自動スケーリング<br>
+              Linuxのみ対応<br>
+              例：Webファーム共有コンテンツ
+            </div>
+            <div class="keywords">
+              <span class="decision-kw">ファイル</span>
+              <span class="decision-kw">NFS共有</span>
+              <span class="decision-kw">複数EC2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 試験ポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA 頻出）</div>
+        <ul>
+          <li><strong>EBSは単一AZ内、単一EC2にアタッチ（原則）</strong> — 複数EC2共有にはEFSを使う</li>
+          <li>SSDはルートボリュームに使用可、HDDはルートボリュームに使用不可</li>
+          <li><strong>暗号化の設定は作成時のみ</strong>（後から変更不可）— スナップショットでコピーして暗号化は可能</li>
+          <li>EC2インスタンスを削除してもEBSを残すことができる（設定次第）</li>
+          <li>スナップショットはS3に保存され、異なるAZ/リージョンにも復元可能</li>
+          <li>IOPSとは1秒あたりのI/O処理数を示すDBのパフォーマンス指標</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="s3.html" class="chip">🪣 Amazon S3（オブジェクトストレージ）</a>
+          <a href="efs.html" class="chip">📁 Amazon EFS（共有ファイルストレージ）</a>
+          <a href="ec2-purchase-options.html" class="chip">🖥 EC2 購入オプション</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

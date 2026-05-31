@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWSクラウドの利点 | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="cloud-benefits">
+<div id="overlay" class="overlay"></div>
+
+<!-- HEADER -->
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="aws-cloud-benefits.html" class="nav-item active" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="../services/ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="../services/s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="../services/dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="../services/elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="../services/kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="../services/cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="../services/trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="main-inner">
+
+      <!-- パンくずリスト -->
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span>
+        <span>基礎概念</span>
+        <span>›</span>
+        <span>AWSクラウドの利点</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>☁️ AWSクラウドの利点 <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          AWSクラウドを活用することで、企業はコストの削減や業務の効率化を図りつつ、
+          柔軟性や信頼性を最大限に引き出すことができます。
+          CLF試験では「オンプレミスとの比較」という視点で問われることが多いです。
+        </p>
+      </div>
+
+      <!-- 10の利点 -->
+      <div class="section">
+        <h2 class="section-title">10の主要な利点</h2>
+
+        <ul class="feature-list">
+
+          <li class="feature-item">
+            <span class="feature-icon">💰</span>
+            <div class="feature-content">
+              <h4>1. コスト削減（従量課金）</h4>
+              <p>物理的なサーバーやデータセンターを購入する必要がなく、必要なときに必要なリソースだけを利用できるため、
+                大規模な初期投資を避けることができます。料金体系は<strong>実際に使用した分だけ支払う従量課金制</strong>が基本です。
+                また、ボリュームディスカウントという仕組みもあり、使用量が増えるほど単価が低下します。
+                さらに一括請求を利用すれば複数アカウントの使用量を合算して割引を受けることも可能です。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">📉</span>
+            <div class="feature-content">
+              <h4>2. 規模の経済（スケールメリット）</h4>
+              <p>AWSは膨大なユーザー数と大規模なデータセンター運用を活用し、
+                インフラ管理やエネルギー費用のコスト効率化を進めています。
+                この結果、得られたコスト削減分を利用者に還元する形で、
+                <strong>継続的に利用料金の値下げが実現</strong>されています。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">📈</span>
+            <div class="feature-content">
+              <h4>3. 俊敏性・スケーラビリティ</h4>
+              <p>従来のオンプレミス環境では、ユーザー数の成長や需要の変動を見越して、
+                それを上回る量のITリソースを事前に準備する必要がありました。
+                AWSでは<strong>必要なときに必要な数だけリソースを増減（スケールアウト/スケールイン）</strong>できるため、
+                リソース不足や過剰投資を回避できます。
+                突発的なトラフィック増加に即座にリソースを追加し、
+                ピークが過ぎたらリソースを減らすなどの対応が可能です。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">🚀</span>
+            <div class="feature-content">
+              <h4>4. ビジネスの俊敏性</h4>
+              <p>変化する市場に即座に適応し、競争力を維持・強化する能力を向上させます。
+                オンプレミス環境ではサーバーやインフラの調達に時間とコストがかかっていましたが、
+                クラウドでは失敗してもすぐに撤退できるため、<strong>リスクを抑えながら積極的に試行錯誤が可能</strong>です。
+                AWSのクラウド環境では必要なリソースを即時に確保できるため、
+                新しいアイデアや製品の実験を速やかに行うことができます。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">🌏</span>
+            <div class="feature-content">
+              <h4>5. グローバル展開の容易さ</h4>
+              <p>AWSは世界中にリージョンとアベイラビリティゾーンを展開しており、
+                ユーザーは最適な拠点を選んでサービスを提供できます。
+                これにより、<strong>地理的な遅延を最小限に抑えながら、世界中の顧客にサービスを届けることが可能</strong>です。
+                また、データを特定の地域に保持することで、地域ごとの法規制にも対応できます。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">✅</span>
+            <div class="feature-content">
+              <h4>6. 可用性（アベイラビリティ）</h4>
+              <p>システムやサービスがどれだけの時間利用可能であるかを示す指標です。
+                具体的には、障害やダウンタイムが発生しても、システムがユーザーに対して
+                どれだけ継続的にアクセス可能であるかを測ります。
+                AWSでは<strong>複数のアベイラビリティゾーンやリージョンを活用して、
+                サービスを中断させない設計</strong>が採用されています。
+                たとえば、あるデータセンターがダウンしても、別のデータセンターで
+                サービスが提供され続けることで高い可用性が確保されます。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">🛡</span>
+            <div class="feature-content">
+              <h4>7. 信頼性</h4>
+              <p>システムが正確に設計通りに動作し続ける能力を指します。
+                AWSでは、データを複数のロケーションに分散保存し、
+                障害が発生しても速やかに復旧できる仕組みを提供しています。
+                たとえば、<strong>Amazon S3 は 99.999999999%（イレブン・ナイン）の耐久性</strong>を持つデータ保存機能を提供しており、
+                データの消失リスクをほぼゼロに抑えています。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">🔒</span>
+            <div class="feature-content">
+              <h4>8. セキュリティとコンプライアンス</h4>
+              <p>AWSはセキュリティの向上を重視しており、データの暗号化やアクセス制御を簡単に設定できます。
+                DDoS攻撃対策やセキュリティ状態の可視化ツールも備え、
+                ユーザーのシステムを多層的に保護します。
+                また、<strong>GDPR・HIPAAなどの国際的なコンプライアンス基準に対応</strong>しており、
+                金融や医療など厳しい規制が求められる業界でも信頼されています。
+                監査証跡を提供する機能もあり、企業がコンプライアンス要件を
+                簡単に満たせるようサポートします。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">⚙️</span>
+            <div class="feature-content">
+              <h4>9. 運用負担の軽減</h4>
+              <p>AWSでは、物理サーバーや基盤の運用管理をAWS自体が代行し、
+                多くのマネージドサービスではセキュリティパッチの適用などの
+                基本的な運用作業を自動化しています。
+                また、AWS Lambdaのようなサーバーレスサービスを利用することで、
+                インフラ管理の負担を完全に省くことが可能です。
+                このように、<strong>AWSはシステム運用のオーバーヘッドを削減し、
+                企業が戦略的な業務に集中できる環境を提供</strong>します。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">🧩</span>
+            <div class="feature-content">
+              <h4>10. マイクロサービスアーキテクチャ</h4>
+              <p>システムを複数の小さな独立したコンポーネントに分割して設計する手法です。
+                各コンポーネントは特定の機能に特化しており、独立して開発・デプロイ・運用が可能です。
+                この設計により、システム全体の柔軟性が向上し、変更や障害の影響を最小限に抑えることができます。
+                例えば、「決済処理」を修正しても、「商品カタログ」や「在庫管理」などの
+                他のコンポーネントには影響を与えません。
+                <strong>AWSの設計思想にも採用されており、システムの拡張性や信頼性を高めるうえで重要な役割</strong>を果たしています。</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- オンプレミスとの比較 -->
+      <div class="section">
+        <h2 class="section-title">オンプレミスとの比較</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>比較項目</th>
+                <th>オンプレミス</th>
+                <th>AWSクラウド</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>初期費用</strong></td>
+                <td>サーバー・データセンター購入が必要</td>
+                <td>初期費用ほぼゼロ（従量課金）</td>
+              </tr>
+              <tr>
+                <td><strong>スケーリング</strong></td>
+                <td>ハードウェアを事前に用意する必要あり</td>
+                <td>数分でスケールアウト/イン可能</td>
+              </tr>
+              <tr>
+                <td><strong>グローバル展開</strong></td>
+                <td>各国に物理拠点が必要</td>
+                <td>リージョンを選ぶだけで即時展開</td>
+              </tr>
+              <tr>
+                <td><strong>運用管理</strong></td>
+                <td>ハードウェア保守・OS管理が必要</td>
+                <td>マネージドサービスで大幅に軽減</td>
+              </tr>
+              <tr>
+                <td><strong>障害対応</strong></td>
+                <td>復旧まで時間がかかる</td>
+                <td>自動フェイルオーバー・高可用性設計</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 試験のポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF頻出）</div>
+        <ul>
+          <li><strong>従量課金制</strong>：使った分だけ支払う。オンプレミスの固定費用と対比させて理解する</li>
+          <li><strong>規模の経済</strong>：AWSが大量購入・大規模運用することで実現するコスト効率。その恩恵がユーザーに還元される</li>
+          <li><strong>スケーラビリティ</strong>：需要に応じてリソースを増減できる。「事前に余分に用意する必要がない」点が重要</li>
+          <li><strong>グローバルインフラ</strong>：リージョン・AZ・エッジロケーションの3階層を区別して覚える（別ページで解説予定）</li>
+          <li><strong>S3の耐久性</strong>：99.999999999%（イレブン・ナイン）は数字とともに暗記する</li>
+          <li><strong>可用性 vs 耐久性</strong>：可用性 = 「いつでも使える」、耐久性 = 「データが消えない」の違いを区別する</li>
+        </ul>
+      </div>
+
+      <!-- 関連サービス・概念 -->
+      <div class="section">
+        <h2 class="section-title">関連する概念・サービス</h2>
+        <div class="related-wrap">
+          <div class="chip-list">
+            <a href="aws-caf.html" class="chip">📋 AWS CAF</a>
+            <a href="#" class="chip" style="opacity:.5">🤝 責任共有モデル</a>
+            <a href="#" class="chip" style="opacity:.5">🌐 グローバルインフラ</a>
+            <a href="../services/dynamodb.html" class="chip">📊 DynamoDB（信頼性の例）</a>
+            <a href="../services/cloudwatch.html" class="chip">📈 CloudWatch（運用管理）</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /main-inner -->
+  </main>
+
+</div><!-- /layout -->
+<script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Lambda / Amazon API Gateway | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="lambda">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item active" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>コンピューティング</span>
+        <span>›</span><span>Lambda / API Gateway</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>⚡ AWS Lambda / Amazon API Gateway <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          AWS Lambda は、<strong>サーバーを管理することなくコードを実行できるサーバーレスコンピューティングサービス</strong>です。
+          コードを書いてアップロードするだけで、イベントをトリガーに自動的に実行されます。
+          Amazon API Gateway と組み合わせることで、スケーラブルなRESTful APIを構築できます。
+        </p>
+      </div>
+
+      <!-- Lambda概要図 -->
+      <div class="section">
+        <h2 class="section-title">Lambda の全体像</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Lambda, Amazon API Gateway.rtfd/28013.jpg" alt="Lambda概要" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <!-- 主な特徴 -->
+      <div class="section">
+        <h2 class="section-title">Lambda の主な特徴</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">🖥 サーバーレス</div>
+            <p>サーバーのプロビジョニング・管理が不要。AWSがインフラを全て管理。コードを実行する環境だけを考えればよい。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">💰 使用分だけ課金</div>
+            <p>コードが実行された時間（ミリ秒単位）と呼び出し回数に対して課金。アイドル時間のコストはゼロ。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">⚡ イベント駆動</div>
+            <p>様々なAWSサービスからのイベントをトリガーにして自動実行。S3へのアップロード、DynamoDBの変更、APIリクエストなど。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📊 自動スケーリング</div>
+            <p>リクエスト数に応じて自動的にスケールアウト。同時実行数の上限（デフォルト1000）まで自動的に並列実行。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- トリガー -->
+      <div class="section">
+        <h2 class="section-title">Lambda のトリガー（起動元）</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Lambda, Amazon API Gateway.rtfd/28014.jpg" alt="Lambdaトリガー" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:20px">
+          <div class="feature-item">
+            <div class="feature-title">🪣 Amazon S3</div>
+            <p>バケットへのオブジェクトアップロード・削除をトリガーにLambdaを実行。</p>
+            <p style="font-size:.85rem;color:var(--text-muted);margin-top:4px">例：画像アップロード時に自動でサムネイル生成</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📊 Amazon DynamoDB Streams</div>
+            <p>DynamoDBテーブルへのデータ変更（追加・更新・削除）をトリガーに実行。</p>
+            <p style="font-size:.85rem;color:var(--text-muted);margin-top:4px">例：注文データ追加時に通知メール送信</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🌐 API Gateway</div>
+            <p>HTTPリクエストをトリガーにLambdaを実行。REST APIのバックエンドとして利用。</p>
+            <p style="font-size:.85rem;color:var(--text-muted);margin-top:4px">例：GET /users リクエストでユーザーデータを返す</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">⏰ EventBridge（スケジュール）</div>
+            <p>Cron式や固定間隔でLambdaを定期実行。</p>
+            <p style="font-size:.85rem;color:var(--text-muted);margin-top:4px">例：毎日0時にバックアップ処理を実行</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 権限 -->
+      <div class="section">
+        <h2 class="section-title">Lambda の権限管理</h2>
+        <div class="feature-grid">
+          <div class="feature-item" style="border-left:4px solid var(--orange)">
+            <div class="feature-title">🎭 実行ロール（Execution Role）</div>
+            <p><strong>LambdaがAWSサービスに対して何をできるか</strong>を定義するIAMロールです。</p>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li>S3バケットへの読み書き権限</li>
+              <li>DynamoDBテーブルへのアクセス権限</li>
+              <li>CloudWatch Logsへのログ書き込み権限</li>
+            </ul>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">Lambda関数に必ずアタッチする必要がある</p>
+          </div>
+          <div class="feature-item" style="border-left:4px solid var(--blue)">
+            <div class="feature-title">🔑 リソースベースポリシー</div>
+            <p><strong>誰がLambdaを呼び出せるか</strong>を定義するポリシーです。</p>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li>S3がLambdaを呼び出す権限</li>
+              <li>API GatewayがLambdaを呼び出す権限</li>
+              <li>他のAWSアカウントからの呼び出し許可</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- バージョン管理 -->
+      <div class="section">
+        <h2 class="section-title">Lambda のバージョン管理とエイリアス</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Lambda, Amazon API Gateway.rtfd/28015.jpg" alt="Lambdaバージョン管理" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="table-wrap" style="margin-top:20px">
+          <table>
+            <thead>
+              <tr>
+                <th>概念</th>
+                <th>説明</th>
+                <th>変更可否</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>$LATEST</strong></td>
+                <td>最新バージョン。デプロイで常に上書きされる。</td>
+                <td>可変（mutable）</td>
+              </tr>
+              <tr>
+                <td><strong>バージョン（番号付き）</strong></td>
+                <td>$LATESTを公開したもの（例：1, 2, 3）。コードと設定が固定される。</td>
+                <td>不変（immutable）</td>
+              </tr>
+              <tr>
+                <td><strong>エイリアス</strong></td>
+                <td>特定のバージョンへのポインタ（例：prod → v3）。カナリアデプロイ（重み付け）も可能。</td>
+                <td>指し先を変更可能</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="key-point" style="margin-top:16px">
+          <strong>エイリアスのカナリアデプロイ</strong><br>
+          エイリアスは2つのバージョンに重みを付けてトラフィックを分散できます。例：prod エイリアスを「v3: 90%, v4: 10%」に設定してリリース前の検証が可能。
+        </div>
+      </div>
+
+      <!-- API Gateway -->
+      <div class="section">
+        <h2 class="section-title">Amazon API Gateway</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Lambda, Amazon API Gateway.rtfd/28016.jpg" alt="API Gateway概要" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:16px;margin-bottom:16px">
+          Amazon API Gateway は、<strong>RESTful API・WebSocket API・HTTP API を作成・管理・デプロイするためのフルマネージドサービス</strong>です。
+          Lambda と組み合わせることでサーバーレスAPIバックエンドを構築できます。
+        </p>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">🔗 REST API</div>
+            <p>豊富な機能を持つAPI。認証・認可、APIキー管理、スロットリング、キャッシュなど。本番環境での利用に適している。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">⚡ HTTP API</div>
+            <p>REST APIよりシンプルで安価。Lambda統合とルーティングに特化。低レイテンシで高スループット。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🔄 WebSocket API</div>
+            <p>双方向リアルタイム通信のためのAPI。チャットアプリ・ライブダッシュボードなどに利用。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- サーバーレスアーキテクチャ例 -->
+      <div class="section">
+        <h2 class="section-title">サーバーレスアーキテクチャの典型例</h2>
+        <div class="card">
+          <div class="card-title"><span class="icon">🏗</span> API Gateway + Lambda + DynamoDB パターン</div>
+          <div style="background:#1a2634;border-radius:8px;padding:16px;margin-top:12px;font-family:monospace;font-size:.9rem;color:#e2e8f0;overflow-x:auto">
+            クライアント → API Gateway → Lambda → DynamoDB<br>
+            <span style="color:#94a3b8">（HTTPリクエスト）  （ルーティング）    （ビジネスロジック）  （データ保存）</span>
+          </div>
+          <ul style="padding-left:18px;margin-top:12px;line-height:1.8">
+            <li>インフラ管理が不要（サーバーレス）</li>
+            <li>使用分のみ課金（アイドル時のコストなし）</li>
+            <li>自動スケーリングで高トラフィックにも対応</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 試験のポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA 頻出）</div>
+        <ul>
+          <li><strong>サーバーレス = Lambda（コンピューティング）+ DynamoDB（DB）+ S3（ストレージ）+ API Gateway（API）</strong></li>
+          <li>Lambda の最大実行時間は<strong>15分</strong>（長時間処理にはECS/EC2が必要）</li>
+          <li><strong>実行ロール</strong>：LambdaがAWSリソースにアクセスする権限<br><strong>リソースベースポリシー</strong>：誰がLambdaを呼び出せるか</li>
+          <li>$LATEST は可変（mutable）、公開バージョンは不変（immutable）</li>
+          <li>エイリアスでカナリアデプロイ（トラフィック分割）が可能</li>
+          <li>「S3への画像アップロードを自動処理 → Lambda + S3トリガー」</li>
+          <li>API Gateway + Lambda の組み合わせはサーバーレスAPIの定番パターン</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="s3.html" class="chip">🪣 Amazon S3（トリガー元）</a>
+          <a href="dynamodb.html" class="chip">📊 DynamoDB（バックエンド）</a>
+          <a href="kinesis.html" class="chip">🌊 Amazon Kinesis（イベントソース）</a>
+          <a href="cloudwatch.html" class="chip">📈 CloudWatch（監視）</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

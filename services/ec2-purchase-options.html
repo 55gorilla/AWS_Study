@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EC2 購入オプション | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="ec2-purchase-options">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item active" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>コンピューティング</span>
+        <span>›</span><span>EC2 購入オプション</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🖥 EC2 インスタンスの購入オプション <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          Amazon EC2 には複数の購入オプションがあり、ワークロードの特性（予測可能性・コスト優先・専有要件など）に応じて最適な選択ができます。
+          CLF・SAA ともに頻出の比較問題です。各オプションの特徴と使いどころを正確に把握しましょう。
+        </p>
+      </div>
+
+      <!-- 比較画像 -->
+      <div class="section">
+        <h2 class="section-title">購入オプション全体像</h2>
+        <div class="img-block">
+          <img src="../知見/EC2インスタンスの購入オプション.rtfd/27948.jpg" alt="EC2購入オプション全体像" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <!-- オンデマンド -->
+      <div class="section">
+        <h2 class="section-title">購入オプション詳細</h2>
+
+        <div class="feature-item" style="border-left:4px solid #6B7280;margin-bottom:16px">
+          <div class="feature-title">📌 オンデマンドインスタンス（On-Demand）</div>
+          <div class="feature-desc">使った分だけ支払い。コミットメントなし。</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <div>
+              <strong>特徴</strong>
+              <ul style="padding-left:18px;margin-top:4px;line-height:1.8">
+                <li>秒単位または時間単位の課金</li>
+                <li>前払い不要・長期コミットなし</li>
+                <li>最も高い単価</li>
+              </ul>
+            </div>
+            <div>
+              <strong>向いているワークロード</strong>
+              <ul style="padding-left:18px;margin-top:4px;line-height:1.8">
+                <li>需要が不規則で予測できない</li>
+                <li>短期間の開発・テスト環境</li>
+                <li>中断できないアプリケーション</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-item" style="border-left:4px solid var(--orange);margin-bottom:16px">
+          <div class="feature-title">🔖 リザーブドインスタンス（RI: Reserved Instances）</div>
+          <div class="feature-desc">1年または3年のコミットメントで最大72%割引。</div>
+          <div style="margin-top:12px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+              <div class="key-point" style="margin:0">
+                <strong>スタンダードRI</strong><br>
+                特定のインスタンスファミリー・リージョンに固定。最大72%割引。未使用分は <strong>RIマーケットプレイス</strong>で売却可能。
+              </div>
+              <div class="key-point" style="margin:0">
+                <strong>コンバーティブルRI</strong><br>
+                インスタンスファミリー・OS・テナンシーを変更可能。最大66%割引。売却は不可。
+              </div>
+            </div>
+            <div style="margin-top:12px">
+              <strong>支払いオプション</strong>（割引率：全前払い ＞ 一部前払い ＞ 前払いなし）
+              <ul style="padding-left:18px;margin-top:4px;line-height:1.8">
+                <li>All Upfront（全額前払い）: 最大割引</li>
+                <li>Partial Upfront（一部前払い）: 中間割引</li>
+                <li>No Upfront（前払いなし）: 最小割引</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-item" style="border-left:4px solid #7C3AED;margin-bottom:16px">
+          <div class="feature-title">💰 Savings Plans</div>
+          <div class="feature-desc">時間当たりの使用量をコミットすることで割引を受けるモデル。RIより柔軟。</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px">
+            <div class="key-point" style="margin:0">
+              <strong>Compute Savings Plans</strong><br>
+              最も柔軟。EC2・Lambda・Fargateに適用。インスタンスファミリー・リージョン・OS・テナンシーを問わず有効。最大66%割引。
+            </div>
+            <div class="key-point" style="margin:0">
+              <strong>EC2 Instance Savings Plans</strong><br>
+              特定のリージョン・インスタンスファミリーにコミット。AZ・OS・サイズは柔軟。最大72%割引。
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-item" style="border-left:4px solid #DC2626;margin-bottom:16px">
+          <div class="feature-title">⚡ スポットインスタンス（Spot）</div>
+          <div class="feature-desc">AWSの余剰キャパシティを最大90%割引で利用。ただし中断リスクあり。</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <div>
+              <strong>特徴</strong>
+              <ul style="padding-left:18px;margin-top:4px;line-height:1.8">
+                <li>最大90%割引（最も安い）</li>
+                <li>AWSの都合で<strong>2分前通知で中断</strong>される可能性</li>
+                <li>スポット価格は需要に応じて変動</li>
+              </ul>
+            </div>
+            <div>
+              <strong>向いているワークロード</strong>
+              <ul style="padding-left:18px;margin-top:4px;line-height:1.8">
+                <li>バッチ処理・データ分析</li>
+                <li>画像・動画変換</li>
+                <li>中断可能な分散ワークロード</li>
+                <li>CI/CDパイプライン</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-item" style="border-left:4px solid #059669;margin-bottom:16px">
+          <div class="feature-title">🏠 Dedicated Instances（専有インスタンス）</div>
+          <div class="feature-desc">物理ホストが他のAWSアカウントと共有されない。</div>
+          <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+            <li>物理ハードウェアは専有だが、同一アカウントの他インスタンスと共有する場合がある</li>
+            <li>インスタンスの物理ホストへの配置はAWSが管理</li>
+            <li>コンプライアンス要件（他社との物理共有禁止）に対応</li>
+          </ul>
+        </div>
+
+        <div class="feature-item" style="border-left:4px solid #0073BB;margin-bottom:16px">
+          <div class="feature-title">🏗 Dedicated Hosts（専有ホスト）</div>
+          <div class="feature-desc">物理サーバー全体を専有。インスタンス配置を完全に制御できる。</div>
+          <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+            <li>物理サーバーを丸ごと占有（最も高コスト）</li>
+            <li>ソケット数・コア数・ホストIDが見えるため <strong>BYOL（ライセンス持込）</strong>に対応</li>
+            <li>Windows Server / SQL Server / Oracle などのライセンス管理が必要な場合に使用</li>
+            <li>Dedicated Instances との違い：インスタンス配置を自分でコントロールできる点</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 比較画像 -->
+      <div class="section">
+        <h2 class="section-title">Dedicated Instances vs Dedicated Hosts</h2>
+        <div class="img-block">
+          <img src="../知見/EC2インスタンスの購入オプション.rtfd/27949.jpg" alt="Dedicated vs Dedicated Hosts" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/EC2インスタンスの購入オプション.rtfd/27950.jpg" alt="RIとSavings Plans比較" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <!-- 比較表 -->
+      <div class="section">
+        <h2 class="section-title">購入オプション比較表</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>オプション</th>
+                <th>割引率</th>
+                <th>コミットメント</th>
+                <th>中断リスク</th>
+                <th>主な用途</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>オンデマンド</td><td>なし</td><td>なし</td><td>なし</td><td>不規則なワークロード</td></tr>
+              <tr><td>スタンダードRI</td><td>最大72%</td><td>1〜3年</td><td>なし</td><td>安定した定常的ワークロード</td></tr>
+              <tr><td>コンバーティブルRI</td><td>最大66%</td><td>1〜3年</td><td>なし</td><td>インスタンスタイプ変更の可能性あり</td></tr>
+              <tr><td>Compute Savings Plans</td><td>最大66%</td><td>1〜3年</td><td>なし</td><td>EC2/Lambda/Fargate横断</td></tr>
+              <tr><td>EC2 Instance Savings Plans</td><td>最大72%</td><td>1〜3年</td><td>なし</td><td>特定ファミリーの安定ワークロード</td></tr>
+              <tr><td>スポット</td><td>最大90%</td><td>なし</td><td><strong>あり（2分通知）</strong></td><td>中断可能なバッチ処理</td></tr>
+              <tr><td>Dedicated Instances</td><td>なし</td><td>なし</td><td>なし</td><td>物理共有禁止要件</td></tr>
+              <tr><td>Dedicated Hosts</td><td>なし</td><td>任意</td><td>なし</td><td>BYOL、ライセンス管理</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- RIマーケットプレイス -->
+      <div class="section">
+        <h2 class="section-title">RIマーケットプレイス</h2>
+        <div class="card">
+          <div class="card-title"><span class="icon">🛒</span> Reserved Instance Marketplace</div>
+          <p>不要になった<strong>スタンダードRI</strong>を他のAWSユーザーに売却できるマーケットプレイスです。<br>
+          コンバーティブルRIは売却できません（変換という別のオプションが用意されている）。</p>
+        </div>
+      </div>
+
+      <!-- 試験のポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA 頻出）</div>
+        <ul>
+          <li><strong>最も安い = スポット（最大90%）</strong>、ただし中断される可能性あり</li>
+          <li><strong>BYOL（ライセンス持込）が必要 → Dedicated Hosts</strong></li>
+          <li>RI とSavings Plans の割引率は同程度だが、Savings Plans の方が柔軟</li>
+          <li><strong>コンバーティブルRI は売却不可</strong>、スタンダードRI は RIマーケットプレイスで売却可能</li>
+          <li>Dedicated Instances と Dedicated Hosts の違い：ホスト配置の制御権があるかどうか</li>
+          <li>「長期的に安定した予測可能なワークロード → RI または Savings Plans」</li>
+          <li>「需要が変動する・短期 → オンデマンド」</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="auto-scaling.html" class="chip">📈 Auto Scaling</a>
+          <a href="cloudwatch.html" class="chip">📈 CloudWatch</a>
+          <a href="../concepts/shared-responsibility.html" class="chip">🤝 責任共有モデル</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

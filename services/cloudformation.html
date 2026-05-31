@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS CloudFormation | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="cloudformation">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/global-infra.html" class="nav-item" data-page="global-infra">🌍 グローバルインフラ<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2.html" class="nav-item" data-page="ec2">🖥 Amazon EC2<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🏷 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API GW<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="ecs-fargate-eks.html" class="nav-item" data-page="ecs-fargate-eks">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="aurora.html" class="nav-item" data-page="aurora">✨ Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="vpc.html" class="nav-item" data-page="vpc">🔗 Amazon VPC<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudformation.html" class="nav-item active" data-page="cloudformation">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="iam.html" class="nav-item" data-page="iam">🔐 IAM / Organizations<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>監視・管理</span><span>›</span><span>CloudFormation</span>
+      </nav>
+      <div class="page-title">
+        <h1>🏗 AWS CloudFormation <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS CloudFormation は、<strong>Infrastructure as Code（IaC）</strong>を実現するサービスです。
+          JSON/YAML形式のテンプレートファイルを使ってAWSリソースを宣言的に定義・デプロイ・管理できます。
+          手動作業を減らし、インフラ構成の再現性と一貫性を確保します。
+        </p>
+      </div>
+
+      <!-- IaCとは -->
+      <div class="section">
+        <h2 class="section-title">Infrastructure as Code（IaC）とは</h2>
+        <div class="img-block">
+          <img src="../知見/AWS CloudFormation.rtfd/28057.jpg" alt="IaCとCloudFormation" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:16px">
+          <div class="feature-item" style="border-left:4px solid #EF4444">
+            <div class="feature-title">❌ 手動管理の問題点</div>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li>人為的ミスが発生しやすい</li>
+              <li>同じ構成を再現しにくい</li>
+              <li>変更履歴が追いにくい</li>
+              <li>スケールアップ時に作業量が増大</li>
+            </ul>
+          </div>
+          <div class="feature-item" style="border-left:4px solid var(--orange)">
+            <div class="feature-title">✅ IaC（CloudFormation）のメリット</div>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li>コードで定義 → Gitでバージョン管理可能</li>
+              <li>同じテンプレートで複数環境（開発/本番）を再現</li>
+              <li>変更の差分管理・ロールバックが容易</li>
+              <li>自動化によりヒューマンエラー削減</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- テンプレートとスタック -->
+      <div class="section">
+        <h2 class="section-title">テンプレートとスタック</h2>
+        <div class="img-block">
+          <img src="../知見/AWS CloudFormation.rtfd/28058.jpg" alt="テンプレートとスタック" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:16px">
+          <div class="feature-item">
+            <div class="feature-title">📄 テンプレート（Template）</div>
+            <p>JSON/YAML形式でAWSリソースの構成を定義したファイル。「何を作るか」を記述する。</p>
+            <div class="arch-card" style="margin-top:8px">
+              <div class="arch-flow">AWSTemplateFormatVersion: "2010-09-09"
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-xxxxxxxx
+      InstanceType: t3.micro
+  MyS3Bucket:
+    Type: AWS::S3::Bucket</div>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📦 スタック（Stack）</div>
+            <p>テンプレートをデプロイして作成された<strong>AWSリソースの集合体</strong>。スタック単位でリソースを管理・削除できる。</p>
+            <p style="margin-top:8px">例：「Webアプリスタック」＝EC2+ELB+RDS+VPCを一括管理</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CloudFormationのフロー -->
+      <div class="section">
+        <h2 class="section-title">CloudFormationのデプロイフロー</h2>
+        <div class="img-block">
+          <img src="../知見/AWS CloudFormation.rtfd/28059.jpg" alt="CloudFormationフロー" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="mermaid">
+flowchart LR
+  TMP[📄 テンプレート\nJSON/YAML作成] --> CFN[CloudFormation\nに送信]
+  CFN --> VALIDATE{テンプレート\n検証}
+  VALIDATE -->|エラー| FIX[テンプレート修正]
+  FIX --> CFN
+  VALIDATE -->|OK| STACK[📦 スタック作成\nリソースの自動デプロイ]
+  STACK --> EC2[EC2]
+  STACK --> RDS[(RDS)]
+  STACK --> VPC[VPC]
+  STACK --> S3[S3]
+  STACK -->|変更時| UPDATE[スタック更新\n差分のみ変更]
+  STACK -->|削除時| DELETE[スタック削除\n全リソース一括削除]
+
+  style CFN fill:#FF9900,color:#16191F
+  style STACK fill:#0073BB,color:white
+        </div>
+      </div>
+
+      <!-- AWS CDK / Service Catalog -->
+      <div class="section">
+        <h2 class="section-title">AWS CDK / AWS Service Catalog</h2>
+        <div class="img-block">
+          <img src="../知見/AWS CloudFormation.rtfd/28060.jpg" alt="CDKとService Catalog" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:16px">
+          <div class="feature-item">
+            <div class="feature-title">💻 AWS CDK（Cloud Development Kit）</div>
+            <p>PythonやTypeScriptなどの<strong>プログラミング言語</strong>でインフラを定義できるフレームワーク。最終的にCloudFormationテンプレートに変換される。</p>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">開発者がコードでインフラを書きたい場合に使用</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🛒 AWS Service Catalog</div>
+            <p>IT管理者が承認済みのCloudFormationテンプレートを<strong>カタログ（ポートフォリオ）</strong>として管理・提供するサービス。組織内のリソース作成を標準化。</p>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">開発者は承認された構成のみ使用できるよう制限できる</p>
+          </div>
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/AWS CloudFormation.rtfd/28055.jpg" alt="Elastic Beanstalk vs CloudFormation" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <!-- 試験ポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA 頻出）</div>
+        <ul>
+          <li><strong>CloudFormation = IaC（Infrastructure as Code）</strong>の代表的サービス</li>
+          <li><strong>テンプレート（JSON/YAML）→ スタック</strong>の流れを覚える</li>
+          <li>スタック削除で全リソースを一括削除できる</li>
+          <li>AWS CDK = プログラミング言語でインフラを定義（CloudFormationに変換）</li>
+          <li>「同じ環境を複数リージョンに展開 → CloudFormationテンプレートを再利用」</li>
+          <li>「インフラをGitで管理・バージョン管理 → IaC（CloudFormation）」</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="ec2.html" class="chip">🖥 EC2（CloudFormationで作成）</a>
+          <a href="vpc.html" class="chip">🔗 VPC（CloudFormationで管理）</a>
+          <a href="iam.html" class="chip">🔐 IAM（スタックのデプロイ権限）</a>
+          <a href="cloudtrail.html" class="chip">🔍 CloudTrail（変更の監査）</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#FF9900',primaryTextColor:'#16191F',lineColor:'#0073BB',background:'#f8fafc'}});</script>
+</body>
+</html>

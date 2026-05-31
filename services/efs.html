@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon EFS | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="efs">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item active" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>ストレージ</span>
+        <span>›</span><span>Amazon EFS</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>📁 Amazon EFS <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon EFS（Elastic File System）は、<strong>複数のEC2インスタンスから同時にアクセスできるNFSファイルストレージ</strong>です。
+          EBSが1つのEC2インスタンスにしかアタッチできないのに対し、EFSは複数インスタンスで共有できます。
+          また、使用量に応じて<strong>ストレージ容量が自動的に拡張・縮小</strong>します。
+        </p>
+      </div>
+
+      <!-- 全体図 -->
+      <div class="section">
+        <h2 class="section-title">Amazon EFS の概要</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon EFS.rtfd/28017.jpg" alt="Amazon EFS概要" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <!-- 主な特徴 -->
+      <div class="section">
+        <h2 class="section-title">主な特徴</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">🔗 複数EC2インスタンスで共有</div>
+            <p>NFS（Network File System）プロトコルを使用。複数のEC2インスタンスから同時にマウント・アクセス可能。同一AZ内でも、複数AZにまたがることも可能。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📊 自動スケーリング</div>
+            <p>ファイルの追加・削除に応じてストレージ容量が自動的に増減する。EBSのように事前に容量を確保する必要がない。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🏢 高可用性・耐久性</div>
+            <p>データは複数のAZに自動的にレプリケートされる（Standardクラス）。単一AZ障害が発生してもデータにアクセスできる。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">💰 ストレージクラスとライフサイクル</div>
+            <p>頻繁にアクセスしないファイルを低コストのInfrequent Accessクラスに自動移行できる。ライフサイクルポリシーで移行の条件（日数）を設定。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ストレージクラス -->
+      <div class="section">
+        <h2 class="section-title">ストレージクラス</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon EFS.rtfd/28018.jpg" alt="EFSストレージクラス" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="table-wrap" style="margin-top:20px">
+          <table>
+            <thead>
+              <tr>
+                <th>ストレージクラス</th>
+                <th>説明</th>
+                <th>コスト</th>
+                <th>用途</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>EFS Standard</strong></td>
+                <td>複数AZにレプリケート。高可用性。</td>
+                <td>高め</td>
+                <td>頻繁にアクセスするデータ</td>
+              </tr>
+              <tr>
+                <td><strong>EFS Standard-IA</strong></td>
+                <td>複数AZにレプリケート。アクセス時に追加料金。</td>
+                <td>低い（ストレージ料金）</td>
+                <td>頻繁にアクセスしないデータ</td>
+              </tr>
+              <tr>
+                <td><strong>EFS One Zone</strong></td>
+                <td>単一AZのみ。</td>
+                <td>低い</td>
+                <td>開発環境・バックアップ</td>
+              </tr>
+              <tr>
+                <td><strong>EFS One Zone-IA</strong></td>
+                <td>単一AZ・低頻度アクセス。</td>
+                <td>最も低い</td>
+                <td>開発環境の低頻度データ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- EBS vs EFS 比較 -->
+      <div class="section">
+        <h2 class="section-title">EBS vs EFS 比較</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon EFS.rtfd/28019.jpg" alt="EBS vs EFS" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="table-wrap" style="margin-top:20px">
+          <table>
+            <thead>
+              <tr>
+                <th>比較項目</th>
+                <th>EBS（Elastic Block Store）</th>
+                <th>EFS（Elastic File System）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ストレージ種別</td>
+                <td>ブロックストレージ</td>
+                <td>ファイルストレージ（NFS）</td>
+              </tr>
+              <tr>
+                <td>同時接続</td>
+                <td><strong>1インスタンスのみ</strong>（Multi-Attach対応のものは除く）</td>
+                <td><strong>複数インスタンスから同時アクセス可</strong></td>
+              </tr>
+              <tr>
+                <td>AZ</td>
+                <td>単一AZにのみ存在</td>
+                <td>複数AZにまたがる（Standardクラス）</td>
+              </tr>
+              <tr>
+                <td>容量管理</td>
+                <td>事前に容量を確保・手動拡張</td>
+                <td>自動でスケーリング（ペタバイト規模まで）</td>
+              </tr>
+              <tr>
+                <td>プロトコル</td>
+                <td>iSCSI / ブロックデバイス</td>
+                <td>NFS v4.1 / v4.0</td>
+              </tr>
+              <tr>
+                <td>OS対応</td>
+                <td>Linux / Windows</td>
+                <td>Linux のみ</td>
+              </tr>
+              <tr>
+                <td>主な用途</td>
+                <td>OS起動ドライブ、データベースディスク</td>
+                <td>共有コンテンツリポジトリ、機械学習データセット、Webファーム</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 試験のポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li><strong>「複数のEC2インスタンスで同じファイルを共有したい → EFS」</strong></li>
+          <li>EBSは1インスタンス専用（原則）、EFSは複数インスタンスで共有可能</li>
+          <li>EFSはLinuxのみ対応（WindowsにはEFSは使えない）</li>
+          <li>EFSは容量が自動でスケーリング — 事前に容量を確保する必要なし</li>
+          <li>EFS Standard-IAライフサイクルポリシーでコスト最適化可能</li>
+          <li>「Webアプリの静的コンテンツを複数EC2で共有 → EFS」</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="s3.html" class="chip">🪣 Amazon S3（オブジェクトストレージ）</a>
+          <a href="ec2-purchase-options.html" class="chip">🖥 EC2 購入オプション</a>
+          <a href="auto-scaling.html" class="chip">📈 Auto Scaling</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

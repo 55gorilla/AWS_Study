@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Compute Optimizer | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="compute-optimizer">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>監視・管理</span><span>›</span><span>Compute Optimizer</span>
+      </nav>
+      <div class="page-title">
+        <h1>📐 AWS Compute Optimizer <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          AWS Compute Optimizer は、<strong>機械学習を使ってコンピューティングリソースの使用状況を分析し、最適な構成を提案するサービス</strong>です。
+          オーバープロビジョニング（過剰）やアンダープロビジョニング（不足）を検出し、コスト削減とパフォーマンス向上を支援します。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Compute Optimizer の概要</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Compute Optimizer.rtfd/28152.jpg" alt="Compute Optimizer設定" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/AWS Compute Optimizer.rtfd/28153.jpg" alt="Compute Optimizer提案" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">分析対象と提案</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">🎯 分析対象リソース</div>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li>EC2インスタンス</li>
+              <li>Auto Scalingグループ</li>
+              <li>EBSボリューム</li>
+              <li>Lambda関数</li>
+              <li>ECS on Fargate</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">💡 提案内容</div>
+            <p>CloudWatchメトリクスを機械学習で分析し、最適なインスタンスタイプやサイズを推奨。「このインスタンスは過剰なので1サイズ下げるとコスト削減」などの具体的な提案を行う。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="decision-frame">
+        <div class="decision-frame-title">🧭 コスト系サービスの使い分け</div>
+        <div class="decision-compare-3">
+          <div class="decision-option">
+            <h4>📐 Compute Optimizer</h4>
+            <div class="when-use">リソースの最適サイズを<br>ML分析で提案</div>
+            <div class="keywords"><span class="decision-kw">リソース最適化</span></div>
+          </div>
+          <div class="decision-option">
+            <h4>💰 Cost Explorer</h4>
+            <div class="when-use">過去コストの可視化<br>将来予測</div>
+            <div class="keywords"><span class="decision-kw">コスト分析</span></div>
+          </div>
+          <div class="decision-option">
+            <h4>💡 Trusted Advisor</h4>
+            <div class="when-use">5カテゴリのベスト<br>プラクティス診断</div>
+            <div class="keywords"><span class="decision-kw">総合診断</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF）</div>
+        <ul>
+          <li><strong>「EC2の最適なインスタンスタイプを機械学習で提案 → Compute Optimizer」</strong></li>
+          <li>EC2・Auto Scaling・EBS・Lambda・Fargateを分析</li>
+          <li>オーバー/アンダープロビジョニングを検出してコスト削減</li>
+          <li>Cost Explorer（コスト可視化）、Trusted Advisor（総合診断）との違いを理解</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="cost-explorer.html" class="chip">💰 Cost Explorer</a>
+          <a href="trusted-advisor.html" class="chip">💡 Trusted Advisor</a>
+          <a href="ec2.html" class="chip">🖥 EC2（分析対象）</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

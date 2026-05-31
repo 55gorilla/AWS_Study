@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon DynamoDB | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="dynamodb">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item active" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>データベース</span>
+        <span>›</span><span>Amazon DynamoDB</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>📊 Amazon DynamoDB <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          Amazon DynamoDB は、<strong>サーバーレスでフルマネージドなNoSQLデータベースサービス</strong>です。
+          高いスケーラビリティと可用性を持ち、あらゆる規模のアプリケーションに対応します。
+        </p>
+      </div>
+
+      <!-- 概要 -->
+      <div class="section">
+        <h2 class="section-title">DynamoDB の特徴</h2>
+
+        <ul class="feature-list">
+
+          <li class="feature-item">
+            <span class="feature-icon">⚡</span>
+            <div class="feature-content">
+              <h4>サーバーレス・フルマネージド</h4>
+              <p>サーバーのプロビジョニング、パッチ適用、管理が不要です。
+                AWSがインフラ全体を管理するため、アプリケーション開発に集中できます。
+                テーブルを作成するだけですぐに利用を開始できます。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">🗃</span>
+            <div class="feature-content">
+              <h4>NoSQLデータベース</h4>
+              <p>テーブル・スキーマが固定されていない柔軟なデータ構造（キーバリュー型・ドキュメント型）です。
+                RDSのようなリレーショナルデータベースとは異なり、
+                スキーマレスで大量の非構造化データを高速に処理できます。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">🔒</span>
+            <div class="feature-content">
+              <h4>常時暗号化（デフォルト・無効化不可）</h4>
+              <p><strong>DynamoDBに保存されるデータは常に暗号化されており、無効化することはできません。</strong>
+                これはAWSが自動的に実施する管理タスクの一つです。
+                ユーザーが何も設定しなくても、データは保存時に自動的に暗号化されます。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">📈</span>
+            <div class="feature-content">
+              <h4>自動スケーリング</h4>
+              <p>トラフィックの増減に応じて、自動的にスループットキャパシティをスケールアップ・ダウンできます。
+                突然のアクセス増加にも自動で対応し、常にパフォーマンスを維持します。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">✅</span>
+            <div class="feature-content">
+              <h4>高可用性・耐久性</h4>
+              <p>データは複数のアベイラビリティゾーン（AZ）に自動的にレプリケートされます。
+                あるAZで障害が発生しても、データへのアクセスは維持されます。
+                SLAとして99.999%の可用性を保証しています。</p>
+            </div>
+          </li>
+
+          <li class="feature-item">
+            <span class="feature-icon">⚡</span>
+            <div class="feature-content">
+              <h4>一桁ミリ秒の応答速度</h4>
+              <p>規模に関わらず、一貫して1ミリ秒以下の応答時間を実現します。
+                ゲーム・IoT・モバイルアプリなど、超低レイテンシーが求められるユースケースに最適です。</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- AWSが自動で管理することの重要性 -->
+      <div class="section">
+        <h2 class="section-title">責任共有モデルとの関係</h2>
+        <div class="card">
+          <div class="card-title"><span class="icon">🤝</span> AWSが自動で行うこと vs ユーザーが管理すること</div>
+
+          <p>「<strong>責任共有モデル</strong>」とは、AWSとユーザーがそれぞれ何に対して責任を持つかを定義したものです。
+            DynamoDBのような<strong>フルマネージドサービス</strong>では、
+            AWSが担う責任の範囲が広くなります。</p>
+
+          <div class="table-wrap" style="margin-top:14px">
+            <table>
+              <thead>
+                <tr>
+                  <th>項目</th>
+                  <th>AWSが自動管理 ✅</th>
+                  <th>ユーザーが管理 ⚠️</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>DynamoDB データ暗号化</strong></td>
+                  <td>✅ 常時自動暗号化（変更・無効化不可）</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td><strong>EC2 OSアップデート</strong></td>
+                  <td>—</td>
+                  <td>⚠️ ユーザーが適切な設定を行う必要あり</td>
+                </tr>
+                <tr>
+                  <td><strong>EC2 セキュリティグループ</strong></td>
+                  <td>—</td>
+                  <td>⚠️ ユーザー自身が管理・設定を見直す必要あり</td>
+                </tr>
+                <tr>
+                  <td><strong>RDS ストレージサイズ縮小</strong></td>
+                  <td>—</td>
+                  <td>⚠️ 一度割り当てたサイズは自動で縮小できない</td>
+                </tr>
+                <tr>
+                  <td><strong>RDS ストレージサイズ増加</strong></td>
+                  <td>✅ Auto Scaling設定で自動増加可能</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- RDSとの比較 -->
+      <div class="section">
+        <h2 class="section-title">DynamoDB vs RDS の比較</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>比較項目</th>
+                <th>DynamoDB（NoSQL）</th>
+                <th>RDS（リレーショナル）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>データ構造</strong></td>
+                <td>キーバリュー・ドキュメント（スキーマレス）</td>
+                <td>テーブル・行・列（固定スキーマ）</td>
+              </tr>
+              <tr>
+                <td><strong>スケーリング</strong></td>
+                <td>自動・水平スケーリング</td>
+                <td>手動・垂直スケーリングが基本</td>
+              </tr>
+              <tr>
+                <td><strong>管理形態</strong></td>
+                <td>フルマネージド・サーバーレス</td>
+                <td>フルマネージド（サーバー管理はAWS）</td>
+              </tr>
+              <tr>
+                <td><strong>暗号化</strong></td>
+                <td>常時自動暗号化（無効化不可）</td>
+                <td>オプションで設定可能</td>
+              </tr>
+              <tr>
+                <td><strong>ユースケース</strong></td>
+                <td>ゲーム・IoT・セッション管理・大規模Web</td>
+                <td>金融・ERP・複雑なクエリが必要なシステム</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 練習問題（ping-t より）-->
+      <div class="section">
+        <h2 class="section-title">練習問題</h2>
+        <div class="practice-q">
+          <div class="practice-q-header">📝 CLF 練習問題（ping-t 問題ID: 39878）</div>
+          <div class="practice-q-text">AWSが標準で自動的に実行するタスクはどれか。</div>
+          <ul class="choices">
+            <li class="wrong">RDSのストレージサイズ（割当容量）を縮小する</li>
+            <li class="correct">✅ DynamoDBに保存されるデータを暗号化する</li>
+            <li class="wrong">EC2インスタンスのオペレーティングシステムを更新する</li>
+            <li class="wrong">EC2インスタンスのセキュリティグループのインバウンドルールを最適化する</li>
+          </ul>
+          <div class="explanation">
+            <p><strong>正解：DynamoDBに保存されるデータを暗号化する</strong></p>
+            <p>Amazon DynamoDB は、サーバーレスでフルマネージドなNoSQLデータベースサービスです。
+              DynamoDBに保存されるデータは<strong>常に暗号化されており、無効化することはできません</strong>。</p>
+
+            <p style="margin-top:10px"><strong>その他の選択肢について：</strong></p>
+            <ul>
+              <li>❌ <strong>EC2のセキュリティグループのインバウンドルールを最適化する</strong>
+                — セキュリティグループのルールをAWSが自動最適化することはありません。ユーザー自身が管理し、設定を見直す必要があります。</li>
+              <li>❌ <strong>EC2インスタンスのオペレーティングシステムを更新する</strong>
+                — AWSはEC2インスタンスのOS更新を自動実行しません。ユーザーが適切な設定を行う必要があります。</li>
+              <li>❌ <strong>RDSのストレージサイズ（割当容量）を縮小する</strong>
+                — RDSのストレージサイズは自動で<strong>増加</strong>できますが、一度割り当てたサイズは自動で<strong>縮小できません</strong>。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 決断フレームワーク -->
+      <div class="decision-frame">
+        <div class="decision-frame-title">🧭 どちらを選ぶ？ — DynamoDB vs RDS</div>
+        <div class="decision-compare">
+          <div class="decision-option">
+            <h4>📊 Amazon DynamoDB</h4>
+            <div class="when-use">
+              超高速（ミリ秒以下）レスポンスが必要<br>
+              急激なトラフィック増加に対応<br>
+              スキーマレスで柔軟なデータ構造<br>
+              キーバリュー・ドキュメント操作のみ<br>
+              例：ゲーム、IoT、Eコマースカート
+            </div>
+            <div class="keywords">
+              <span class="decision-kw">NoSQL</span>
+              <span class="decision-kw">サーバーレス</span>
+              <span class="decision-kw">低レイテンシ</span>
+              <span class="decision-kw">スケール</span>
+            </div>
+          </div>
+          <div class="decision-vs">VS</div>
+          <div class="decision-option">
+            <h4>🗃 Amazon RDS</h4>
+            <div class="when-use">
+              SQLで複雑なクエリ・JOIN が必要<br>
+              トランザクション（ACID特性）が必要<br>
+              既存のRDBアプリをそのまま移行<br>
+              スキーマ（テーブル構造）が決まっている<br>
+              例：ERPシステム、金融システム
+            </div>
+            <div class="keywords">
+              <span class="decision-kw">SQL</span>
+              <span class="decision-kw">ACID</span>
+              <span class="decision-kw">リレーショナル</span>
+              <span class="decision-kw">JOIN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 試験のポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF頻出）</div>
+        <ul>
+          <li>DynamoDBのデータは<strong>常に暗号化されており、無効化できない</strong> → AWSが自動で行うタスクの代表例</li>
+          <li>DynamoDBは<strong>NoSQL（非リレーショナル）</strong>データベース。RDSとの違いを問われる</li>
+          <li><strong>サーバーレス・フルマネージド</strong> → EC2のようにサーバー管理が不要</li>
+          <li>RDSのストレージは<strong>自動で増加はできるが縮小はできない</strong>（試験の引っかけ）</li>
+          <li>EC2のOS更新・セキュリティグループ管理は<strong>ユーザーの責任</strong>（責任共有モデル）</li>
+        </ul>
+      </div>
+
+      <!-- 関連サービス -->
+      <div class="section">
+        <h2 class="section-title">関連するサービス・概念</h2>
+        <div class="chip-list">
+          <a href="cloudwatch.html" class="chip">📈 CloudWatch（DynamoDB監視）</a>
+          <span class="chip" style="opacity:.5">🗃 RDS（リレーショナルDBとの比較）</span>
+          <span class="chip" style="opacity:.5">🔐 KMS（暗号化キー管理）</span>
+          <a href="../concepts/aws-cloud-benefits.html" class="chip">☁️ クラウドの利点（信頼性）</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

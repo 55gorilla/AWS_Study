@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>オンプレミスとクラウド | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="on-premise-cloud">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="on-premise-cloud.html" class="nav-item active" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="../services/ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="../services/s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="../services/dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="../services/elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="../services/kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="../services/cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="../services/trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>基礎概念</span><span>›</span><span>オンプレミスとクラウド</span>
+      </nav>
+      <div class="page-title">
+        <h1>🏢 オンプレミスとクラウド <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          AWSを学ぶ出発点として、<strong>オンプレミス（従来型の自社設備）とクラウドの違い</strong>、そしてクラウドが提供するメリットを理解しましょう。CLF試験では「なぜクラウドに移行するのか」「コスト面での優位性」がよく問われます。
+        </p>
+      </div>
+
+      <!-- オンプレミスとは -->
+      <div class="section">
+        <h2 class="section-title">オンプレミスとは</h2>
+        <div class="feature-item">
+          <div class="feature-title">🏢 オンプレミス（On-Premises）</div>
+          <p>オンプレミスとは、自社で設備を保有し、自社で運用・管理を行うITインフラストラクチャ（ITインフラ）環境です。クラウドと比較すると、機器選定・設置・設備管理などを自社で実施する必要があり、機器への対応や運用担当者確保などの運用負荷が発生します。機器は容易に変更しにくい、必要変動への対応が難しいため、過剰投資や性能不足が生じる可能性があります。</p>
+        </div>
+      </div>
+
+      <!-- クラウドとは -->
+      <div class="section">
+        <h2 class="section-title">クラウドとは</h2>
+        <p style="margin-bottom:16px">AWSなどのクラウドコンピューティング（通称：クラウド）とは、インターネットなどのネットワーク経由で、サーバーやストレージなどのITリソースにアクセスして利用できる環境のことです。クラウドサービスを利用することによって以下のメリットが得られます。</p>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-title">💰 初期費用の削減</div>
+            <p>リソースを利用した分だけ料金を支払う（従量制）ため、自社設備を購入・管理するオンプレミスに比べて、大幅に初期費用を削減できます。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🔄 スケールアップ・アウト</div>
+            <p>数分単位でリソースを用意できるため、大幅な変化が起きてもスケールアップ/ダウン（リソースの処理能力の増加）やスケールアウト/イン（リソースの個数の増加）で対応できます。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">⚡ スピードの向上</div>
+            <p>スピードが向上が必要な環境を短時間で構築できるため、開発や検証を迅速に開始できます。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🌍 グローバル化</div>
+            <p>クラウドサービスは複数の地域（リージョン）で展開しており、世界中でアプリケーションを展開し低遅延でサービスの提供が可能です。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- オンプレ vs クラウド 比較図 -->
+      <div class="section">
+        <h2 class="section-title">オンプレミスとクラウドの比較</h2>
+        <div class="img-block">
+          <img src="../知見/オンプレミスとクラウド.rtfd/27924.jpg" alt="オンプレミス、IaaS、PaaS、SaaS比較" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <!-- クラウドサービスモデル -->
+      <div class="section">
+        <h2 class="section-title">クラウドコンピューティングのサービスモデル</h2>
+        <p style="margin-bottom:16px">クラウドコンピューティングの代表的なサービスモデルには、IaaS、PaaS、SaaSがあります。</p>
+
+        <div class="feature-grid">
+          <div class="feature-item" style="border-left:4px solid var(--orange)">
+            <div class="feature-title">🖥 IaaS（Infrastructure as a Service）</div>
+            <p>OSやミドルウェア、ランタイムなどのアプリケーション実行環境を含むプラットフォームを提供するサービスです。ユーザーはインフラを意識せずに、アプリケーションの開発・導入ができます。</p>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)"><strong>例</strong>：Amazon EC2（仮想サーバー）</p>
+          </div>
+          <div class="feature-item" style="border-left:4px solid var(--blue)">
+            <div class="feature-title">🔧 PaaS（Platform as a Service）</div>
+            <p>OSやミドルウェア、ランタイムなどのアプリケーション実行環境を含むプラットフォームを提供するサービスです。ユーザーはインフラを意識せずに、アプリケーションの開発・導入ができます。</p>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)"><strong>例</strong>：AWS Elastic Beanstalk</p>
+          </div>
+          <div class="feature-item" style="border-left:4px solid #7C3AED">
+            <div class="feature-title">📱 SaaS（Software as a Service）</div>
+            <p>アプリケーションを含むすべての機能を提供するサービスです。ユーザーは機能のオプションを設定するだけでアプリケーションを利用できます。</p>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)"><strong>例</strong>：Gmail、Salesforce、Microsoft 365</p>
+          </div>
+        </div>
+
+        <div class="table-wrap" style="margin-top:24px">
+          <table>
+            <thead>
+              <tr><th>責任範囲</th><th>オンプレミス</th><th>IaaS</th><th>PaaS</th><th>SaaS</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>アプリケーション</td><td class="user-resp">ユーザー</td><td class="user-resp">ユーザー</td><td class="user-resp">ユーザー</td><td class="aws-resp">提供側</td></tr>
+              <tr><td>データ</td><td class="user-resp">ユーザー</td><td class="user-resp">ユーザー</td><td class="user-resp">ユーザー</td><td class="user-resp">ユーザー</td></tr>
+              <tr><td>ランタイム</td><td class="user-resp">ユーザー</td><td class="user-resp">ユーザー</td><td class="aws-resp">提供側</td><td class="aws-resp">提供側</td></tr>
+              <tr><td>OS</td><td class="user-resp">ユーザー</td><td class="user-resp">ユーザー</td><td class="aws-resp">提供側</td><td class="aws-resp">提供側</td></tr>
+              <tr><td>仮想化/ハイパーバイザー</td><td class="user-resp">ユーザー</td><td class="aws-resp">提供側</td><td class="aws-resp">提供側</td><td class="aws-resp">提供側</td></tr>
+              <tr><td>物理インフラ</td><td class="user-resp">ユーザー</td><td class="aws-resp">提供側</td><td class="aws-resp">提供側</td><td class="aws-resp">提供側</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <style>.aws-resp{color:#059669;font-weight:600} .user-resp{color:#0073BB;font-weight:600}</style>
+      </div>
+
+      <!-- TCO -->
+      <div class="section">
+        <h2 class="section-title">TCO（総所有コスト）</h2>
+        <div class="card">
+          <div class="card-title"><span class="icon">💡</span> TCO（Total Cost of Ownership）とは</div>
+          <p>システムの機器の購入から廃棄までにかかる合計コストのことです。クラウドでは総すべてのコスト（TCO）に対して大きなメリットがあります。例えば、機器や設備の初期投資・管理コストが不要であることは、TCOを削減します。クラウドの利用によって浮いた費用や時間を、ビジネス分析やプロジェクト管理、開発業務などに充てることで、より付加価値の高い作業に集中できます。</p>
+        </div>
+      </div>
+
+      <!-- 試験ポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF 頻出）</div>
+        <ul>
+          <li><strong>IaaS → EC2のようにOSより下はAWS管理</strong>（仮想化・物理インフラ）</li>
+          <li><strong>PaaS → OS・ミドルウェアまでAWS管理</strong>、アプリ・データはユーザー</li>
+          <li><strong>SaaS → アプリまで提供済み</strong>、ユーザーは設定・データ管理のみ</li>
+          <li>クラウドのコストモデルは「<strong>従量制（使った分だけ）</strong>」 → 初期投資不要</li>
+          <li>TCO（総所有コスト）削減がクラウド移行の主要メリットのひとつ</li>
+          <li>「オンプレミスからクラウドへ移行するメリット → 初期費用削減・スケーラビリティ・俊敏性・グローバル展開」</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="aws-cloud-benefits.html" class="chip">☁️ AWSクラウドの利点</a>
+          <a href="../services/ec2-purchase-options.html" class="chip">🖥 EC2 購入オプション</a>
+          <a href="aws-caf.html" class="chip">📋 AWS CAF</a>
+          <a href="../services/cost-explorer.html" class="chip">💰 Cost Explorer（TCO計算）</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

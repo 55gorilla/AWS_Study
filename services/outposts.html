@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Outposts | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="outposts">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>その他</span><span>›</span><span>Outposts</span>
+      </nav>
+      <div class="page-title">
+        <h1>🏗 AWS Outposts <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS Outposts は、<strong>AWSのインフラ（ハードウェア）を顧客のオンプレミスデータセンターに設置し、AWSサービスをオンサイトで実行できるハイブリッドサービス</strong>です。
+          低レイテンシやデータ所在地の要件があるワークロードに対応します。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">AWS Outposts の概要</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Outposts.rtfd/28086.jpg" alt="Outposts概要" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">AWSが設計・管理する物理ラックを自社施設に設置し、EC2・EBS・RDSなどのAWSサービスをローカルで実行できます。クラウドと同じAPI・ツールで運用できます。</p>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA）</div>
+        <ul>
+          <li><strong>「AWSサービスをオンプレミスで実行・超低レイテンシ → Outposts」</strong></li>
+          <li>データをオンプレミスに保持する必要がある（データ所在地要件）場合に有効</li>
+          <li>クラウドと同じAPIで一貫した運用</li>
+          <li>工場・医療・金融など、低レイテンシ・規制要件のあるワークロード向け</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="../concepts/on-premise-cloud.html" class="chip">🏢 オンプレミスとクラウド</a>
+          <a href="storage-gateway.html" class="chip">🔌 Storage Gateway</a>
+          <a href="wavelength.html" class="chip">📡 Wavelength</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

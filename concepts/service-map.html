@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWSサービスマップ | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .map-intro { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 24px; font-size: .9rem; color: var(--text-muted); }
+    .pattern-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media(max-width:768px) { .pattern-grid { grid-template-columns: 1fr; } }
+    .pattern-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .pattern-title { font-size: 14px; font-weight: 700; color: var(--orange); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .pattern-desc { font-size: .85rem; color: var(--text-muted); margin-bottom: 12px; }
+  </style>
+</head>
+<body data-page="service-map">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="../services/ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="../services/s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="../services/dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="../services/elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="../services/kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="../services/cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="../services/trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>AWSサービスマップ</span>
+      </nav>
+      <div class="page-title">
+        <h1>🗺 AWSサービス全体マップ <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">AWSサービスの全体像と、サービス間の連携パターンを一覧で確認できます。試験で頻出の「どのサービスを組み合わせるか」という思考の訓練に使いましょう。</p>
+      </div>
+
+      <!-- タブUI -->
+      <div class="tab-bar">
+        <button class="tab active" onclick="showTab('all', this)">📊 全体マップ</button>
+        <button class="tab" onclick="showTab('patterns', this)">🏗 典型アーキテクチャ</button>
+        <button class="tab" onclick="showTab('compare', this)">⚖️ サービス比較早見表</button>
+      </div>
+
+      <!-- タブ1: 全体マップ -->
+      <div id="tab-all" class="tab-content active">
+        <div class="map-intro">💡 AWSの主要サービスと、サービス間の主な接続関係を示しています。矢印はデータの流れまたはサービス連携を表します。</div>
+        <div class="mermaid">
+graph TB
+  subgraph USER["👤 ユーザー / クライアント"]
+    Browser[ブラウザ]
+    Mobile[モバイルアプリ]
+    IoT[IoTデバイス]
+  end
+
+  subgraph NETWORK["🔗 ネットワーク・配信"]
+    CF[CloudFront\nCDN]
+    R53[Route 53\nDNS]
+    ELB[ELB\nロードバランサー\nALB/NLB/GWLB]
+    GA[Global\nAccelerator]
+    WAF[AWS WAF\nWebアプリ保護]
+  end
+
+  subgraph COMPUTE["💻 コンピューティング"]
+    EC2[EC2\n仮想サーバー]
+    Lambda[Lambda\nサーバーレス]
+    ECS[ECS/Fargate\nコンテナ]
+    APIGW[API Gateway\nREST/WebSocket]
+    ASG[Auto Scaling\n自動スケーリング]
+  end
+
+  subgraph STORAGE["🪣 ストレージ"]
+    S3[Amazon S3\nオブジェクト]
+    EBS[Amazon EBS\nブロック]
+    EFS[Amazon EFS\nファイル共有]
+  end
+
+  subgraph DATABASE["🗄 データベース"]
+    DDB[DynamoDB\nNoSQL]
+    RDS[Amazon RDS\nリレーショナル]
+    Aurora[Amazon Aurora\n高性能RDB]
+    Redshift[Redshift\nデータウェアハウス]
+    Cache[ElastiCache\nキャッシュ]
+  end
+
+  subgraph ANALYTICS["📊 データ分析"]
+    Kinesis[Kinesis\nストリーミング]
+  end
+
+  subgraph MGMT["🔧 監視・管理"]
+    CW[CloudWatch\nメトリクス監視]
+    CT[CloudTrail\n監査ログ]
+    TA[Trusted Advisor\n最適化診断]
+    CE[Cost Explorer\nコスト分析]
+  end
+
+  subgraph SECURITY["🔐 セキュリティ"]
+    IAM[IAM\n認証・認可]
+    Shield[Shield\nDDoS防御]
+    KMS[KMS\n暗号化キー管理]
+  end
+
+  Browser --> CF
+  Mobile --> GA
+  IoT --> Kinesis
+  CF --> ELB
+  GA --> ELB
+  WAF --> ELB
+  WAF --> CF
+  R53 --> CF
+  R53 --> ELB
+  ELB --> EC2
+  ELB --> ECS
+  ELB --> Lambda
+  EC2 --> EBS
+  EC2 --> EFS
+  ECS --> EFS
+  APIGW --> Lambda
+  Lambda --> DDB
+  Lambda --> S3
+  EC2 --> RDS
+  EC2 --> DDB
+  EC2 --> Cache
+  RDS --> S3
+  Kinesis --> Lambda
+  Kinesis --> S3
+  CW --> ASG
+  CT --> S3
+  ASG --> EC2
+  IAM --> EC2
+  IAM --> Lambda
+  KMS --> RDS
+  KMS --> S3
+  Shield --> ELB
+  S3 --> Redshift
+  Kinesis --> Redshift
+
+  style EC2 fill:#FF9900,color:#16191F
+  style Lambda fill:#FF9900,color:#16191F
+  style S3 fill:#3F8624,color:white
+  style RDS fill:#2965CC,color:white
+  style DDB fill:#2965CC,color:white
+  style ELB fill:#8C4FFF,color:white
+  style CloudWatch fill:#E7157B,color:white
+        </div>
+      </div>
+
+      <!-- タブ2: 典型アーキテクチャ -->
+      <div id="tab-patterns" class="tab-content">
+        <div class="map-intro">💡 SAA試験でよく問われる「典型的なアーキテクチャパターン」です。それぞれのサービスがどう組み合わさるかを理解しましょう。</div>
+
+        <div class="pattern-grid">
+          <!-- 3層Webアプリ -->
+          <div class="pattern-card">
+            <div class="pattern-title">🌐 パターン1: スケーラブルな3層Webアプリ</div>
+            <div class="pattern-desc">最も基本的なWebアプリケーション構成。高可用性・自動スケーリング対応。</div>
+            <div class="mermaid">
+graph LR
+  U[👤 ユーザー] --> CF[CloudFront\nCDN]
+  CF --> ALB[ALB\nロードバランサー]
+  ALB --> EC2A[EC2\nAZ-A]
+  ALB --> EC2B[EC2\nAZ-B]
+  EC2A --> RDS[(RDS Multi-AZ)]
+  EC2B --> RDS
+  EC2A --> S3[S3\n静的コンテンツ]
+  EC2A --> Cache[(ElastiCache)]
+  ASG[Auto Scaling] -.->|管理| EC2A
+  ASG -.->|管理| EC2B
+  style ALB fill:#8C4FFF,color:white
+  style RDS fill:#2965CC,color:white
+            </div>
+          </div>
+
+          <!-- サーバーレスAPI -->
+          <div class="pattern-card">
+            <div class="pattern-title">⚡ パターン2: サーバーレスAPIバックエンド</div>
+            <div class="pattern-desc">インフラ管理不要のフルサーバーレス構成。使用分のみ課金。</div>
+            <div class="mermaid">
+graph LR
+  App[クライアント\nアプリ] --> APIGW[API Gateway]
+  APIGW --> L1[Lambda\nGET /users]
+  APIGW --> L2[Lambda\nPOST /orders]
+  L1 --> DDB[(DynamoDB)]
+  L2 --> DDB
+  L2 --> SNS[SNS\n通知]
+  S3[S3\nイベント] --> L3[Lambda\n画像処理]
+  L3 --> S3
+  CW[CloudWatch] -.->|ログ/監視| L1
+  CW -.->|ログ/監視| L2
+  style APIGW fill:#FF9900,color:#16191F
+  style DDB fill:#2965CC,color:white
+            </div>
+          </div>
+
+          <!-- データレイク -->
+          <div class="pattern-card">
+            <div class="pattern-title">📊 パターン3: リアルタイムデータレイク</div>
+            <div class="pattern-desc">IoT・ログ等のストリーミングデータを収集・分析するパターン。</div>
+            <div class="mermaid">
+graph LR
+  IoT[IoTデバイス\n/アプリ] --> KDS[Kinesis\nData Streams]
+  KDS --> Lambda[Lambda\nデータ変換]
+  KDS --> KDF[Kinesis\nFirehose]
+  Lambda --> DDB[(DynamoDB\nリアルタイム集計)]
+  KDF --> S3[S3\nデータレイク]
+  S3 --> Redshift[(Redshift\nDWH分析)]
+  CW[CloudWatch] -.->|監視| KDS
+  style KDS fill:#FF9900,color:#16191F
+  style S3 fill:#3F8624,color:white
+            </div>
+          </div>
+
+          <!-- DR構成 -->
+          <div class="pattern-card">
+            <div class="pattern-title">🛡 パターン4: セキュア・コンプライアンス構成</div>
+            <div class="pattern-desc">監査・セキュリティ要件が厳しい本番環境の典型構成。</div>
+            <div class="mermaid">
+graph LR
+  U[外部ユーザー] --> WAF[AWS WAF\nSQLi/XSS防御]
+  Shield[Shield\nDDoS防御] -.->|保護| WAF
+  WAF --> ALB[ALB]
+  ALB --> EC2[EC2 in VPC]
+  EC2 --> RDS[(RDS\n暗号化+KMS)]
+  EC2 --> S3[S3\n暗号化+KMS]
+  IAM[IAM] -.->|権限管理| EC2
+  CT[CloudTrail] -.->|全API記録| EC2
+  CW[CloudWatch] -.->|監視/アラーム| EC2
+  CT --> S3Log[S3\n監査ログ保存]
+  style WAF fill:#EF4444,color:white
+  style IAM fill:#DD344C,color:white
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- タブ3: サービス比較早見表 -->
+      <div id="tab-compare" class="tab-content">
+        <div class="map-intro">💡 試験でよく出る「どちらのサービスを使うか」の判断基準を一覧にまとめました。</div>
+
+        <div class="section">
+          <h2 class="section-title">ストレージ比較</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>判断基準</th><th>→ 選ぶべきサービス</th></tr></thead>
+              <tbody>
+                <tr><td>静的ファイル・バックアップ・HTTP配信</td><td>🪣 <strong>Amazon S3</strong></td></tr>
+                <tr><td>EC2のOSドライブ・DBボリューム（1インスタンス専用）</td><td>💿 <strong>Amazon EBS</strong></td></tr>
+                <tr><td>複数EC2で同じファイルを共有（NFS）</td><td>📁 <strong>Amazon EFS</strong></td></tr>
+                <tr><td>オンプレミスのアプリからS3/EBSにアクセス</td><td>🔌 <strong>AWS Storage Gateway</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">データベース比較</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>判断基準</th><th>→ 選ぶべきサービス</th></tr></thead>
+              <tbody>
+                <tr><td>SQL・トランザクション（ACID）・JOIN が必要</td><td>🗃 <strong>Amazon RDS</strong></td></tr>
+                <tr><td>超高速（ミリ秒以下）・スケール・スキーマレス</td><td>📊 <strong>Amazon DynamoDB</strong></td></tr>
+                <tr><td>MySQL/PostgreSQL互換でRDSより高パフォーマンス</td><td>✨ <strong>Amazon Aurora</strong></td></tr>
+                <tr><td>PB級データの分析・データウェアハウス</td><td>📉 <strong>Amazon Redshift</strong></td></tr>
+                <tr><td>DBのクエリ結果をキャッシュして高速化</td><td>⚡ <strong>Amazon ElastiCache</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">コンピューティング比較</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>判断基準</th><th>→ 選ぶべきサービス</th></tr></thead>
+              <tbody>
+                <tr><td>OSレベルの管理が必要・長時間実行</td><td>🖥 <strong>Amazon EC2</strong></td></tr>
+                <tr><td>イベント駆動・サーバーレス・15分以内</td><td>⚡ <strong>AWS Lambda</strong></td></tr>
+                <tr><td>Dockerコンテナ・AWS管理オーケストレーション</td><td>📦 <strong>Amazon ECS + Fargate</strong></td></tr>
+                <tr><td>Kubernetes・フルコントロール</td><td>☸️ <strong>Amazon EKS</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">ネットワーク・セキュリティ比較</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>判断基準</th><th>→ 選ぶべきサービス</th></tr></thead>
+              <tbody>
+                <tr><td>HTTP/HTTPSの高度なルーティング（パス/ホストベース）</td><td>🌐 <strong>ALB</strong></td></tr>
+                <tr><td>TCP/UDPの超低レイテンシ・固定IP</td><td>⚡ <strong>NLB</strong></td></tr>
+                <tr><td>グローバルトラフィック最適化・固定AnycastIP</td><td>🌐 <strong>Global Accelerator</strong></td></tr>
+                <tr><td>SQLインジェクション・XSS・ボット対策</td><td>🛡 <strong>AWS WAF</strong></td></tr>
+                <tr><td>DDoS攻撃からの保護</td><td>🛡 <strong>AWS Shield</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">監視・ログ比較</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>判断基準</th><th>→ 選ぶべきサービス</th></tr></thead>
+              <tbody>
+                <tr><td>CPU使用率・メモリ等のパフォーマンス監視</td><td>📈 <strong>CloudWatch</strong></td></tr>
+                <tr><td>誰がいつ何の操作をしたか（API監査）</td><td>🔍 <strong>CloudTrail</strong></td></tr>
+                <tr><td>AWSベストプラクティスとの乖離チェック</td><td>💡 <strong>Trusted Advisor</strong></td></tr>
+                <tr><td>過去コストの可視化・将来予測</td><td>💰 <strong>Cost Explorer</strong></td></tr>
+                <tr><td>予算超過アラート設定</td><td>💰 <strong>AWS Budgets</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 このページの使い方</div>
+        <ul>
+          <li>「全体マップ」でサービス間の繋がりを俯瞰してから、各サービスページで詳細を学ぶ</li>
+          <li>「典型アーキテクチャ」は SAA試験の「シナリオ問題」に直接対応</li>
+          <li>「サービス比較」はどのサービスを選ぶかの判断軸を素早く確認するのに使う</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FF9900',
+      primaryTextColor: '#16191F',
+      lineColor: '#0073BB',
+      background: '#f8fafc',
+      clusterBkg: '#1a2634',
+      clusterBorder: '#0073BB'
+    }
+  });
+
+  function showTab(name, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

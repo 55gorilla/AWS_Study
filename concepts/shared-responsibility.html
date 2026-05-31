@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>責任共有モデル | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="shared-responsibility">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="shared-responsibility.html" class="nav-item active" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="../services/ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="../services/s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="../services/dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="../services/elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="../services/kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="../services/cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="../services/trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../services/waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>基礎概念</span>
+        <span>›</span><span>責任共有モデル</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🤝 責任共有モデル <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          AWSのセキュリティの考え方は、セキュリティ対策の責任をAWSとユーザーで分担する
+          <strong>「責任共有モデル」</strong>です。<br>
+          AWSとユーザーの責任領域は、ユーザーが利用するAWSクラウドサービスに応じて変わります。
+          AWSが提供するクラウドサービスの領域はAWSがセキュリティ対策の責任を持ち、
+          クラウドサービスを利用する上でユーザーが設定・変更できる領域はユーザーがセキュリティ対策の責任を持ちます。
+        </p>
+      </div>
+
+      <!-- 全体図 -->
+      <div class="section">
+        <h2 class="section-title">責任共有モデルのイメージ</h2>
+        <div class="img-block">
+          <img src="../知見/責任共有モデル.rtfd/28155.jpg" alt="責任共有モデルの概念図" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <!-- 責任の分担 -->
+      <div class="section">
+        <h2 class="section-title">責任の分担</h2>
+        <div class="feature-grid">
+          <div class="feature-item" style="border-left:4px solid var(--orange)">
+            <div class="feature-title">🏢 AWSが責任を持つもの</div>
+            <div class="feature-desc">「クラウドのセキュリティ（Security OF the Cloud）」</div>
+            <ul style="margin-top:12px;padding-left:20px;line-height:1.8">
+              <li>AWSのサービスが稼働するハードウェアのセキュリティ対策</li>
+              <li>AWSのサービスが稼働するデータセンターのセキュリティ対策</li>
+              <li>ハイパーバイザー（ホストOS）※のパッチ適用・セキュリティ対策</li>
+            </ul>
+            <p style="font-size:.85rem;color:var(--text-muted);margin-top:10px">
+              ※「ハイパーバイザー（ホストOS）」とは、仮想化環境を実現するための土台となる仮想化ソフトウェアやOSのことです。また、ハイパーバイザーなどの仮想環境上で動作するOSのことを「ゲストOS」といいます。
+            </p>
+          </div>
+          <div class="feature-item" style="border-left:4px solid var(--blue)">
+            <div class="feature-title">👤 ユーザーが責任を持つもの</div>
+            <div class="feature-desc">「クラウドにおけるセキュリティ（Security IN the Cloud）」</div>
+            <ul style="margin-top:12px;padding-left:20px;line-height:1.8">
+              <li>AWSサービスを利用するにあたって作成した認証情報（IAMユーザー、IAMロールなど）</li>
+              <li>AWSサービスへのアクセス管理</li>
+              <li>AWSサービス上のユーザーデータやログ</li>
+              <li>ゲストOSのパッチ適用・セキュリティ対策</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 具体例の対応表 -->
+      <div class="section">
+        <h2 class="section-title">サービス別の責任範囲</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>責任項目</th>
+                <th>IaaS (EC2)</th>
+                <th>PaaS (RDS)</th>
+                <th>SaaS (S3)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>物理ハードウェア</td>
+                <td class="aws-resp">AWS</td>
+                <td class="aws-resp">AWS</td>
+                <td class="aws-resp">AWS</td>
+              </tr>
+              <tr>
+                <td>ハイパーバイザー</td>
+                <td class="aws-resp">AWS</td>
+                <td class="aws-resp">AWS</td>
+                <td class="aws-resp">AWS</td>
+              </tr>
+              <tr>
+                <td>OS（ゲストOS）パッチ</td>
+                <td class="user-resp">ユーザー</td>
+                <td class="aws-resp">AWS</td>
+                <td class="aws-resp">AWS（管理不要）</td>
+              </tr>
+              <tr>
+                <td>アプリケーション</td>
+                <td class="user-resp">ユーザー</td>
+                <td class="user-resp">ユーザー</td>
+                <td class="aws-resp">AWS</td>
+              </tr>
+              <tr>
+                <td>データ・暗号化</td>
+                <td class="user-resp">ユーザー</td>
+                <td class="user-resp">ユーザー</td>
+                <td class="user-resp">ユーザー</td>
+              </tr>
+              <tr>
+                <td>IAM・アクセス管理</td>
+                <td class="user-resp">ユーザー</td>
+                <td class="user-resp">ユーザー</td>
+                <td class="user-resp">ユーザー</td>
+              </tr>
+              <tr>
+                <td>ネットワーク設定（VPC等）</td>
+                <td class="user-resp">ユーザー</td>
+                <td class="user-resp">ユーザー</td>
+                <td class="user-resp">ユーザー</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <style>
+          .aws-resp { color: #059669; font-weight: 600; }
+          .user-resp { color: #0073BB; font-weight: 600; }
+        </style>
+      </div>
+
+      <!-- IT統制 -->
+      <div class="section">
+        <h2 class="section-title">IT統制への適用</h2>
+        <p style="margin-bottom:16px">AWSの責任共有モデルは、IT統制にも適用されます。ここでいう「統制」とは、IT環境やセキュリティを管理・監査するためのプロセスや方法を意味します。AWSとユーザーは、それぞれ異なる責任を持ち、協力して統制を行います。</p>
+
+        <div class="img-block">
+          <img src="../知見/責任共有モデル.rtfd/28156.jpg" alt="IT統制のイメージ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+
+        <div class="feature-grid" style="margin-top:24px">
+          <div class="feature-item">
+            <div class="feature-title">📥 継承される統制（Inherited Controls）</div>
+            <p>AWSが提供するインフラストラクチャやサービスに関する統制のうち、ユーザーが完全に引き継ぐ統制のことです。AWSは物理的なインフラや環境の管理を担当し、ユーザーはそれに関連する統制を引き継ぎます。</p>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li>物理統制：AWSは自身のデータセンターにおける物理的なセキュリティを管理</li>
+              <li>環境統制：データセンター内の温湿度管理・電力供給・冷却システムの監視</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🤝 共有統制（Shared Controls）</div>
+            <p>AWSとユーザーがそれぞれの役割に基づいて分担して管理する統制です。</p>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li><strong>パッチ管理</strong>：AWSはインフラのパッチ適用を担当、ユーザーはゲストOSやアプリのパッチを担当</li>
+              <li><strong>構成管理</strong>：AWSはインフラの構成管理、ユーザーはゲストOSやアプリの構成を担当</li>
+              <li><strong>意識とトレーニング</strong>：AWSはAWS従業員へのセキュリティトレーニングを提供、ユーザーは自社従業員へのトレーニングを実施</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">👤 ユーザー固有の統制（Customer-Specific Controls）</div>
+            <p>特定のセキュリティ要件に基づき、ユーザーが完全に管理する統制です。</p>
+            <p style="margin-top:8px">例えば、ユーザーが自身のセキュリティ要件に従い、データを特定のセキュリティ環境内でルーティングまたは区分けする必要がある場合、これらの統制はユーザーの責任となります。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 試験のポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA 頻出）</div>
+        <ul>
+          <li><strong>EC2のゲストOSパッチ適用はユーザー責任</strong>（RDSはAWS責任）— この違いは必ず覚える</li>
+          <li><strong>データの暗号化・アクセス管理は常にユーザー責任</strong> — どのサービスを使っても変わらない</li>
+          <li>IAMユーザー・IAMロールの管理はユーザー責任</li>
+          <li>物理インフラ（サーバー・データセンター）はAWS責任</li>
+          <li>マネージドサービス（RDS, S3, DynamoDB）ほどAWSの責任範囲が広くなる</li>
+          <li><strong>「責任共有モデルにより、AWSがOSのパッチ適用を行う」→ EC2の場合は誤り（ユーザー責任）</strong></li>
+        </ul>
+      </div>
+
+      <!-- 関連サービス -->
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="../services/dynamodb.html" class="chip">📊 DynamoDB（マネージドDB）</a>
+          <a href="../services/s3.html" class="chip">🪣 Amazon S3</a>
+          <a href="aws-caf.html" class="chip">📋 AWS CAF</a>
+          <a href="aws-cloud-benefits.html" class="chip">☁️ クラウドの利点</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

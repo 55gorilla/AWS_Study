@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon CloudWatch | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="cloudwatch">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item active" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>監視・管理</span>
+        <span>›</span><span>Amazon CloudWatch</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>📈 Amazon CloudWatch <span class="badge badge-clf">CLF</span></h1>
+        <p class="desc">
+          サービスを継続して運用するために、管理者はストレージがすべて使い切られる前に余裕を確保しておいたり、
+          負荷が高くなり機能不全に陥る前に追加のリソースを用意したりと、
+          状況に応じた適切な処置を行う必要があります。<br>
+          Amazon CloudWatch は、<strong>AWSやオンプレミスのリソースを監視するサービス</strong>です。
+          メトリクス（CPU使用率やディスクの読み書き量など）がしきい値（境界値）を超える・下回った場合に、
+          管理者にアラームを出すなどのアクションを実行できます。
+        </p>
+      </div>
+
+      <!-- 全体像の図 -->
+      <div class="section">
+        <h2 class="section-title">CloudWatch の全体像</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon CloudWatch.rtfd/28048.jpg"
+               alt="CloudWatchの全体イメージ図" loading="lazy">
+          <p class="img-caption">
+            EC2・RDS・S3・ELB・オンプレミスのシステムなど、各サービスのメトリクス・ログを収集し、
+            サービス状況の監視やログ解析、アクション・アラームの実行に活用する
+          </p>
+        </div>
+      </div>
+
+      <!-- 3つの主要機能 -->
+      <div class="section">
+        <h2 class="section-title">CloudWatch の3つの主要機能</h2>
+        <p style="margin-bottom:16px;color:var(--muted);">CloudWatch には、大きく分けて以下の3つの機能があります。</p>
+
+        <!-- 1. メトリクス -->
+        <div class="card">
+          <div class="card-title"><span class="icon">📊</span> 1. メトリクスの収集・監視</div>
+
+          <p>CloudWatch が監視するリソースの様々な情報を「<strong>メトリクス</strong>」といいます。
+            メトリクスは、CloudWatch のダッシュボードから確認できます。</p>
+
+          <div class="key-point" style="margin-top:14px">
+            メトリクスには、AWSによってあらかじめ定義されている <strong>「標準メトリクス」</strong> と、
+            管理者が「<strong>カスタムメトリクス</strong>」として定義し、
+            CloudWatchエージェントをインストールしたEC2インスタンスからAWS CLIコマンドやAPIを用いてCloudWatchへ送信することで監視できるものがあります。
+          </div>
+
+          <!-- 標準メトリクスの図 -->
+          <div class="img-block" style="margin-top:16px">
+            <img src="../知見/Amazon CloudWatch.rtfd/28049.jpg"
+                 alt="CloudWatchのダッシュボード（メトリクス一覧）" loading="lazy">
+            <p class="img-caption">CloudWatch ダッシュボード — 各サービスのメトリクス一覧表示例（DynamoDB 16件、EBS 7件、EC2 17件...）</p>
+          </div>
+
+          <p style="margin-top:16px">標準メトリクスは各AWSサービスごとに設定されています。以下はその例です：</p>
+
+          <div class="table-wrap" style="margin-top:12px">
+            <table>
+              <thead>
+                <tr><th>サービス</th><th>標準メトリクスの例</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>EC2</strong></td><td>CPU使用率、ディスクの読み取り・書き込み量</td></tr>
+                <tr><td><strong>ELB</strong></td><td>リクエスト数、リクエストの応答時間</td></tr>
+                <tr><td><strong>S3</strong></td><td>バケットサイズ、ファイル（オブジェクト）数</td></tr>
+                <tr><td><strong>RDS</strong></td><td>ストレージの空き容量、期間の読み取り・書き込み操作量</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 標準vsカスタム比較表 -->
+          <div class="img-block" style="margin-top:16px">
+            <img src="../知見/Amazon CloudWatch.rtfd/28050.jpg"
+                 alt="EC2の標準メトリクスとカスタムメトリクスの違い" loading="lazy">
+            <p class="img-caption">EC2インスタンスの代表的な監視項目 — 標準メトリクスとカスタムメトリクスの区分</p>
+          </div>
+
+          <div class="exam-tip" style="margin-top:16px">
+            <div class="exam-tip-title">🔶 重要：標準 vs カスタムメトリクス</div>
+            <p>標準メトリクスでカバーされない項目、例えば
+              <strong>メモリ使用量</strong>や<strong>ディスクの空き容量・使用状況</strong>などは、
+              管理者が「カスタムメトリクス」として定義し、
+              対象のEC2インスタンスへ「<strong>CloudWatchエージェント</strong>」をインストールした後、
+              AWS CLIコマンドやAPIを用いてCloudWatchへ送信することで監視できます。</p>
+            <ul style="margin-top:8px">
+              <li>✅ EC2 CPU使用率 → <strong>標準メトリクス</strong>（エージェント不要）</li>
+              <li>✅ EC2 ネットワークトラフィック量 → <strong>標準メトリクス</strong>（エージェント不要）</li>
+              <li>⚠️ EC2 メモリ使用量 → <strong>カスタムメトリクス</strong>（CloudWatchエージェント必要）</li>
+              <li>⚠️ EC2 ディスクの空き容量 → <strong>カスタムメトリクス</strong>（CloudWatchエージェント必要）</li>
+              <li>⚠️ EC2 プロセス情報 → <strong>カスタムメトリクス</strong>（CloudWatchエージェント必要）</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. アラームとアクション -->
+        <div class="card">
+          <div class="card-title"><span class="icon">🔔</span> 2. アラームとアクション</div>
+
+          <p>CloudWatch では、設定したメトリクスに基づいてアラームを設定し、
+            条件を満たした際に特定のアクションを自動的に実行することができます。</p>
+
+          <div class="key-point" style="margin-top:12px">
+            例：EC2インスタンスのCPU使用率が80%を超えた場合、
+            管理者にメールを送信するというアクションを設定できます。<br>
+            この通知機能は、<strong>Amazon Simple Notification Service（SNS）と連携</strong>して実現されます。
+          </div>
+
+          <p style="margin-top:12px">設定できるアクションの例：</p>
+          <ul style="margin-top:8px">
+            <li>SNS経由でメール・SMS・Slackなどに通知</li>
+            <li>インスタンスの<strong>自動再起動・停止・終了</strong></li>
+            <li>Auto Scalingと連携した自動スケールアウト</li>
+          </ul>
+        </div>
+
+        <!-- 3. ログ -->
+        <div class="card">
+          <div class="card-title"><span class="icon">📝</span> 3. ログの収集・分析（CloudWatch Logs）</div>
+
+          <p>CloudWatch Logs は、AWSサービスやEC2インスタンスのOSやアプリケーションのログを
+            収集し、一元管理するサービスです。</p>
+
+          <p style="margin-top:10px">収集できるログの例：</p>
+          <ul style="margin-top:8px">
+            <li><strong>CloudTrail</strong> における AWS サービスの操作ログ</li>
+            <li><strong>VPCフローログ</strong>（VPC利用時のIPトラフィック情報）</li>
+            <li>EC2インスタンスのOSログ・アプリケーションログ（エージェント必要）</li>
+          </ul>
+
+          <p style="margin-top:12px">
+            収集したログは、メッセージの内容をフィルタリングして管理者に通知させることができます。<br>
+            例：EC2インスタンスのOSログで「Error」の文字列を1時間に5回検出した場合、管理者へメール通知する。
+          </p>
+
+          <div class="exam-tip" style="margin-top:14px">
+            <div class="exam-tip-title">🔶 重要：EC2のOSログ収集にはエージェントが必要</div>
+            <p>EC2インスタンス上のアプリケーションやOSのログを収集するには、
+              対象のEC2インスタンスへ「<strong>CloudWatchエージェント</strong>」をインストールする必要があります。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CloudWatchまとめ -->
+      <div class="section">
+        <h2 class="section-title">CloudWatch まとめ</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>機能</th><th>概要</th><th>代表的なユースケース</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>メトリクス</strong></td>
+                <td>CPU・ネットワーク・ストレージなどの監視</td>
+                <td>EC2のCPU使用率を監視してキャパシティ計画</td>
+              </tr>
+              <tr>
+                <td><strong>アラーム</strong></td>
+                <td>しきい値を超えたら自動アクション</td>
+                <td>CPU 80%超でSNS経由メール通知 + Auto Scaling起動</td>
+              </tr>
+              <tr>
+                <td><strong>CloudWatch Logs</strong></td>
+                <td>ログの一元収集・フィルタリング</td>
+                <td>アプリのErrorログ検知で管理者アラート</td>
+              </tr>
+              <tr>
+                <td><strong>ダッシュボード</strong></td>
+                <td>グラフ・メトリクスの可視化</td>
+                <td>複数サービスの状態を一画面で監視</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 試験のポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF頻出）</div>
+        <ul>
+          <li><strong>標準メトリクス vs カスタムメトリクス</strong>の区別が最頻出。<strong>メモリ使用量はカスタム</strong>（エージェント必要）と覚える</li>
+          <li>アラームの通知は <strong>SNS（Simple Notification Service）と連携</strong>して実現される</li>
+          <li>EC2インスタンスのOSログやアプリログを収集するには <strong>CloudWatchエージェントのインストール</strong>が必要</li>
+          <li>CloudWatchは監視・アラート・ログ管理を担う。<strong>操作履歴の記録はCloudTrail</strong>（別サービス）の役割</li>
+          <li><strong>VPCフローログ</strong>（IPトラフィック情報）もCloudWatch Logsで収集できる</li>
+        </ul>
+      </div>
+
+      <!-- 関連サービス -->
+      <div class="section">
+        <h2 class="section-title">関連するサービス</h2>
+        <div class="chip-list">
+          <span class="chip">📣 SNS（アラーム通知）</span>
+          <a href="dynamodb.html" class="chip">📊 DynamoDB（監視対象）</a>
+          <span class="chip" style="opacity:.5">🔍 CloudTrail（操作ログ）</span>
+          <span class="chip" style="opacity:.5">🖥 EC2（監視対象）</span>
+          <span class="chip" style="opacity:.5">🗃 RDS（監視対象）</span>
+          <span class="chip" style="opacity:.5">🪣 S3（監視対象）</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

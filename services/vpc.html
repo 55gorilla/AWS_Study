@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon VPC | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="vpc">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/global-infra.html" class="nav-item" data-page="global-infra">🌍 グローバルインフラ<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2.html" class="nav-item" data-page="ec2">🖥 Amazon EC2<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🏷 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API GW<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="ecs-fargate-eks.html" class="nav-item" data-page="ecs-fargate-eks">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="aurora.html" class="nav-item" data-page="aurora">✨ Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="vpc.html" class="nav-item active" data-page="vpc">🔗 Amazon VPC<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudformation.html" class="nav-item" data-page="cloudformation">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="iam.html" class="nav-item" data-page="iam">🔐 IAM / Organizations<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>ネットワーキング</span><span>›</span><span>Amazon VPC</span>
+      </nav>
+      <div class="page-title">
+        <h1>🔗 Amazon VPC <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon VPC（Virtual Private Cloud）は、<strong>AWS内に独立したプライベートネットワーク空間を作成するサービス</strong>です。
+          EC2・RDSなどのリソースをVPC内に配置し、外部からのアクセスを細かく制御できます。SAA試験で最も重要なサービスの一つです。
+        </p>
+      </div>
+
+      <!-- VPC基本構造 -->
+      <div class="section">
+        <h2 class="section-title">VPCの基本構造</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon VPC.rtfd/27962.jpg" alt="VPC基本構造" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="mermaid">
+graph TB
+  subgraph VPC["🔗 VPC（プライベートネットワーク）CIDR: 10.0.0.0/16"]
+    subgraph PUB["パブリックサブネット\n10.0.1.0/24（AZ-a）"]
+      EC2P[EC2\nWebサーバー\nパブリックIP]
+      ALB[ALB]
+    end
+    subgraph PRI["プライベートサブネット\n10.0.2.0/24（AZ-a）"]
+      EC2A[EC2\nアプリサーバー]
+      RDS[(RDS)]
+    end
+    IGW[🌐 インターネット\nゲートウェイ]
+    NAT[NAT\nゲートウェイ]
+    RT_PUB[ルートテーブル\nPublic]
+    RT_PRI[ルートテーブル\nPrivate]
+  end
+  INET[インターネット] <-->|双方向通信| IGW
+  IGW <--> RT_PUB
+  RT_PUB --> PUB
+  NAT -->|アウトバウンドのみ| INET
+  RT_PRI --> NAT
+  RT_PRI --> PRI
+
+  style PUB fill:#1a3a2a,stroke:#10B981
+  style PRI fill:#1a2040,stroke:#0073BB
+  style IGW fill:#FF9900,color:#16191F
+  style NAT fill:#7C3AED,color:white
+        </div>
+      </div>
+
+      <!-- サブネット -->
+      <div class="section">
+        <h2 class="section-title">サブネット（パブリック vs プライベート）</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon VPC.rtfd/27963.jpg" alt="サブネット" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="table-wrap" style="margin-top:16px">
+          <table>
+            <thead><tr><th>種類</th><th>インターネット接続</th><th>配置するリソース例</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>パブリックサブネット</strong></td>
+                <td>◎ インターネットゲートウェイ経由で双方向接続</td>
+                <td>WebサーバーEC2、ALB、踏み台サーバー</td>
+              </tr>
+              <tr>
+                <td><strong>プライベートサブネット</strong></td>
+                <td>△ NATゲートウェイ経由でアウトバウンドのみ可</td>
+                <td>DBサーバー、アプリサーバー（外部に直接さらさない）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- IPアドレス -->
+      <div class="section">
+        <h2 class="section-title">IPアドレスの種類</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon VPC.rtfd/27964.jpg" alt="IPアドレス種類" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:16px">
+          <div class="feature-item">
+            <div class="feature-title">🏠 プライベートIPアドレス</div>
+            <p>VPC内部でのみ使用。インスタンス起動時に自動割り当て。インスタンスを停止しても変わらない。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🌐 パブリックIPアドレス</div>
+            <p>インターネット接続用の動的IP。インスタンスを<strong>停止・再起動するたびに変わる</strong>。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📌 Elastic IPアドレス</div>
+            <p>固定のパブリックIPアドレス。インスタンスを停止・再起動しても<strong>変わらない</strong>。アタッチしていない間は課金発生。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ゲートウェイ -->
+      <div class="section">
+        <h2 class="section-title">インターネットゲートウェイ / NATゲートウェイ</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon VPC.rtfd/27965.jpg" alt="インターネットゲートウェイ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/Amazon VPC.rtfd/27966.jpg" alt="NATゲートウェイ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:16px">
+          <div class="feature-item" style="border-left:4px solid var(--orange)">
+            <div class="feature-title">🌐 インターネットゲートウェイ（IGW）</div>
+            <p>VPCとインターネット間の双方向通信を可能にするゲートウェイ。パブリックサブネットのルートテーブルにIGWへのルートを設定することで、インターネット接続が有効になります。</p>
+          </div>
+          <div class="feature-item" style="border-left:4px solid #7C3AED">
+            <div class="feature-title">🔄 NATゲートウェイ</div>
+            <p>プライベートサブネットのリソースがインターネットへ<strong>アウトバウンド通信のみ</strong>できるようにするサービス。外部からの直接アクセスは不可。パブリックサブネットに配置。<strong>AWSマネージドサービス</strong>（可用性高）。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- セキュリティグループ vs NACL -->
+      <div class="section">
+        <h2 class="section-title">セキュリティグループ vs ネットワークACL</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon VPC.rtfd/27967.jpg" alt="セキュリティグループ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/Amazon VPC.rtfd/27972.jpg" alt="ネットワークACL" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="table-wrap" style="margin-top:16px">
+          <table>
+            <thead><tr><th>比較項目</th><th>セキュリティグループ（SG）</th><th>ネットワークACL（NACL）</th></tr></thead>
+            <tbody>
+              <tr><td>適用範囲</td><td>EC2インスタンス単位</td><td>サブネット単位</td></tr>
+              <tr><td>ステートフル / ステートレス</td><td><strong>ステートフル</strong>（インバウンドを許可すれば応答は自動許可）</td><td><strong>ステートレス</strong>（インバウンド・アウトバウンド両方の定義が必要）</td></tr>
+              <tr><td>ルールの評価</td><td>全ルールを評価して最終判断</td><td>番号順に評価（最初にマッチしたルールが適用）</td></tr>
+              <tr><td>デフォルト動作</td><td>全て拒否（明示的許可が必要）</td><td>デフォルトNACLは全て許可</td></tr>
+              <tr><td>Deny設定</td><td>不可（許可のみ）</td><td>可（許可/拒否を設定できる）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="key-point" style="margin-top:16px">
+          <strong>多層防御のベストプラクティス</strong>：セキュリティグループ（インスタンス単位）+ NACL（サブネット単位）の組み合わせで多層のネットワークセキュリティを実現
+        </div>
+      </div>
+
+      <!-- VPCエンドポイント -->
+      <div class="section">
+        <h2 class="section-title">VPCエンドポイント（AWS PrivateLink）</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon VPC.rtfd/27968.jpg" alt="VPCエンドポイント" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">VPC内のリソースが<strong>インターネットを経由せずにAWSサービスに接続できる</strong>仕組みです。プライベートサブネットのEC2がインターネットなしにS3やDynamoDBにアクセスするケースで使用します。</p>
+        <div class="feature-grid" style="margin-top:16px">
+          <div class="feature-item">
+            <div class="feature-title">🚪 ゲートウェイエンドポイント</div>
+            <p><strong>S3とDynamoDB</strong>専用。ルートテーブルにエントリを追加するだけ。無料。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🔌 インターフェースエンドポイント（PrivateLink）</div>
+            <p>その他のAWSサービス向け。ENI（Elastic Network Interface）をサブネットに作成。有料。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VPCピアリング / Transit Gateway -->
+      <div class="section">
+        <h2 class="section-title">VPC間の接続</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon VPC.rtfd/27969.jpg" alt="VPCピアリング" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="img-block" style="margin-top:16px">
+          <img src="../知見/Amazon VPC.rtfd/27970.jpg" alt="Transit Gateway" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:16px">
+          <div class="feature-item">
+            <div class="feature-title">🤝 VPCピアリング</div>
+            <p>2つのVPC間をプライベートに接続。インターネット経由しない。ただし<strong>推移的接続は不可</strong>（A↔B↔CでもA↔C不可）。接続数が増えると管理複雑。</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">🌐 AWS Transit Gateway</div>
+            <p>複数VPCやオンプレミスを<strong>ハブアンドスポーク型</strong>で接続する中央ルーター。推移的接続が可能。大規模な複数VPC環境に最適。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VPCフローログ -->
+      <div class="section">
+        <h2 class="section-title">VPCフローログ</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon VPC.rtfd/27971.jpg" alt="VPCフローログ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">VPC内のネットワークインターフェースを通過するIPトラフィックの情報を記録するサービスです。セキュリティ分析・トラブルシューティングに使用します。CloudWatch LogsまたはS3に保存できます。</p>
+      </div>
+
+      <!-- Network Firewall -->
+      <div class="section">
+        <h2 class="section-title">AWS Network Firewall</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon VPC.rtfd/28157.jpg" alt="Network Firewall" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">VPCのトラフィックを深いパケット検査（DPI）でフィルタリングする高度なファイアウォールサービスです。セキュリティグループ・NACLより高度なL7レベルの制御が可能です。</p>
+      </div>
+
+      <!-- 試験ポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA 最重要）</div>
+        <ul>
+          <li><strong>セキュリティグループはステートフル（応答は自動許可）</strong>、NACLはステートレス（両方向の定義必要）</li>
+          <li><strong>パブリックサブネット → インターネットゲートウェイ（双方向）</strong></li>
+          <li><strong>プライベートサブネット → NATゲートウェイ（アウトバウンドのみ）</strong></li>
+          <li>Elastic IP = 固定パブリックIP（インスタンス停止後も保持）</li>
+          <li><strong>VPCエンドポイント</strong>：インターネット経由せずにS3/DynamoDBに接続（ゲートウェイ型が多い）</li>
+          <li>VPCピアリングは推移的接続不可。多数のVPC接続にはTransit Gatewayを使う</li>
+          <li>NACLはサブネット単位、セキュリティグループはインスタンス単位</li>
+          <li><strong>「プライベートサブネットのEC2がインターネットにアクセス → NATゲートウェイ」</strong></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="ec2.html" class="chip">🖥 Amazon EC2（VPC内に配置）</a>
+          <a href="rds.html" class="chip">🗃 RDS（プライベートサブネットに配置）</a>
+          <a href="elb.html" class="chip">⚖️ ELB（パブリックサブネットに配置）</a>
+          <a href="waf-shield.html" class="chip">🛡 WAF / Shield</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#FF9900',primaryTextColor:'#16191F',lineColor:'#0073BB',background:'#f8fafc'}});</script>
+</body>
+</html>

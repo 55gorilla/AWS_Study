@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Batch | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="batch">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>コンピューティング</span><span>›</span><span>AWS Batch</span>
+      </nav>
+      <div class="page-title">
+        <h1>📦 AWS Batch <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS Batch は、<strong>大規模なバッチコンピューティングジョブを自動的に実行・スケーリングするフルマネージドサービス</strong>です。
+          ジョブの数や要件に応じて、最適なコンピューティングリソース（EC2/Fargate/スポット）を自動的にプロビジョニングします。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">AWS Batch の概要</h2>
+        <div class="img-block">
+          <img src="../知見/AWS Batch.rtfd/28023.jpg" alt="AWS Batch概要" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">ジョブキューに投入されたジョブを、AWS Batchが自動的にスケジューリングし、必要なコンピューティング環境を用意して実行します。完了するとリソースは自動的に縮小されます。</p>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA）</div>
+        <ul>
+          <li><strong>「大規模なバッチ処理を自動実行・スケーリング → AWS Batch」</strong></li>
+          <li>ジョブキュー・ジョブ定義・コンピューティング環境で構成</li>
+          <li>スポットインスタンスを使ってコスト最適化が可能</li>
+          <li>科学計算・データ分析・レンダリング・ETL処理などに利用</li>
+          <li>Lambda（15分制限）では足りない長時間バッチに適する</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="ec2-purchase-options.html" class="chip">🏷 スポットインスタンス</a>
+          <a href="ecs-fargate-eks.html" class="chip">🐳 ECS / Fargate</a>
+          <a href="lambda.html" class="chip">⚡ Lambda</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>

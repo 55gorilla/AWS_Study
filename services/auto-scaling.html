@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Scaling | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="auto-scaling">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-group"><div class="nav-group-title">基礎概念</div>
+      <a href="../concepts/aws-cloud-benefits.html" class="nav-item" data-page="cloud-benefits">☁️ クラウドの利点<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/shared-responsibility.html" class="nav-item" data-page="shared-responsibility">🤝 責任共有モデル<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/on-premise-cloud.html" class="nav-item" data-page="on-premise-cloud">🏢 オンプレミスとクラウド<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="../concepts/aws-caf.html" class="nav-item" data-page="aws-caf">📋 AWS CAF<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">コンピューティング</div>
+      <a href="ec2-purchase-options.html" class="nav-item" data-page="ec2-purchase-options">🖥 EC2 購入オプション<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="lambda.html" class="nav-item" data-page="lambda">⚡ Lambda / API Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="auto-scaling.html" class="nav-item active" data-page="auto-scaling">📈 Auto Scaling<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🐳 ECS / Fargate / EKS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ストレージ</div>
+      <a href="s3.html" class="nav-item" data-page="s3">🪣 Amazon S3<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="ebs.html" class="nav-item" data-page="ebs">💿 Amazon EBS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="efs.html" class="nav-item" data-page="efs">📁 Amazon EFS<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔌 Storage Gateway<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データベース</div>
+      <a href="dynamodb.html" class="nav-item" data-page="dynamodb">📊 DynamoDB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="rds.html" class="nav-item" data-page="rds">🗃 Amazon RDS<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">✨ Amazon Aurora<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">📉 Amazon Redshift<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">ネットワーキング</div>
+      <a href="elb.html" class="nav-item" data-page="elb">⚖️ ELB<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="global-accelerator.html" class="nav-item" data-page="global-accelerator">🌐 Global Accelerator<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🌍 CloudFront / Route53<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">データ分析</div>
+      <a href="kinesis.html" class="nav-item" data-page="kinesis">🌊 Amazon Kinesis<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">監視・管理</div>
+      <a href="cloudwatch.html" class="nav-item" data-page="cloudwatch">📈 CloudWatch<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cloudtrail.html" class="nav-item" data-page="cloudtrail">🔍 CloudTrail<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🏗 CloudFormation<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+      <a href="trusted-advisor.html" class="nav-item" data-page="trusted-advisor">💡 Trusted Advisor<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="cost-explorer.html" class="nav-item" data-page="cost-explorer">💰 Cost Explorer<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+    </div>
+    <div class="nav-group"><div class="nav-group-title">セキュリティ</div>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔐 IAM<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="waf-shield.html" class="nav-item" data-page="waf-shield">🛡 WAF / Shield<span class="nav-badge clf">CLF</span><span class="nav-dot"></span></a>
+      <a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">🔑 KMS / CloudHSM<span class="nav-badge saa">SAA</span><span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>コンピューティング</span>
+        <span>›</span><span>Auto Scaling</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>📈 Auto Scaling <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Auto Scaling は、<strong>需要に応じてEC2インスタンス数を自動的に増減させる</strong>サービスです。
+          アクセスが増加した際には自動でインスタンスを追加し、減少した際には不要なインスタンスを削除することで、
+          コストの最適化と可用性の確保を同時に実現します。
+        </p>
+      </div>
+
+      <!-- Auto Scaling Group -->
+      <div class="section">
+        <h2 class="section-title">Auto Scaling グループ（ASG）</h2>
+        <div class="img-block">
+          <img src="../知見/Auto Scaling.rtfd/118144.jpg" alt="Auto Scalingグループの概要" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="feature-grid" style="margin-top:20px">
+          <div class="feature-item">
+            <div class="feature-title">⚙️ グループの設定値</div>
+            <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
+              <li><strong>最小数（Min）</strong>：常に稼働させるインスタンスの最小数</li>
+              <li><strong>希望数（Desired）</strong>：通常時に維持するインスタンス数</li>
+              <li><strong>最大数（Max）</strong>：スケールアウト時の上限インスタンス数</li>
+            </ul>
+          </div>
+          <div class="feature-item">
+            <div class="feature-title">📋 起動テンプレート</div>
+            <p>Auto Scalingで起動するEC2インスタンスの設定（AMI・インスタンスタイプ・セキュリティグループ等）を定義するテンプレート。</p>
+            <p style="margin-top:8px">以前は「起動設定」が使われていたが、現在は<strong>起動テンプレート</strong>が推奨。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- スケーリングポリシー -->
+      <div class="section">
+        <h2 class="section-title">スケーリングポリシーの種類</h2>
+        <div class="img-block">
+          <img src="../知見/Auto Scaling.rtfd/118145.jpg" alt="スケーリングポリシー一覧" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+
+        <!-- 動的スケーリング -->
+        <div style="margin-top:28px">
+          <h3 style="color:var(--orange);margin-bottom:16px">🔄 動的スケーリング（Dynamic Scaling）</h3>
+          <p style="margin-bottom:16px">CloudWatchアラームをトリガーに、リアルタイムの需要に応じてスケーリングします。3つのサブタイプがあります。</p>
+
+          <div class="feature-item" style="border-left:4px solid var(--orange);margin-bottom:12px">
+            <div class="feature-title">① シンプルスケーリング（Simple Scaling）</div>
+            <p>CloudWatchアラームが発火すると、固定数のインスタンスを追加・削除します。</p>
+            <div class="img-block" style="margin-top:12px">
+              <img src="../知見/Auto Scaling.rtfd/118146.jpg" alt="シンプルスケーリング" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            </div>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">例：CPU使用率が70%を超えたら2台追加。アラームが1種類のため細かい制御が難しい。</p>
+          </div>
+
+          <div class="feature-item" style="border-left:4px solid #F59E0B;margin-bottom:12px">
+            <div class="feature-title">② ステップスケーリング（Step Scaling）</div>
+            <p>アラームの超過量（ステップ）に応じて、追加・削除するインスタンス数を変えます。</p>
+            <div class="img-block" style="margin-top:12px">
+              <img src="../知見/Auto Scaling.rtfd/118147.jpg" alt="ステップスケーリング" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            </div>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">例：CPU 60〜80%なら1台追加、80〜100%なら3台追加。段階的な対応が可能。</p>
+          </div>
+
+          <div class="feature-item" style="border-left:4px solid #10B981;margin-bottom:12px">
+            <div class="feature-title">③ ターゲット追跡スケーリング（Target Tracking）</div>
+            <p>指定したメトリクスを目標値に維持するよう自動調整します。最もシンプルで推奨される方式。</p>
+            <div class="img-block" style="margin-top:12px">
+              <img src="../知見/Auto Scaling.rtfd/118148.jpg" alt="ターゲット追跡スケーリング" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            </div>
+            <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">例：「平均CPU使用率を50%に維持する」と設定するだけ。スケールイン・アウトを自動計算。</p>
+          </div>
+        </div>
+
+        <!-- 予測スケーリング -->
+        <div class="feature-item" style="border-left:4px solid var(--blue);margin-bottom:12px;margin-top:20px">
+          <div class="feature-title">🤖 予測スケーリング（Predictive Scaling）</div>
+          <p>機械学習を使って過去のトラフィックパターンを分析し、将来の需要を予測して事前にスケーリングします。</p>
+          <div class="img-block" style="margin-top:12px">
+            <img src="../知見/Auto Scaling.rtfd/118149.jpg" alt="予測スケーリング" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+          </div>
+          <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">例：毎朝9時に急増するアクセスを予測して8:45に事前スケールアウト。動的スケーリングとの組み合わせが推奨。</p>
+        </div>
+
+        <!-- スケジュールスケーリング -->
+        <div class="feature-item" style="border-left:4px solid #7C3AED;margin-bottom:12px">
+          <div class="feature-title">📅 スケジュールスケーリング（Scheduled Scaling）</div>
+          <p>特定の日時に合わせてスケーリングを実行します。予測可能なトラフィックパターンに対応します。</p>
+          <div class="img-block" style="margin-top:12px">
+            <img src="../知見/Auto Scaling.rtfd/27995.jpg" alt="スケジュールスケーリング" style="max-width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+          </div>
+          <p style="margin-top:8px;font-size:.85rem;color:var(--text-muted)">例：毎週月〜金の08:00にインスタンスを増やし、20:00に減らすよう設定。</p>
+        </div>
+
+        <!-- 手動スケーリング -->
+        <div class="feature-item" style="border-left:4px solid #6B7280;margin-bottom:12px">
+          <div class="feature-title">🖱 手動スケーリング（Manual Scaling）</div>
+          <p>手動でAuto Scalingグループの希望数を変更します。テスト時や特別なイベントのための一時的な変更に使用します。</p>
+        </div>
+      </div>
+
+      <!-- スケーリングポリシー比較表 -->
+      <div class="section">
+        <h2 class="section-title">スケーリングポリシー比較表</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ポリシー</th>
+                <th>トリガー</th>
+                <th>特徴</th>
+                <th>向いているケース</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>シンプルスケーリング</td>
+                <td>CloudWatchアラーム</td>
+                <td>固定数増減。設定が簡単。</td>
+                <td>シンプルな要件</td>
+              </tr>
+              <tr>
+                <td>ステップスケーリング</td>
+                <td>CloudWatchアラーム（複数段階）</td>
+                <td>超過量に応じて段階的に増減。</td>
+                <td>急激な変動への細かい対応</td>
+              </tr>
+              <tr>
+                <td>ターゲット追跡</td>
+                <td>メトリクスの目標値</td>
+                <td>目標値を設定するだけ。<strong>推奨</strong>。</td>
+                <td>ほとんどの用途</td>
+              </tr>
+              <tr>
+                <td>予測スケーリング</td>
+                <td>ML予測（自動）</td>
+                <td>事前スケーリング。動的と組み合わせ推奨。</td>
+                <td>周期的なトラフィックパターン</td>
+              </tr>
+              <tr>
+                <td>スケジュール</td>
+                <td>時刻・日付</td>
+                <td>指定日時に実行。確実な事前対応。</td>
+                <td>イベント・定期的な需要変動</td>
+              </tr>
+              <tr>
+                <td>手動</td>
+                <td>オペレーター操作</td>
+                <td>即座に変更可能。</td>
+                <td>テスト・緊急対応</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 試験のポイント -->
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF・SAA 頻出）</div>
+        <ul>
+          <li><strong>ターゲット追跡スケーリングが最も推奨</strong> — 目標値を設定するだけで自動調整</li>
+          <li>予測スケーリングは動的スケーリングと組み合わせて使うのが推奨</li>
+          <li>スケジュールスケーリングは<strong>確実に発生する需要増加</strong>（セール開始・イベント等）に使う</li>
+          <li>Auto Scaling + ELB（ロードバランサー）の組み合わせで高可用性アーキテクチャを実現</li>
+          <li>シンプルスケーリングよりステップスケーリングの方が柔軟（段階的対応）</li>
+          <li>「コスト最適化しながら可用性を維持 → Auto Scaling」が CLF の定番</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="cloudwatch.html" class="chip">📈 CloudWatch（アラームのトリガー元）</a>
+          <a href="ec2-purchase-options.html" class="chip">🖥 EC2 購入オプション</a>
+          <a href="global-accelerator.html" class="chip">🌐 Global Accelerator</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

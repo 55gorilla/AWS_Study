@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon AppStream 2.0 | AWS 資格学習ポータル</title>
+  <script src="../js/auth.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="appstream">
+<div id="overlay" class="overlay"></div>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo"><span class="logo-badge">AWS</span><span class="logo-text">資格学習ポータル</span></a>
+  <div class="header-levels"><span class="badge badge-clf">CLF</span><span class="badge badge-saa">SAA</span></div>
+</header>
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a><span>›</span><span>エンドユーザー</span><span>›</span><span>AppStream 2.0</span>
+      </nav>
+      <div class="page-title">
+        <h1>📲 Amazon AppStream 2.0 <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon AppStream 2.0 は、<strong>クラウド上でアプリケーションを実行し、その画面をユーザーのデバイスにストリーミング配信するサービス</strong>です。
+          高性能なローカルマシンがなくても、ブラウザから重いアプリケーション（CAD・解析ソフト等）を利用できます。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">AppStream 2.0 の概要</h2>
+        <div class="img-block">
+          <img src="../知見/Amazon AppStream 2.0.rtfd/28098.jpg" alt="AppStream概要" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <p style="margin-top:12px">アプリケーションの実体はAWS上で動作し、ユーザーには画面（映像）のみが配信されます。ユーザーの操作はクラウドに送られ、結果が映像で返ってきます。クライアント側のハードウェア要件が大幅に軽減されます。</p>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA）</div>
+        <ul>
+          <li><strong>「アプリ単位でクラウドからストリーミング配信 → AppStream 2.0」</strong></li>
+          <li>クライアント端末のスペックに依存せず重いアプリを利用可能</li>
+          <li><strong>AppStream = アプリ単位、WorkSpaces = デスクトップ全体</strong>（この違いを区別）</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="workspaces.html" class="chip">🖥 WorkSpaces（デスクトップ全体）</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/app.js"></script>
+</body>
+</html>
