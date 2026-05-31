@@ -13,8 +13,7 @@
   'use strict';
 
   // 正解パスワードの SHA-256 ハッシュ（平文は埋め込まない）
-  // 初期値の平文は「aws-study」。必ず上記手順で自分のパスワードに変更してください。
-  var PASSWORD_HASH = '5abf040b6afea4bafd3535ccbe08ee89c17f86692a21e2ad83d7368580c26a86';
+  var PASSWORD_HASH = '4b7a412d8c22d4f2e022eef91415c4ab62c10d57aee9ac175f326d6ae2bab9ac';
 
   var FLAG = 'awsPortalAuthed';
 
