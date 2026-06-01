@@ -22,6 +22,17 @@
       ],
     },
     {
+      title: 'Well-Architected',
+      items: [
+        { id: 'well-architected',      dir: 'concepts', icon: '🏛', label: 'フレームワーク概要',     levels: 'clf saa', enabled: true },
+        { id: 'wa-security',           dir: 'concepts', icon: '🛡', label: 'セキュリティの柱',       levels: 'clf saa', enabled: true },
+        { id: 'wa-reliability',        dir: 'concepts', icon: '🔁', label: '信頼性の柱',             levels: 'clf saa', enabled: true },
+        { id: 'wa-performance',        dir: 'concepts', icon: '⚡', label: 'パフォーマンス効率の柱',  levels: 'clf saa', enabled: true },
+        { id: 'wa-cost',               dir: 'concepts', icon: '💰', label: 'コスト最適化の柱',       levels: 'clf saa', enabled: true },
+        { id: 'wa-operational',        dir: 'concepts', icon: '🛠', label: '運用上の優秀性の柱',     levels: 'clf saa', enabled: true },
+      ],
+    },
+    {
       title: 'コンピューティング',
       items: [
         { id: 'ec2',                   dir: 'services', icon: '🖥', label: 'Amazon EC2',            levels: 'clf saa', enabled: true },
@@ -63,13 +74,28 @@
         { id: 'vpc',                   dir: 'services', icon: '🔗', label: 'Amazon VPC',            levels: 'clf saa', enabled: true },
         { id: 'elb',                   dir: 'services', icon: '⚖️', label: 'ELB',                   levels: 'clf saa', enabled: true },
         { id: 'global-accelerator',    dir: 'services', icon: '🌐', label: 'Global Accelerator',    levels: 'saa',     enabled: true },
-        { id: 'cloudfront-route53',    dir: 'services', icon: '🌍', label: 'CloudFront / Route53',  levels: 'clf saa', enabled: false },
+        { id: 'cloudfront',            dir: 'services', icon: '🌍', label: 'Amazon CloudFront',     levels: 'clf saa', enabled: true },
+        { id: 'route53',               dir: 'services', icon: '🧭', label: 'Amazon Route 53',       levels: 'clf saa', enabled: true },
+        { id: 'direct-connect-vpn',    dir: 'services', icon: '🔌', label: 'Direct Connect / VPN',  levels: 'clf saa', enabled: true },
       ],
     },
     {
       title: 'データ分析',
       items: [
         { id: 'kinesis',               dir: 'services', icon: '🌊', label: 'Amazon Kinesis',        levels: 'saa',     enabled: true },
+        { id: 'data-firehose',         dir: 'services', icon: '🚒', label: 'Data Firehose',         levels: 'saa',     enabled: true },
+        { id: 'athena',                dir: 'services', icon: '🔎', label: 'Amazon Athena',         levels: 'saa',     enabled: true },
+        { id: 'glue',                  dir: 'services', icon: '🔧', label: 'AWS Glue',              levels: 'saa',     enabled: true },
+        { id: 'quicksight',            dir: 'services', icon: '📊', label: 'Amazon QuickSight',     levels: 'saa',     enabled: true },
+      ],
+    },
+    {
+      title: 'アプリケーション統合',
+      items: [
+        { id: 'sns',                   dir: 'services', icon: '📣', label: 'Amazon SNS',            levels: 'clf saa', enabled: true },
+        { id: 'sqs',                   dir: 'services', icon: '📨', label: 'Amazon SQS',            levels: 'clf saa', enabled: true },
+        { id: 'eventbridge',           dir: 'services', icon: '🔔', label: 'EventBridge',           levels: 'saa',     enabled: true },
+        { id: 'step-functions',        dir: 'services', icon: '🔀', label: 'Step Functions',        levels: 'saa',     enabled: true },
       ],
     },
     {
@@ -77,6 +103,7 @@
       items: [
         { id: 'cloudwatch',            dir: 'services', icon: '📈', label: 'CloudWatch',            levels: 'clf saa', enabled: true },
         { id: 'cloudtrail',            dir: 'services', icon: '🔍', label: 'CloudTrail',            levels: 'clf saa', enabled: true },
+        { id: 'x-ray',                 dir: 'services', icon: '🩻', label: 'AWS X-Ray',             levels: 'saa',     enabled: true },
         { id: 'cloudformation',        dir: 'services', icon: '🏗', label: 'CloudFormation',        levels: 'saa',     enabled: true },
         { id: 'aws-config',            dir: 'services', icon: '⚙️', label: 'AWS Config',            levels: 'saa',     enabled: true },
         { id: 'systems-manager',       dir: 'services', icon: '🛠', label: 'Systems Manager',       levels: 'saa',     enabled: true },
@@ -95,6 +122,11 @@
         { id: 'kms-cloudhsm',          dir: 'services', icon: '🔑', label: 'KMS / CloudHSM',        levels: 'saa',     enabled: true },
         { id: 'secrets-manager',       dir: 'services', icon: '🔒', label: 'Secrets Manager',       levels: 'saa',     enabled: true },
         { id: 'certificate-manager',   dir: 'services', icon: '📜', label: 'Certificate Manager',   levels: 'clf saa', enabled: true },
+        { id: 'cognito',               dir: 'services', icon: '👤', label: 'Amazon Cognito',        levels: 'saa',     enabled: true },
+        { id: 'sts',                   dir: 'services', icon: '🎟', label: 'AWS STS',               levels: 'saa',     enabled: true },
+        { id: 'iam-identity-center',   dir: 'services', icon: '🪪', label: 'IAM Identity Center',   levels: 'saa',     enabled: true },
+        { id: 'security-services',     dir: 'services', icon: '🛡', label: 'セキュリティ検出',       levels: 'clf saa', enabled: true },
+        { id: 'pen-testing',           dir: 'concepts', icon: '🧪', label: 'ペネトレーションテスト', levels: 'clf saa', enabled: true },
       ],
     },
     {
@@ -105,6 +137,29 @@
         { id: 'audit-manager',         dir: 'services', icon: '🔎', label: 'Audit Manager',         levels: 'saa',     enabled: true },
         { id: 'marketplace',           dir: 'services', icon: '🛒', label: 'AWS Marketplace',       levels: 'clf',     enabled: true },
         { id: 'managed-services',      dir: 'services', icon: '🤲', label: 'Managed Services',      levels: 'clf',     enabled: true },
+        { id: 'support',               dir: 'services', icon: '🛟', label: 'AWS サポートプラン',     levels: 'clf saa', enabled: true },
+      ],
+    },
+    {
+      title: '移行・転送',
+      items: [
+        { id: 'migration-tools',       dir: 'services', icon: '🚚', label: 'AWSへの移行ツール',     levels: 'saa',     enabled: true },
+        { id: 'datasync',              dir: 'services', icon: '🔄', label: 'AWS DataSync',          levels: 'saa',     enabled: true },
+        { id: 'snowball',              dir: 'services', icon: '❄️', label: 'AWS Snowball',          levels: 'clf saa', enabled: true },
+      ],
+    },
+    {
+      title: '開発者ツール',
+      items: [
+        { id: 'developer-tools',       dir: 'services', icon: '🧰', label: 'デベロッパーツール',     levels: 'saa',     enabled: true },
+        { id: 'cloud9',                dir: 'services', icon: '💻', label: 'AWS Cloud9',            levels: 'saa',     enabled: true },
+        { id: 'amplify',               dir: 'services', icon: '🔺', label: 'AWS Amplify',           levels: 'saa',     enabled: true },
+      ],
+    },
+    {
+      title: '機械学習・AI',
+      items: [
+        { id: 'ml-ai',                 dir: 'services', icon: '🤖', label: 'ML / AI サービス',      levels: 'clf saa', enabled: true },
       ],
     },
     {
@@ -121,14 +176,19 @@
   /* ── ドメインカード用アイコン（グループ名 → 絵文字） ── */
   const DOMAIN_ICONS = {
     '基礎概念':                      '☁️',
+    'Well-Architected':              '🏛',
     'コンピューティング':            '💻',
     'ストレージ':                    '🪣',
     'データベース':                  '🗄️',
     'ネットワーキング':              '🔗',
     'データ分析':                    '🌊',
+    'アプリケーション統合':          '🔔',
     '監視・管理':                    '📊',
     'セキュリティ':                  '🔐',
     'ガバナンス・コンプライアンス':  '🏛',
+    '移行・転送':                    '🚚',
+    '開発者ツール':                  '🧰',
+    '機械学習・AI':                  '🤖',
     'エンドユーザー / ハイブリッド': '🖥',
   };
 

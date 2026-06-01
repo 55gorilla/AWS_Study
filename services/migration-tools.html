@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWSへの移行ツール | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="migration-tools">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>移行・転送</span>
+        <span>›</span><span>AWSへの移行ツール</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🚚 AWSへの移行ツール <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWSへの移行は、現状把握 → 移行作業 → 進捗確認という複数のステップで進められます。
+          AWSは各ステップを支援する専用ツールを提供しています。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">主な移行サービス</h2>
+        <div class="feature-grid">
+          <div class="feature-item"><div class="feature-title">🔎 Application Discovery Service（ADS）</div><p>オンプレのサーバーやDBの情報（構成・使用状況・依存関係）を収集し、移行後の設計の参考情報にする。</p></div>
+          <div class="feature-item"><div class="feature-title">🗃 Database Migration Service（DMS）</div><p>DB移行を簡素化。異種DBエンジン間（例：MySQL→PostgreSQL）も移行可能。CDCで継続的レプリケーションし、最小限のダウンタイムで移行。</p></div>
+          <div class="feature-item"><div class="feature-title">🖥 Application Migration Service（MGN）</div><p>サーバー全体を<strong>リフトアンドシフト</strong>で迅速移行。カットオーバー時のダウンタイムを最小化。別アカウント・リージョン間移行も対応。</p></div>
+          <div class="feature-item"><div class="feature-title">📊 Migration Hub</div><p>移行プロジェクト全体の進捗を一元管理。ADS・DMS・MGNと連携し、1つのダッシュボードに集約。</p></div>
+          <div class="feature-item"><div class="feature-title">🔧 Migration Hub Refactor Spaces</div><p>モノリスからマイクロサービスへの段階的リファクタリングを支援。HTTPトラフィックを既存と新サービスへ振り分ける。</p></div>
+          <div class="feature-item"><div class="feature-title">💹 Migration Evaluator</div><p>オンプレの利用状況を分析しベースラインを整理。移行のビジネスケース作成やコスト見積もりを支援。</p></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">移行戦略（7R）</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>戦略</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Retire（廃止）</strong></td><td>使われていないアプリ・サーバーを廃止・アーカイブする。</td></tr>
+              <tr><td><strong>Retain（保持）</strong></td><td>移行せず現状維持する（まだ移行しない）。</td></tr>
+              <tr><td><strong>Rehost（リホスト）</strong></td><td>「リフトアンドシフト」。変更を加えずEC2などへ移行。</td></tr>
+              <tr><td><strong>Relocate（再配置）</strong></td><td>構成を維持したまま実行場所のみを移動（例：VMware on AWS）。</td></tr>
+              <tr><td><strong>Repurchase（再購入）</strong></td><td>別バージョンや製品（SaaSなど）に置き換える。</td></tr>
+              <tr><td><strong>Replatform（リプラットフォーム）</strong></td><td>大きな改変なしに一部を最適化（例：マネージドDBへ）。</td></tr>
+              <tr><td><strong>Refactor / Re-architect</strong></td><td>クラウドネイティブな構造へ作り変える。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="img-block" style="margin-top:20px">
+          <img src="../知見/AWSへの移行ツール.rtfd/28111.jpg" alt="移行ツールのイメージ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li>DB移行＝<strong>DMS</strong>（異種DB変換は SCT 併用）、サーバー移行＝<strong>MGN</strong></li>
+          <li>現状把握＝<strong>ADS</strong>、進捗管理＝<strong>Migration Hub</strong></li>
+          <li>移行戦略「7R」：Retire / Retain / Rehost / Relocate / Repurchase / Replatform / Refactor</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="datasync.html" class="chip">🔄 DataSync</a>
+          <a href="snowball.html" class="chip">❄️ Snowball</a>
+          <a href="storage-gateway.html" class="chip">🔌 Storage Gateway</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

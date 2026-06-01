@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS X-Ray | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="x-ray">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>監視・管理</span>
+        <span>›</span><span>AWS X-Ray</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🩻 AWS X-Ray <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS X-Ray は、<strong>アプリケーションの動作データを収集・分析</strong>できるサービスです。
+          主にトラブルシューティング目的で利用され、アプリケーション内のリクエストを<strong>トレース</strong>して、
+          処理時間や応答を分析することで、<strong>パフォーマンスのボトルネックやエラー発生箇所を特定</strong>できます。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">特徴</h2>
+        <div class="feature-grid">
+          <div class="feature-item"><div class="feature-title">🔍 分散トレーシング</div><p>マイクロサービスやサーバーレス構成で、リクエストがどのサービスをどれだけの時間で通過したかを可視化。</p></div>
+          <div class="feature-item"><div class="feature-title">🗺 サービスマップ</div><p>サービス間の呼び出し関係を地図として表示し、遅延やエラーの発生箇所を直感的に把握。</p></div>
+        </div>
+        <p style="margin-top:16px;color:var(--text-muted)">X-Ray は CloudWatch の「X-Ray トレース」機能としても利用できます。</p>
+        <div class="img-block" style="margin-top:20px">
+          <img src="../知見/AWS X-Ray.rtfd/140306.jpg" alt="X-Ray トレースのイメージ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li>「アプリのボトルネック／エラー箇所を特定したい（分散トレーシング） → AWS X-Ray」</li>
+          <li>Lambda・API Gateway・ECS などマイクロサービスのパフォーマンス分析に有効</li>
+          <li>CloudWatch（メトリクス・ログ）と組み合わせて可観測性を高める</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="cloudwatch.html" class="chip">📈 CloudWatch</a>
+          <a href="lambda.html" class="chip">⚡ Lambda</a>
+          <a href="cloudtrail.html" class="chip">🔍 CloudTrail</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

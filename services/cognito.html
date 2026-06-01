@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Cognito | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="cognito">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>セキュリティ</span>
+        <span>›</span><span>Amazon Cognito</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>👤 Amazon Cognito <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon Cognito は、モバイル／Webアプリケーション向けに<strong>ユーザー認証とアクセス制御</strong>を提供するサービスです。
+          ユーザー名・メール・電話番号でのアカウント作成、パスワード認証に加え、Google や Facebook など<strong>外部IDプロバイダー（IdP）による認証</strong>も利用できます。数千万ユーザー規模まで対応します。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">2つのコンポーネント</h2>
+        <div class="feature-grid">
+          <div class="feature-item" style="border-left:4px solid var(--orange)">
+            <div class="feature-title">🪪 ユーザープール</div>
+            <p>ユーザーの<strong>認証と管理</strong>を行う。サインアップ／サインイン／パスワードリセットなどを提供し、外部IdPとのフェデレーション認証にも対応。</p>
+            <p style="margin-top:8px">認証成功時に <strong>JWT（JSON Web Token）</strong> を発行し、API Gateway などのアクセス制御に利用できる。</p>
+          </div>
+          <div class="feature-item" style="border-left:4px solid #2563EB">
+            <div class="feature-title">🎫 IDプール（アイデンティティプール）</div>
+            <p>認証済み／匿名ユーザーに、<strong>AWSリソースへアクセスするための一時的な認証情報（STSクレデンシャル）</strong>を発行する。</p>
+            <p style="margin-top:8px">条件に応じて IAM ロールが割り当てられ、そのロールの権限でAWSリソースへのアクセスが制御される。</p>
+          </div>
+        </div>
+        <div class="img-block" style="margin-top:20px">
+          <img src="../知見/Amazon Cognito.rtfd/28046.jpg" alt="Cognito ユーザープールとIDプール" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li>「アプリのユーザー認証・サインイン（数百万人規模）→ Amazon Cognito」</li>
+          <li><strong>ユーザープール＝認証（誰か）</strong>、<strong>IDプール＝AWSリソースへの一時認証情報</strong></li>
+          <li>Google / Facebook / SAML など外部IdPとのフェデレーションに対応</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="iam.html" class="chip">🔐 IAM</a>
+          <a href="sts.html" class="chip">🎟 AWS STS</a>
+          <a href="lambda.html" class="chip">⚡ Lambda</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

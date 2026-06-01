@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Route 53 | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="route53">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>ネットワーキング</span>
+        <span>›</span><span>Amazon Route 53</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🧭 Amazon Route 53 <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon Route 53 は、AWSが提供する<strong>DNS（Domain Name System）の運用サービス</strong>です。
+          非常に高い可用性と信頼性を備え、<strong>SLA で 100% の稼働率</strong>が保証されています。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">DNS とは</h2>
+        <p style="margin-bottom:16px">
+          DNS とは「example.com」のようなドメイン名を「192.0.2.1」のようなIPアドレスに変換する仕組みです。
+          コンピュータ同士はIPアドレスで通信相手を特定するため、ドメイン名からIPアドレスを得る処理（<strong>名前解決</strong>）が必要になります。
+        </p>
+        <div class="feature-grid">
+          <div class="feature-item"><div class="feature-title">📕 権威DNSサーバー（コンテンツサーバー）</div><p>自ドメインのゾーン情報から名前解決の回答を返すサーバー。ドメイン管理者がレコードを登録する。</p></div>
+          <div class="feature-item"><div class="feature-title">🔁 キャッシュDNSサーバー（フルサービスリゾルバー）</div><p>クライアントからの問い合わせを受け、権威サーバーへ問い合わせて結果を返す。応答をキャッシュして高速化する。</p></div>
+        </div>
+        <div class="img-block" style="margin-top:20px">
+          <img src="../知見/Amazon Route 53.rtfd/28087.jpg" alt="Route 53 利用イメージ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">主な機能</h2>
+        <ul style="padding-left:18px;line-height:1.9">
+          <li><strong>権威DNSサーバー</strong> — ゾーン情報を管理し名前解決を行う</li>
+          <li><strong>ドメイン名の購入・登録・管理</strong></li>
+          <li><strong>ヘルスチェック</strong> — リソースの正常性を監視し、ルーティングに反映</li>
+        </ul>
+        <p style="margin-top:12px;color:var(--text-muted)">主なレコード種別：A（IPv4）・AAAA（IPv6）・CNAME（別名）・MX（メール）・NS（委任）・Alias（AWSリソースへのエイリアス）。ワイルドカード（<code>*.example.com</code>）も登録可能。</p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">ルーティングポリシー</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ポリシー</th><th>動作</th></tr></thead>
+            <tbody>
+              <tr><td><strong>シンプル</strong></td><td>ドメイン名に紐づく単一リソースのIPを回答する。</td></tr>
+              <tr><td><strong>加重（重み付け）</strong></td><td>複数のIPに設定した重みに従って回答を振り分ける。</td></tr>
+              <tr><td><strong>レイテンシー</strong></td><td>遅延が最も小さいリージョンのリソースを回答する。</td></tr>
+              <tr><td><strong>位置情報（Geolocation）</strong></td><td>ユーザーの所在地に基づいてリソースを回答する。</td></tr>
+              <tr><td><strong>地理的近接性</strong></td><td>ユーザーと地理的に近いリージョンのリソースを回答する。</td></tr>
+              <tr><td><strong>複数値回答</strong></td><td>ヘルスチェックで正常な中から最大8個のIPを回答する。</td></tr>
+              <tr><td><strong>フェイルオーバー</strong></td><td>プライマリに障害が発生したらセカンダリへ自動切替（例：EC2障害時にS3のソーリーページへ）。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF / SAA 頻出）</div>
+        <ul>
+          <li>Route 53 = AWSのマネージドDNS、稼働率100% SLA</li>
+          <li><strong>フェイルオーバー</strong>ルーティング＋ヘルスチェックで可用性を高める</li>
+          <li><strong>レイテンシー</strong>／<strong>地理的近接性</strong>ルーティングでグローバル最適化</li>
+          <li>Alias レコードで CloudFront・ELB・S3 などAWSリソースを指定できる</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="cloudfront.html" class="chip">🌍 CloudFront</a>
+          <a href="elb.html" class="chip">⚖️ ELB</a>
+          <a href="vpc.html" class="chip">🔗 Amazon VPC</a>
+          <a href="global-accelerator.html" class="chip">🌐 Global Accelerator</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

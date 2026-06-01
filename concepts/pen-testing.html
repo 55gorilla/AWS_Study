@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ペネトレーションテスト | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="pen-testing">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>セキュリティ</span>
+        <span>›</span><span>ペネトレーションテスト</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🧪 ペネトレーションテスト <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          ペネトレーションテスト（侵入テスト／攻撃テスト）は、<strong>システムやネットワークに意図的に攻撃を仕掛けて脆弱性を発見する</strong>セキュリティ評価手法です。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">AWSでの許可ポリシー</h2>
+        <p style="margin-bottom:16px">
+          AWSでは、<strong>特定のサービスに対して、事前の承認なしでペネトレーションテストを実施できます</strong>。
+          対象には EC2、NAT ゲートウェイ、ELB、RDS などが含まれます。
+        </p>
+        <div class="key-point">
+          <strong>注意：</strong>許可されているのは「自分が所有するリソース」に対するテストのみです。
+          DDoS攻撃のシミュレーションなど一部の活動には、別途AWSへの事前申請・承認が必要です。
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント</div>
+        <ul>
+          <li>EC2・NATゲートウェイ・ELB・RDS などは<strong>事前承認なしでペネトレーションテスト可能</strong></li>
+          <li>DDoSシミュレーションなどは別途AWSの承認が必要</li>
+          <li>テスト対象は自分が所有するリソースに限られる</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="shared-responsibility.html" class="chip">🤝 責任共有モデル</a>
+          <a href="../services/waf-shield.html" class="chip">🛡 WAF / Shield</a>
+          <a href="../services/security-services.html" class="chip">🛡 セキュリティ検出サービス</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>セキュリティの柱 | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="wa-security">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>Well-Architected</span>
+        <span>›</span><span>セキュリティの柱</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🛡 セキュリティの柱 <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          セキュリティの柱は、AWS上のデータやシステムをリスクから保護するために、
+          <strong>適切なアクセス管理・継続的なモニタリング・インシデント対応</strong>などの方法をまとめたガイドラインです。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">設計原則</h2>
+        <ul style="padding-left:18px;line-height:1.9">
+          <li><strong>強力なアイデンティティ基盤を実装する</strong> — 最小権限の原則を適用し、適切な認証を実施する。</li>
+          <li><strong>トレーサビリティを実現する</strong> — リアルタイム監視・通知・監査で、問題発生時に迅速に対応する。</li>
+          <li><strong>全レイヤーでセキュリティを適用する</strong> — サーバー・ネットワーク・LB・アプリ・コードなど全層に多層防御を施す。</li>
+          <li><strong>セキュリティのベストプラクティスを自動化する</strong> — ソフトウェアベースで自動化し、迅速・低コストに安全性を維持する。</li>
+          <li><strong>転送中・保管中のデータを保護する</strong> — 機密性レベルに応じて暗号化・トークン化・アクセス制御を適用する。</li>
+          <li><strong>データに人の手を入れない</strong> — 直接アクセスや手作業を減らし、人為的ミスや漏洩リスクを低減する。</li>
+          <li><strong>セキュリティイベントに備える</strong> — 検出・調査・復旧のインシデント管理プロセスを定める。</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">定義（領域とベストプラクティス）</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>領域</th><th>内容とベストプラクティス例</th></tr></thead>
+            <tbody>
+              <tr><td><strong>アイデンティティとアクセス管理</strong></td><td>認証・認可を適切に管理。MFA有効化、Organizations / Control Tower で一元管理。</td></tr>
+              <tr><td><strong>検出</strong></td><td>継続的に監視し異常を早期検知。CloudTrail でAPI履歴記録、Config で設定変更を監視。</td></tr>
+              <tr><td><strong>インフラストラクチャの保護</strong></td><td>多層防御で不正アクセス・脆弱性から保護。セキュリティグループ／NACL、WAF／Shield。</td></tr>
+              <tr><td><strong>データ保護</strong></td><td>分類・暗号化で保護。KMSでキー管理、S3／EBSを暗号化、VPNで伝送データ保護。</td></tr>
+              <tr><td><strong>インシデント対応</strong></td><td>検出・封じ込め・復旧を迅速に。定期的なゲームデーで対応プロセスを検証。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント</div>
+        <ul>
+          <li><strong>最小権限の原則</strong>＝作業に必要最小限の権限のみを付与する</li>
+          <li>「全レイヤーでセキュリティ」＝多層防御（Defense in Depth）</li>
+          <li>関連サービス：IAM・MFA・CloudTrail・Config・WAF・Shield・KMS・GuardDuty</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="well-architected.html" class="chip">🏛 Well-Architected 概要</a>
+          <a href="shared-responsibility.html" class="chip">🤝 責任共有モデル</a>
+          <a href="../services/iam.html" class="chip">🔐 IAM / Organizations</a>
+          <a href="../services/security-services.html" class="chip">🛡 セキュリティ検出サービス</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

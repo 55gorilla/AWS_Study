@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS STS | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="sts">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>セキュリティ</span>
+        <span>›</span><span>AWS STS</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🎟 AWS Security Token Service（STS） <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS STS は、ユーザーやアプリケーションに対して、AWSリソースへアクセスするための<strong>一時的なセキュリティ認証情報</strong>を発行するサービスです。
+          認証情報には<strong>有効期限</strong>が設定され、期限が切れると自動的に無効化されます。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">特徴とユースケース</h2>
+        <div class="feature-grid">
+          <div class="feature-item"><div class="feature-title">⏱ 一時認証情報</div><p>有効期限付きの認証情報を発行。期限切れで自動無効化されるため、漏洩・不正利用のリスクを低減できる。</p></div>
+          <div class="feature-item"><div class="feature-title">🔁 クロスアカウントアクセス</div><p>複数アカウント間でロールを引き受け（AssumeRole）してアクセスする場面で利用。</p></div>
+          <div class="feature-item"><div class="feature-title">🔗 フェデレーション</div><p>オンプレミスのLDAP/AD や外部IdPの認証基盤を使ったAWSアクセスに利用。</p></div>
+        </div>
+        <div class="img-block" style="margin-top:20px">
+          <img src="../知見/AWSセキュリティトークンサービス.rtfd/27990.jpg" alt="STS クロスアカウントアクセスの例" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li>STS = <strong>一時的な認証情報を発行</strong>。長期キーを配らずセキュアにアクセス</li>
+          <li>IAMロールの引き受け（AssumeRole）、クロスアカウント、フェデレーションで利用</li>
+          <li>Cognito のIDプールも内部的にSTSの一時認証情報を発行する</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="iam.html" class="chip">🔐 IAM / Organizations</a>
+          <a href="cognito.html" class="chip">👤 Amazon Cognito</a>
+          <a href="iam-identity-center.html" class="chip">🪪 IAM Identity Center</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Snowball | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="snowball">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>移行・転送</span>
+        <span>›</span><span>AWS Snowball</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>❄️ AWS Snowball <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS Snowball は、オンプレミス上の<strong>大量データを安全に Amazon S3 へ転送するための専用の物理デバイス</strong>を提供するサービスです。
+          AWSから貸し出されたデバイスにデータを取り込み、AWSへ送り返すことでS3に保存されます（<strong>オフライン移行</strong>）。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">特徴</h2>
+        <p style="margin-bottom:16px">データ量に応じて複数デバイスを併用でき、複数台を「<strong>クラスター</strong>」として構成すると、負荷分散しながら並行して取り込み、大容量データの移行を効率化できます。クラスター構成で耐障害性・耐久性も高められます。</p>
+        <div class="img-block">
+          <img src="../知見/AWS Snowball.rtfd/28109.jpg" alt="Snowball デバイスのイメージ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Snowball の種類</h2>
+        <div class="feature-grid">
+          <div class="feature-item"><div class="feature-title">💽 Snowball Edge Storage 最適化</div><p>大規模なデータ移行・ストレージ向け。S3へのインポートだけでなくエクスポートにも対応。</p></div>
+          <div class="feature-item"><div class="feature-title">🧮 Snowball Edge Compute 最適化</div><p>vCPU・メモリを搭載したストレージ一体型。ネットワークが乏しい環境や、データをAWSへ渡す前の処理・分析・機械学習（エッジコンピューティング）に最適。S3/EC2互換APIを提供。</p></div>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF / SAA 頻出）</div>
+        <ul>
+          <li>「ネットワークでは時間がかかる<strong>大容量データを物理デバイスでオフライン移行</strong> → Snowball」</li>
+          <li>オンライン移行が可能なら DataSync / Storage Gateway を優先。困難な場合の選択肢が Snowball</li>
+          <li>Compute最適化はエッジでの処理・分析・機械学習向け</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="datasync.html" class="chip">🔄 AWS DataSync</a>
+          <a href="storage-gateway.html" class="chip">🔌 Storage Gateway</a>
+          <a href="migration-tools.html" class="chip">🚚 移行ツール</a>
+          <a href="s3.html" class="chip">🪣 Amazon S3</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

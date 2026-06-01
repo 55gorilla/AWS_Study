@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>信頼性の柱 | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="wa-reliability">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>Well-Architected</span>
+        <span>›</span><span>信頼性の柱</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🔁 信頼性の柱 <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          信頼性の柱は、<strong>障害を想定した設計や自動復旧など、システムを常に安定して実行させる</strong>ためのガイドラインです。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">設計原則</h2>
+        <ul style="padding-left:18px;line-height:1.9">
+          <li><strong>障害から自動的に復旧する</strong> — パフォーマンスを監視し、しきい値超過時の復旧プロセスを自動化する。</li>
+          <li><strong>復旧手順をテストする</strong> — 実際の障害前に復旧手順を確認・改善する。</li>
+          <li><strong>水平方向にスケールして可用性を高める</strong> — 1つの大規模リソースを複数の小規模リソースに置き換え、単一障害の影響を軽減する。</li>
+          <li><strong>キャパシティーを推測しない</strong> — 使用率を監視し、リソースの追加・削除を自動化する。</li>
+          <li><strong>自動化で変更を管理する</strong> — リソース追加・デプロイ・パッチ適用などの変更を自動化し、内容を管理する。</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">定義（領域とベストプラクティス）</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>領域</th><th>内容とベストプラクティス例</th></tr></thead>
+            <tbody>
+              <tr><td><strong>基礎</strong></td><td>リソース管理・ネットワーク設計・サービスクォータの把握。上限を把握し必要なら事前申請する。</td></tr>
+              <tr><td><strong>ワークロードアーキテクチャ</strong></td><td>高可用性・スケーラブルな設計。SQS／SNSで疎結合にし依存度を下げる。</td></tr>
+              <tr><td><strong>変更管理</strong></td><td>需要変動や内部変更に柔軟に対応。Auto Scaling で需要に応じてスケーリング。</td></tr>
+              <tr><td><strong>障害管理</strong></td><td>障害発生を素早く検知し、影響範囲を抑えて復旧する計画と実践。バックアップ・マルチAZ構成。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント</div>
+        <ul>
+          <li>「水平スケール（スケールアウト）で可用性向上」「単一障害点をなくす」</li>
+          <li>関連サービス：Auto Scaling・ELB・マルチAZ・SQS／SNS（疎結合）・Route 53（フェイルオーバー）</li>
+          <li>サービスクォータ（上限）は事前に把握し、必要に応じて引き上げ申請する</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="well-architected.html" class="chip">🏛 Well-Architected 概要</a>
+          <a href="../services/auto-scaling.html" class="chip">📈 Auto Scaling</a>
+          <a href="../services/sqs.html" class="chip">📨 Amazon SQS</a>
+          <a href="../services/route53.html" class="chip">🧭 Route 53</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

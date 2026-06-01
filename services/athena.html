@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Athena | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="athena">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>データ分析</span>
+        <span>›</span><span>Amazon Athena</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🔎 Amazon Athena <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon Athena は、<strong>Amazon S3 上のデータに対して標準SQLを実行</strong>できるデータ分析サービスです。
+          <strong>サーバーレス</strong>なので、EC2 インスタンスなどのインフラのセットアップや管理が不要です。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">特徴</h2>
+        <div class="feature-grid">
+          <div class="feature-item"><div class="feature-title">⚙️ サーバーレス</div><p>インフラ管理不要。プロトタイプの検証や、手早くデータを分析したいケースに向く。</p></div>
+          <div class="feature-item"><div class="feature-title">🪣 S3 のデータを直接分析</div><p>S3に出力される各種AWSサービスのログをそのままSQLで分析できる。</p></div>
+          <div class="feature-item"><div class="feature-title">💾 結果の保存と再実行</div><p>実行結果は事前に設定したS3バケットへ自動保存。作成したSQLは保存・再実行が簡単。</p></div>
+          <div class="feature-item"><div class="feature-title">💰 スキャン量ベースの課金</div><p>SQL実行時にスキャンしたデータ量に応じて課金（例：1TBあたり約5USD・東京リージョン）。</p></div>
+        </div>
+        <div class="img-block" style="margin-top:20px">
+          <img src="../知見/Amazon Athena.rtfd/28140.jpg" alt="Athena 実行画面" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">他の分析サービスとの違い</h2>
+        <p>Amazon EMR や Amazon Redshift もデータ分析に使えますが、いずれも<strong>インスタンスやクラスターなどのインフラ管理が必要</strong>です。Athena はインフラ管理が不要な点が大きな違いで、Glue データカタログと連携してS3上のデータにスキーマを与え、SQLで分析できます。</p>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li>「S3上のデータ／ログをサーバーレスでSQL分析 → Amazon Athena」</li>
+          <li>課金はスキャンしたデータ量ベース（列指向フォーマットや圧縮でコスト削減）</li>
+          <li>Glue データカタログと連携してスキーマを管理</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="s3.html" class="chip">🪣 Amazon S3</a>
+          <a href="glue.html" class="chip">🔧 AWS Glue</a>
+          <a href="quicksight.html" class="chip">📊 QuickSight</a>
+          <a href="redshift.html" class="chip">📉 Amazon Redshift</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

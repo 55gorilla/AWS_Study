@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Step Functions | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="step-functions">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>アプリケーション統合</span>
+        <span>›</span><span>AWS Step Functions</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🔀 AWS Step Functions <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS Step Functions は、<strong>複数のAWSサービスをワークフローとして連携させ、処理を自動化する</strong>フルマネージド型のサーバーレスサービスです。
+          処理の手順を専用のGUI（Workflow Studio）で<strong>視覚的に定義</strong>できます。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">特徴</h2>
+        <div class="feature-grid">
+          <div class="feature-item"><div class="feature-title">⚙️ サーバーレス</div><p>インフラ管理やスケーリングなどの運用オーバーヘッドを削減できる。</p></div>
+          <div class="feature-item"><div class="feature-title">🎨 視覚的なGUI</div><p>Workflow Studio でワークフローを視覚的に作成・管理できる。</p></div>
+          <div class="feature-item"><div class="feature-title">🔗 多数のサービス連携</div><p>Lambda・S3・ECS など多くのAWSサービスと連携できる。</p></div>
+          <div class="feature-item"><div class="feature-title">🧩 柔軟なワークフロー</div><p>条件分岐・待機・並列・リトライなどを組み込み、複雑なワークフローを定義できる。人手の承認待ちも可能。</p></div>
+        </div>
+        <div class="img-block" style="margin-top:20px">
+          <img src="../知見/AWS Step Functions.rtfd/28134.jpg" alt="Workflow Studio 設定画面" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li>「複数のLambdaやサービスを順序立てて連携・オーケストレーション → Step Functions」</li>
+          <li>条件分岐・リトライ・並列処理・人手の承認待ちをコードなしで定義</li>
+          <li>サーバーレスで状態（ステート）を管理するワークフローエンジン</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="lambda.html" class="chip">⚡ Lambda</a>
+          <a href="eventbridge.html" class="chip">🔔 EventBridge</a>
+          <a href="sqs.html" class="chip">📨 SQS</a>
+          <a href="ecs-fargate-eks.html" class="chip">🐳 ECS / Fargate</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

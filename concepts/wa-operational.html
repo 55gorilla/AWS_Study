@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>運用上の優秀性の柱 | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="wa-operational">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>Well-Architected</span>
+        <span>›</span><span>運用上の優秀性の柱</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🛠 運用上の優秀性の柱 <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          運用上の優秀性（オペレーショナルエクセレンス）の柱は、<strong>運用状況を把握し、業務手順を改善しながら効率的にシステムを運用する</strong>ためのガイドラインです。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">設計原則</h2>
+        <ul style="padding-left:18px;line-height:1.9">
+          <li><strong>運用をコードとして実行する</strong> — ワークロードや運用手順をコード化し、イベントに応じて自動実行して人為ミスを抑制する。</li>
+          <li><strong>小さく可逆的な変更を頻繁に行う</strong> — 変更を小さく分け、頻繁に実施して問題の影響を抑える。</li>
+          <li><strong>運用手順を定期的に改善する</strong> — 手順を見直し、効率化や問題解決を図る。</li>
+          <li><strong>障害を予測する</strong> — 障害の影響を事前にシミュレーションし、リスクを評価する。</li>
+          <li><strong>運用上のすべての障害から学ぶ</strong> — インシデントの原因と対策を明確にし、再発防止を文化として定着させる。</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">定義（領域とベストプラクティス）</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>領域</th><th>内容とベストプラクティス例</th></tr></thead>
+            <tbody>
+              <tr><td><strong>組織</strong></td><td>運用の責任やプロセスを明確化。ポリシーを組織レベルで定義し継続的に遵守。チームにトレーニング機会を提供。</td></tr>
+              <tr><td><strong>準備</strong></td><td>運用を見据えて計画・設計・テスト・訓練を実施。Git などのバージョン管理でミスを予防。</td></tr>
+              <tr><td><strong>運用</strong></td><td>システムの状態を監視・管理し、イベントやインシデントに対処する。</td></tr>
+              <tr><td><strong>進化</strong></td><td>運用やプロセスを改善し、より良い状態へ進化させる。ノウハウをドキュメント化し組織で共有。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント</div>
+        <ul>
+          <li>「運用をコード化（IaC）」「小さく頻繁な可逆的変更」「インシデントから学ぶ」</li>
+          <li>関連サービス：CloudFormation・Systems Manager・CloudWatch・CodePipeline</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="well-architected.html" class="chip">🏛 Well-Architected 概要</a>
+          <a href="../services/cloudformation.html" class="chip">🏗 CloudFormation</a>
+          <a href="../services/systems-manager.html" class="chip">🛠 Systems Manager</a>
+          <a href="../services/developer-tools.html" class="chip">🧰 デベロッパーツール</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

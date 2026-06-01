@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon CloudFront | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="cloudfront">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>ネットワーキング</span>
+        <span>›</span><span>Amazon CloudFront</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🌍 Amazon CloudFront <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon CloudFront は、AWS上で動作する<strong>安全で高速なコンテンツ配信ネットワーク（CDN）</strong>です。
+          世界中の<strong>エッジロケーション</strong>のうち、クライアントと地理的に近いロケーションが自動的に選択され、低遅延でコンテンツを配信します。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">仕組み（エッジサーバーとキャッシュ）</h2>
+        <p style="margin-bottom:16px">
+          CDNでは、世界各地の配信サーバー（<strong>エッジサーバー</strong>）が、オリジナルデータのあるサーバー（<strong>オリジンサーバー</strong>）のコンテンツをコピーして保管（キャッシュ）します。
+          クライアントはオリジンサーバーへアクセスする代わりに、近くのエッジサーバーのキャッシュからコンテンツを受け取るため、応答が高速になります。
+        </p>
+        <div class="img-block">
+          <img src="../知見/Amazon CloudFront.rtfd/28099.jpg" alt="CloudFront 配信イメージ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+        <div class="key-point" style="margin-top:20px">
+          <strong>オリジンに設定できるもの：</strong> EC2 インスタンス・S3 バケットなどのAWSリソースのほか、オンプレミスのサーバーも設定できます。
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">主な特徴</h2>
+        <div class="feature-grid">
+          <div class="feature-item"><div class="feature-title">🗂 静的・動的コンテンツ</div><p>静的コンテンツだけでなく、ライブ配信やオンデマンドストリーミングなどの動的コンテンツも高パフォーマンスで配信。</p></div>
+          <div class="feature-item"><div class="feature-title">🌐 グローバルなエッジ網</div><p>ユーザーに最も近いエッジロケーションを自動選択し、低遅延で配信。</p></div>
+          <div class="feature-item"><div class="feature-title">🔒 セキュア</div><p>HTTPS配信、AWS WAF / Shield と連携してDDoS対策やアクセス制御が可能。</p></div>
+          <div class="feature-item"><div class="feature-title">🎬 メディアサービス連携</div><p>動画変換・中継サービスと連携し、世界中へ低遅延で動的コンテンツを配信。</p></div>
+        </div>
+        <div class="img-block" style="margin-top:20px">
+          <img src="../知見/Amazon CloudFront.rtfd/28100.jpg" alt="CloudFront 構成例" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（CLF / SAA 頻出）</div>
+        <ul>
+          <li>「世界中のユーザーに低遅延でコンテンツ配信 → CloudFront（CDN）」</li>
+          <li>エッジロケーションにキャッシュして配信、オリジンの負荷を軽減</li>
+          <li>オリジンは S3・EC2・ELB・オンプレミスサーバーなど</li>
+          <li>WAF / Shield と組み合わせてセキュリティ強化</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="route53.html" class="chip">🧭 Amazon Route 53</a>
+          <a href="s3.html" class="chip">🪣 Amazon S3（オリジン）</a>
+          <a href="waf-shield.html" class="chip">🛡 WAF / Shield</a>
+          <a href="global-accelerator.html" class="chip">🌐 Global Accelerator</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

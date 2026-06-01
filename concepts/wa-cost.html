@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コスト最適化の柱 | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="wa-cost">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>Well-Architected</span>
+        <span>›</span><span>コスト最適化の柱</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>💰 コスト最適化の柱 <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          コスト最適化の柱は、<strong>コストを抑えつつ投資利益率を最大化</strong>し、
+          ビジネス目標を達成できるようにワークロードを効率化する設計・運用の考え方です。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">設計原則</h2>
+        <ul style="padding-left:18px;line-height:1.9">
+          <li><strong>クラウド財務管理を実装する</strong> — コスト管理の責任を明確にし、コスト意識を高める文化を醸成する。</li>
+          <li><strong>消費モデルを導入する</strong> — 未使用リソースは停止し、必要なリソースのみ費用を支払う（従量課金）。</li>
+          <li><strong>全体的な効率を測定する</strong> — 投入コストに対するビジネス価値を評価し、継続的に最適化する。</li>
+          <li><strong>差別化につながらない高負荷の作業に費用をかけない</strong> — マネージドサービスを活用し運用負担を減らす。</li>
+          <li><strong>支出を分析・属性化する</strong> — 使用状況とコストを可視化し、無駄を削減する。</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">定義（領域とベストプラクティス）</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>領域</th><th>内容とベストプラクティス例</th></tr></thead>
+            <tbody>
+              <tr><td><strong>クラウド財務管理の実践</strong></td><td>コスト管理の責任を明確化し、組織にコスト意識を根付かせる。予算超過を防ぐモニタリング。</td></tr>
+              <tr><td><strong>支出と使用量の認識</strong></td><td>コストを正確に予測。チームごとの削減目標を設定し、ライフサイクル全体で追跡。</td></tr>
+              <tr><td><strong>費用対効果の高いリソース</strong></td><td>適切なサービス・サイズ・数を選択。データに基づきリソースを手動／動的に調整。</td></tr>
+              <tr><td><strong>需要と供給の管理</strong></td><td>需要パターンを分析し、柔軟なリソース管理でコストと性能を両立。</td></tr>
+              <tr><td><strong>継続的な最適化</strong></td><td>新サービス・機能を評価して導入。手作業のプロセスをツールやスクリプトで自動化。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント</div>
+        <ul>
+          <li>「従量課金」「適切なサイジング（Right Sizing）」「未使用リソースの停止」</li>
+          <li>関連サービス：Cost Explorer・AWS Budgets・Trusted Advisor・Compute Optimizer</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="well-architected.html" class="chip">🏛 Well-Architected 概要</a>
+          <a href="../services/cost-explorer.html" class="chip">💰 Cost Explorer</a>
+          <a href="../services/compute-optimizer.html" class="chip">📐 Compute Optimizer</a>
+          <a href="../services/trusted-advisor.html" class="chip">💡 Trusted Advisor</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

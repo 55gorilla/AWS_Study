@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>パフォーマンス効率の柱 | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="wa-performance">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>Well-Architected</span>
+        <span>›</span><span>パフォーマンス効率の柱</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>⚡ パフォーマンス効率の柱 <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          パフォーマンス効率の柱は、<strong>システム要件に合わせてAWSリソースを効率的に使用</strong>し、
+          需要の変化や技術の進化に対応しながらパフォーマンスを維持するための推奨事項です。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">設計原則</h2>
+        <ul style="padding-left:18px;line-height:1.9">
+          <li><strong>高度な技術を簡単に利用する</strong> — クラウドが提供する高度な技術を、オンプレでは難しい実装でも容易に利用する。</li>
+          <li><strong>数分でグローバルに展開する</strong> — 複数のAWSリージョン経由で、世界中から低遅延でアクセスできる。</li>
+          <li><strong>サーバーレスアーキテクチャを使用する</strong> — サーバーの運用・管理を意識せずサービスを展開する。</li>
+          <li><strong>より頻繁に実験する</strong> — 異なるサーバー・ストレージ・設定の比較テストを頻繁に実施する。</li>
+          <li><strong>システムに対する精通の程度を考慮する</strong> — 実現したいシステムを最適な技術で実現する。</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">定義（領域とベストプラクティス）</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>領域</th><th>内容とベストプラクティス例</th></tr></thead>
+            <tbody>
+              <tr><td><strong>アーキテクチャの選択</strong></td><td>複数のソリューションを組み合わせて性能向上。データに基づき意思決定、公式ドキュメントやAWSサポートを活用。</td></tr>
+              <tr><td><strong>コンピューティングとハードウェア</strong></td><td>最適なコンピューティングを選択。Auto Scaling で動的に拡張・縮小、CloudWatch でメトリクス取得。</td></tr>
+              <tr><td><strong>データ管理</strong></td><td>ストレージ・アクセスパターンを最適化。頻繁にアクセスするデータはキャッシュ。</td></tr>
+              <tr><td><strong>ネットワークとコンテンツ配信</strong></td><td>ロードバランサーで分散。レイテンシーに敏感なら CloudFront を利用。</td></tr>
+              <tr><td><strong>プロセスと文化</strong></td><td>負荷テストでボトルネックを特定。Systems Manager Automation で修正を自動化。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント</div>
+        <ul>
+          <li>「サーバーレス・グローバル展開・キャッシュ・CDN でパフォーマンス効率を高める」</li>
+          <li>関連サービス：Auto Scaling・CloudWatch・ElastiCache・CloudFront・Lambda</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="well-architected.html" class="chip">🏛 Well-Architected 概要</a>
+          <a href="../services/cloudfront.html" class="chip">🌍 CloudFront</a>
+          <a href="../services/elasticache.html" class="chip">⚡ ElastiCache</a>
+          <a href="../services/auto-scaling.html" class="chip">📈 Auto Scaling</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

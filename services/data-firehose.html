@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Data Firehose | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="data-firehose">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>データ分析</span>
+        <span>›</span><span>Amazon Data Firehose</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🚒 Amazon Data Firehose <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          Amazon Data Firehose（旧 Kinesis Data Firehose）は、<strong>ストリーミングデータを各種データストアへ配信する</strong>サービスです。
+          Amazon S3・Amazon Redshift・Amazon OpenSearch Service などへ送信できます。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">仕組み</h2>
+        <p style="margin-bottom:16px">
+          Data Firehose はプロデューサー（データ送信元）からストリーミングデータを受け取り、
+          必要に応じて<strong>データ変換処理や Lambda 関数の呼び出し</strong>を実行した後、設定された配信先へデータを送信します。
+          フルマネージドで、スループットに応じて自動的にスケールします。
+        </p>
+        <div class="img-block">
+          <img src="../知見/Amazon Data Firehose.rtfd/28141.jpg" alt="Data Firehose 構成イメージ" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Kinesis Data Streams との違い</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th></th><th>Data Firehose</th><th>Kinesis Data Streams</th></tr></thead>
+            <tbody>
+              <tr><td>役割</td><td>データストアへの<strong>配信（ロード）</strong></td><td>データの<strong>収集・一時保持</strong></td></tr>
+              <tr><td>管理</td><td>フルマネージド・自動スケール</td><td>シャード管理が必要</td></tr>
+              <tr><td>配信先</td><td>S3・Redshift・OpenSearch など</td><td>Lambda・Flink などコンシューマーが読み出す</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント（SAA 頻出）</div>
+        <ul>
+          <li>「ストリーミングデータを S3 / Redshift / OpenSearch へ簡単に配信 → Data Firehose」</li>
+          <li>配信前に Lambda でデータ変換できる</li>
+          <li>収集＝Kinesis Data Streams、配信＝Data Firehose と役割を区別</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="kinesis.html" class="chip">🌊 Amazon Kinesis</a>
+          <a href="s3.html" class="chip">🪣 Amazon S3</a>
+          <a href="redshift.html" class="chip">📉 Amazon Redshift</a>
+          <a href="lambda.html" class="chip">⚡ Lambda</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

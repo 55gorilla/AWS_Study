@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Well-Architected Framework | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="well-architected">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>Well-Architected</span>
+        <span>›</span><span>フレームワーク概要</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🏛 Well-Architected Framework <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWS Well-Architected Framework は、<strong>AWSが推奨するクラウド設計・運用のベストプラクティス集</strong>です。
+          効率がよく、コストパフォーマンスが高く、安全で信頼できるクラウドシステムを設計・運用するための指針を提供します。
+          技術の進化やAWSサービスの変化に応じて継続的に更新されるため、システム実装後も定期的に内容と照らし合わせて見直すことが重要です。
+        </p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">構成要素</h2>
+        <p style="margin-bottom:16px">
+          フレームワークは「<strong>一般的な設計原則</strong>」と、<strong>6本の柱</strong>から構成されます。
+        </p>
+        <div class="feature-grid">
+          <div class="feature-item"><div class="feature-title">🛡 セキュリティ</div><p>データやシステムをリスクから保護する。</p></div>
+          <div class="feature-item"><div class="feature-title">🔁 信頼性</div><p>障害を想定し、安定して動作し続ける設計にする。</p></div>
+          <div class="feature-item"><div class="feature-title">⚡ パフォーマンス効率</div><p>要件に合わせてリソースを効率的に使用する。</p></div>
+          <div class="feature-item"><div class="feature-title">💰 コスト最適化</div><p>不要なコストを排除し、投資利益率を最大化する。</p></div>
+          <div class="feature-item"><div class="feature-title">🛠 運用上の優秀性</div><p>運用を継続的に改善し、ビジネス価値を提供する。</p></div>
+          <div class="feature-item"><div class="feature-title">🌱 持続可能性</div><p>環境負荷を抑え、サステナブルにワークロードを運用する。</p></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">一般的な設計原則</h2>
+        <p style="margin-bottom:12px">フレームワーク全体の基盤となる、クラウドネイティブな設計思想です。AWSだけでなくクラウド全般に適用できます。</p>
+        <ul style="padding-left:18px;line-height:1.9">
+          <li><strong>キャパシティーニーズの推測が不要</strong> — 負荷に合わせてリソースを自動でスケールアウト／スケールインし、過剰投資や容量不足を回避する。</li>
+          <li><strong>本番規模でシステムをテストする</strong> — 本番相当のテスト環境を一時的に作成し、完了後に破棄できる。</li>
+          <li><strong>自動化でアーキテクチャの実験を容易にする</strong> — 環境の作成・複製を自動化し、安全に何度でも実験する。</li>
+          <li><strong>発展するアーキテクチャを許容する</strong> — 設計時点で固定せず、ニーズや技術の進化に応じて継続的に改善する。</li>
+          <li><strong>データに基づいてアーキテクチャを駆動する</strong> — メトリクスを収集し、データに基づいて意思決定する。</li>
+          <li><strong>ゲームデーを利用して改善する</strong> — 障害を意図的に再現する対応訓練（ゲームデー）で、改善点の発見と運用者の経験を積む。</li>
+        </ul>
+      </div>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 試験のポイント</div>
+        <ul>
+          <li>6本の柱：<strong>セキュリティ／信頼性／パフォーマンス効率／コスト最適化／運用上の優秀性／持続可能性</strong></li>
+          <li>「ベストプラクティスに沿って設計を評価したい → Well-Architected Framework」</li>
+          <li>各柱は「設計原則」と「定義（領域とベストプラクティス）」で構成される</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ（6本の柱）</h2>
+        <div class="chip-row">
+          <a href="wa-security.html" class="chip">🛡 セキュリティの柱</a>
+          <a href="wa-reliability.html" class="chip">🔁 信頼性の柱</a>
+          <a href="wa-performance.html" class="chip">⚡ パフォーマンス効率の柱</a>
+          <a href="wa-cost.html" class="chip">💰 コスト最適化の柱</a>
+          <a href="wa-operational.html" class="chip">🛠 運用上の優秀性の柱</a>
+          <a href="shared-responsibility.html" class="chip">🤝 責任共有モデル</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>
