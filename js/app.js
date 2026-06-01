@@ -192,44 +192,102 @@
     'エンドユーザー / ハイブリッド': '🖥',
   };
 
-  // 進捗計算用フラットリスト（noProgress を除く全ページ）
-  const PAGE_REGISTRY = NAV_GROUPS.flatMap(g => g.items)
+  /* ── 新着として表示するページID ──
+     ドキュメントを追加したらここにIDを足す。定着したら削除すればホームの「新着」から自動で消える。 */
+  const NEW_IDS = new Set([
+    'well-architected', 'wa-security', 'wa-reliability', 'wa-performance', 'wa-cost', 'wa-operational', 'pen-testing',
+    'cloudfront', 'route53', 'direct-connect-vpn',
+    'data-firehose', 'athena', 'glue', 'quicksight',
+    'sns', 'sqs', 'eventbridge', 'step-functions',
+    'x-ray', 'cognito', 'sts', 'iam-identity-center', 'security-services', 'support',
+    'migration-tools', 'datasync', 'snowball',
+    'developer-tools', 'cloud9', 'amplify', 'ml-ai',
+  ]);
+
+  // 全ページのフラット配列（グループ名付き。サイドバー・ドメイン・前後ナビ・統計の正典）
+  const ALL_ITEMS = NAV_GROUPS.flatMap(g => g.items.map(it => Object.assign({ group: g.title }, it)));
+
+  // 進捗計算用（noProgress を除く有効ページ）。updateBars 互換のため形を維持
+  const PAGE_REGISTRY = ALL_ITEMS
     .filter(it => it.enabled && !it.noProgress)
     .map(it => ({ id: it.id, levels: it.levels }));
+
+  // 学習動線（前後ナビ）用の順序＝有効・進捗対象ページを NAV_GROUPS の並びで
+  const LEARN_ORDER = ALL_ITEMS.filter(it => it.enabled && !it.noProgress);
+
+  /* ── 共通ヘルパー ── */
+  function hrefFor(it) { return prefix + it.dir + '/' + (it.file || it.id) + '.html'; }
+  function levelBadge(levels) {
+    return levels.includes('saa') && !levels.includes('clf')
+      ? '<span class="nav-badge saa">SAA</span>'
+      : '<span class="nav-badge clf">CLF</span>';
+  }
+  function escAttr(s) { return String(s).replace(/"/g, '&quot;'); }
 
   /* ── 現在地からの相対パス接頭辞を判定 ── */
   const inSubDir = /\/(concepts|services)\//.test(location.pathname);
   const prefix = inSubDir ? '../' : '';
   const currentPage = document.body.dataset.page || '';
 
-  /* ── サイドバーHTMLを生成して注入 ── */
+  /* ── サイドバーHTMLを生成して注入（先頭に検索ボックス） ── */
   function renderSidebar() {
     const sidebar = document.getElementById('sidebar');
     if (!sidebar) return;
 
-    let html = '';
+    let html = '<div class="nav-search"><input type="search" id="navSearch" '
+             + 'placeholder="🔍 サービスを検索…" autocomplete="off" spellcheck="false">'
+             + '<span class="nav-search-hint">/</span></div>';
+
     for (const group of NAV_GROUPS) {
-      html += '<div class="nav-group"><div class="nav-group-title">' + group.title + '</div>';
+      html += '<div class="nav-group" data-group>'
+            + '<div class="nav-group-title">' + group.title + '</div>';
       for (const it of group.items) {
-        const badge = it.levels.includes('saa') && !it.levels.includes('clf')
-          ? '<span class="nav-badge saa">SAA</span>'
-          : '<span class="nav-badge clf">CLF</span>';
+        const badge = levelBadge(it.levels);
+        const term = escAttr((it.label + ' ' + it.id + ' ' + group.title).toLowerCase());
+        const newDot = (it.enabled && NEW_IDS.has(it.id)) ? '<span class="nav-new">NEW</span>' : '';
         if (!it.enabled) {
-          html += '<a href="#" class="nav-item" style="opacity:.5;cursor:not-allowed">'
+          html += '<a href="#" class="nav-item" data-term="' + term + '" style="opacity:.5;cursor:not-allowed">'
                 + it.icon + ' ' + it.label + badge + '<span class="nav-dot"></span></a>';
         } else {
-          const href = prefix + it.dir + '/' + (it.file || it.id) + '.html';
           const active = it.id === currentPage ? ' active' : '';
-          html += '<a href="' + href + '" class="nav-item' + active + '" data-page="' + it.id + '">'
-                + it.icon + ' ' + it.label + badge + '<span class="nav-dot"></span></a>';
+          html += '<a href="' + hrefFor(it) + '" class="nav-item' + active + '" data-page="' + it.id + '" data-term="' + term + '">'
+                + it.icon + ' ' + it.label + badge + newDot + '<span class="nav-dot"></span></a>';
         }
       }
       html += '</div>';
     }
     sidebar.innerHTML = html;
+
+    // 検索フィルタ
+    const search = sidebar.querySelector('#navSearch');
+    function filterNav(q) {
+      const query = q.trim().toLowerCase();
+      sidebar.querySelectorAll('[data-group]').forEach(grp => {
+        let any = false;
+        grp.querySelectorAll('.nav-item').forEach(a => {
+          const hit = !query || (a.dataset.term || '').includes(query);
+          a.style.display = hit ? '' : 'none';
+          if (hit) any = true;
+        });
+        grp.style.display = any ? '' : 'none';
+      });
+    }
+    search?.addEventListener('input', () => filterNav(search.value));
+
+    // 現在ページを中央へスクロール
+    sidebar.querySelector('.nav-item.active')?.scrollIntoView({ block: 'center' });
   }
 
   renderSidebar();
+
+  // 「/」キーでサイドバー検索にフォーカス
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;
+    const tag = (document.activeElement?.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    const s = document.getElementById('navSearch');
+    if (s) { e.preventDefault(); s.focus(); }
+  });
 
   /* ── ダッシュボードの学習ドメイン（アコーディオン展開） ──
      各ドメインをクリックすると、配下の全ページ一覧（各ページへのリンク）が開く。
@@ -238,26 +296,29 @@
     const grid = document.getElementById('domainGrid');
     if (!grid) return; // index.html 以外では何もしない
 
+    const prog = getProgress();
     let html = '';
     for (const group of NAV_GROUPS) {
       const icon = DOMAIN_ICONS[group.title] || '📁';
-      const enabledItems = group.items.filter(it => it.enabled);
+      const enabledItems = group.items.filter(it => it.enabled && !it.noProgress);
       const count = enabledItems.length;
+      const clfN = enabledItems.filter(it => it.levels.includes('clf')).length;
+      const saaN = enabledItems.filter(it => it.levels.includes('saa')).length;
+      const doneN = enabledItems.filter(it => prog[it.id]).length;
+      const pct = count ? Math.round(doneN / count * 100) : 0;
 
       // 配下ページのリンク一覧
       let pages = '';
       for (const it of group.items) {
-        const badge = it.levels.includes('saa') && !it.levels.includes('clf')
-          ? '<span class="nav-badge saa">SAA</span>'
-          : '<span class="nav-badge clf">CLF</span>';
+        const badge = levelBadge(it.levels);
+        const newDot = (it.enabled && NEW_IDS.has(it.id)) ? '<span class="nav-new">NEW</span>' : '';
         if (!it.enabled) {
           pages += '<span class="domain-page disabled">'
                  + it.icon + ' ' + it.label + badge
                  + '<span class="domain-page-soon">準備中</span></span>';
         } else {
-          const href = prefix + it.dir + '/' + (it.file || it.id) + '.html';
-          pages += '<a href="' + href + '" class="domain-page" data-page="' + it.id + '">'
-                 + it.icon + ' ' + it.label + badge
+          pages += '<a href="' + hrefFor(it) + '" class="domain-page" data-page="' + it.id + '">'
+                 + it.icon + ' ' + it.label + badge + newDot
                  + '<span class="nav-dot"></span></a>';
         }
       }
@@ -267,7 +328,9 @@
             +     '<div class="domain-icon">' + icon + '</div>'
             +     '<div class="domain-meta">'
             +       '<div class="domain-name">' + group.title + '</div>'
-            +       '<div class="domain-count">' + count + 'ページ公開中</div>'
+            +       '<div class="domain-count">' + count + 'ページ・CLF' + clfN + '/SAA' + saaN
+            +         '<span class="domain-done">' + doneN + '/' + count + '学習済</span></div>'
+            +       '<div class="domain-bar"><div class="domain-bar-fill" style="width:' + pct + '%"></div></div>'
             +     '</div>'
             +     '<span class="domain-toggle">▾</span>'
             +   '</button>'
@@ -348,6 +411,81 @@
   }
 
   updateBars();
+
+  /* ── ホーム上部：統計ストリップ（NAV_GROUPS から自動算出） ── */
+  function renderStats() {
+    const el = document.getElementById('statStrip');
+    if (!el) return;
+    const pages = getProgress();
+    const total   = PAGE_REGISTRY.length;
+    const clf     = PAGE_REGISTRY.filter(p => p.levels.includes('clf')).length;
+    const saa     = PAGE_REGISTRY.filter(p => p.levels.includes('saa')).length;
+    const done    = PAGE_REGISTRY.filter(p => pages[p.id]).length;
+    const pct     = total ? Math.round(done / total * 100) : 0;
+    const domains = NAV_GROUPS.length;
+    const stat = (icon, num, label, cls) =>
+      '<div class="stat ' + (cls || '') + '"><div class="stat-num">' + icon + ' ' + num + '</div>'
+      + '<div class="stat-label">' + label + '</div></div>';
+    el.innerHTML =
+        stat('📚', total, '総ページ数')
+      + stat('🗂', domains, '学習ドメイン')
+      + stat('☁️', clf, 'CLF対象', 'clf')
+      + stat('🏗', saa, 'SAA対象', 'saa')
+      + stat('✅', done + ' / ' + total, '学習済み（' + pct + '%）', 'done');
+  }
+  renderStats();
+
+  /* ── ホーム：新着（NEW_IDS から自動。0件ならセクション非表示） ── */
+  function renderNew() {
+    const row = document.getElementById('newRow');
+    if (!row) return;
+    const items = ALL_ITEMS.filter(it => it.enabled && !it.noProgress && NEW_IDS.has(it.id));
+    const section = document.getElementById('newSection');
+    if (!items.length) { if (section) section.style.display = 'none'; return; }
+    row.innerHTML = items.map(it =>
+      '<a href="' + hrefFor(it) + '" class="new-chip" data-page="' + it.id + '">'
+      + '<span class="new-chip-icon">' + it.icon + '</span>'
+      + '<span class="new-chip-label">' + it.label + '</span>'
+      + levelBadge(it.levels) + '</a>'
+    ).join('');
+  }
+  renderNew();
+
+  /* ── 全ページ共通：前後ナビ（学習動線）を本文末尾に注入 ── */
+  function injectPrevNext() {
+    if (!currentPage || currentPage === 'home') return;
+    const inner = document.querySelector('.main-inner');
+    if (!inner) return;
+    const idx = LEARN_ORDER.findIndex(it => it.id === currentPage);
+    if (idx === -1) return;
+    const prev = LEARN_ORDER[idx - 1];
+    const next = LEARN_ORDER[idx + 1];
+    const link = (it, dir) => it
+      ? '<a class="prevnext-link ' + dir + '" href="' + hrefFor(it) + '">'
+        + '<span class="prevnext-dir">' + (dir === 'prev' ? '← 前へ' : '次へ →') + '</span>'
+        + '<span class="prevnext-name">' + it.icon + ' ' + it.label + '</span></a>'
+      : '<span class="prevnext-link empty"></span>';
+    const nav = document.createElement('nav');
+    nav.className = 'prevnext';
+    nav.innerHTML = link(prev, 'prev') + link(next, 'next');
+    inner.appendChild(nav);
+  }
+  injectPrevNext();
+
+  /* ── 全ページ共通：トップへ戻るボタン ── */
+  function injectScrollTop() {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'scrolltop';
+    btn.setAttribute('aria-label', 'ページ上部へ戻る');
+    btn.innerHTML = '↑';
+    document.body.appendChild(btn);
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const onScroll = () => btn.classList.toggle('show', window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  injectScrollTop();
 
   /* ── ページ内 AI チャット（Gemini 無料枠・ページ本文グラウンディング） ── */
   function initChatWidget() {
