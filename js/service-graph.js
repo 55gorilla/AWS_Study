@@ -49,8 +49,28 @@
     const key = [id, r].sort().join('::');
     if (seen.has(key)) return;
     seen.add(key);
-    edges.push({ data: { id: 'e-' + key, source: id, target: r } });
+    // cross=1 … ドメイン跨ぎの関連（レイアウトで長く伸ばし、ドメインを離す）
+    const cross = META[id].group !== META[r].group ? 1 : 0;
+    edges.push({ data: { id: 'e-' + key, source: id, target: r, cross } });
   }));
+
+  /* ── レイアウト定義 ──
+     fcose が使えれば「ドメイン内は近く・ドメイン間は遠く」で自然にクラスタ化。
+     未ロード時は従来 cose にフォールバック（間隔は広めに調整）。 */
+  const hasFcose = typeof window.cytoscapeFcose !== 'undefined';
+  if (hasFcose) { try { cytoscape.use(window.cytoscapeFcose); } catch (e) { /* 二重登録は無視 */ } }
+  const layoutOpts = hasFcose
+    ? {
+        name: 'fcose', quality: 'proof', animate: false, randomize: true,
+        padding: 48, packComponents: true, nodeSeparation: 150, numIter: 3500,
+        nodeRepulsion: 13000, gravity: 0.18, gravityRange: 3.6,
+        idealEdgeLength: e => (e.data('cross') ? 200 : 70),
+        edgeElasticity: e => (e.data('cross') ? 0.08 : 0.5),
+      }
+    : {
+        name: 'cose', animate: false, padding: 40, nodeRepulsion: 16000,
+        idealEdgeLength: 120, nestingFactor: 1.1, gravity: 0.2, componentSpacing: 120,
+      };
 
   /* ── Cytoscape 初期化 ── */
   const cy = cytoscape({
@@ -60,24 +80,37 @@
     style: [
       { selector: 'node', style: {
         'background-color': 'data(color)', 'label': 'data(label)',
-        'color': '#16191F', 'font-size': '11px', 'font-weight': 600,
-        'text-valign': 'bottom', 'text-margin-y': 4, 'text-wrap': 'wrap', 'text-max-width': '120px',
-        'width': 26, 'height': 26, 'border-width': 2, 'border-color': '#fff',
-        'text-background-color': '#fff', 'text-background-opacity': 0.7, 'text-background-padding': 2,
+        'color': '#1F2937', 'font-size': '9px', 'font-weight': 600,
+        'text-valign': 'bottom', 'text-halign': 'center', 'text-margin-y': 3,
+        'text-wrap': 'wrap', 'text-max-width': '84px',
+        'min-zoomed-font-size': 7,                 // 引いた時はラベルを描かない＝重なり解消
+        'width': 22, 'height': 22, 'border-width': 2, 'border-color': '#fff',
+        'text-background-color': '#fff', 'text-background-opacity': 0.9,
+        'text-background-padding': 2, 'text-background-shape': 'roundrectangle',
+        'transition-property': 'width height border-color font-size', 'transition-duration': '120ms',
       }},
-      { selector: 'node[saa = 1]', style: { 'shape': 'round-diamond', 'width': 24, 'height': 24 } },
+      { selector: 'node[saa = 1]', style: { 'shape': 'round-diamond', 'width': 20, 'height': 20 } },
       { selector: 'edge', style: {
-        'width': 1.5, 'line-color': '#CBD5E1', 'curve-style': 'haystack', 'opacity': 0.6,
+        'width': 1.2, 'line-color': '#CBD5E1', 'curve-style': 'haystack', 'opacity': 0.5,
       }},
-      { selector: '.faded', style: { 'opacity': 0.08, 'text-opacity': 0.05 } },
+      { selector: 'node.hover', style: {
+        'border-color': '#FF9900', 'border-width': 3, 'font-size': '11px',
+        'min-zoomed-font-size': 0, 'z-index': 60,
+      }},
+      { selector: '.faded', style: { 'opacity': 0.07, 'text-opacity': 0.04 } },
       { selector: 'node.sel', style: {
-        'border-width': 4, 'border-color': '#FF9900', 'width': 38, 'height': 38, 'font-size': '13px', 'z-index': 99,
+        'border-width': 4, 'border-color': '#FF9900', 'width': 40, 'height': 40,
+        'font-size': '13px', 'min-zoomed-font-size': 0, 'z-index': 99,
       }},
       { selector: 'edge.hl', style: { 'line-color': '#FF9900', 'opacity': 0.95, 'width': 2.5 } },
       { selector: '.hidden', style: { 'display': 'none' } },
     ],
-    layout: { name: 'cose', animate: false, padding: 30, nodeRepulsion: 9000, idealEdgeLength: 90, nestingFactor: 0.9, gravity: 0.25 },
+    layout: layoutOpts,
   });
+
+  /* ── ホバーで対象だけラベルを大きく ── */
+  cy.on('mouseover', 'node', e => e.target.addClass('hover'));
+  cy.on('mouseout', 'node', e => e.target.removeClass('hover'));
 
   /* ── カードパネル ── */
   const panel = document.getElementById('sgCard');

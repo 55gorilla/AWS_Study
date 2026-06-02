@@ -56,7 +56,7 @@
         <div id="cy"></div>
         <aside class="sg-card" id="sgCard" aria-live="polite"></aside>
       </div>
-      <p class="sg-hint">💡 ◯=CLF対象 / ◇=SAA専用。ドラッグで移動・ホイールでズーム。凡例クリックでドメイン絞り込み。空白クリックで選択解除。</p>
+      <p class="sg-hint">💡 ◯=CLF対象 / ◇=SAA専用。色＝ドメイン（近くに集まって配置）。<strong>引くと点・寄ると名前</strong>が出ます。ホバーでその名前を強調、ドラッグで移動・ホイールでズーム。凡例クリックでドメイン絞り込み・空白クリックで選択解除。</p>
 
       <div class="exam-tip">
         <div class="exam-tip-title">🔶 使い方</div>
@@ -81,6 +81,10 @@
 
 <script src="../js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+<!-- fcose レイアウト（ドメイン別クラスタリング・重なり回避）。未ロード時は cose に自動フォールバック -->
+<script src="https://cdn.jsdelivr.net/npm/layout-base@2.0.1/layout-base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cose-base@2.2.0/cose-base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cytoscape-fcose@2.2.0/cytoscape-fcose.js"></script>
 <script src="../js/service-graph-data.js"></script>
 <script src="../js/service-graph.js"></script>
 </body>
