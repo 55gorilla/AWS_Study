@@ -128,10 +128,13 @@ body {
 .main {
   flex: 1;
   margin-left: var(--sidebar-w);
-  padding: 36px 28px 60px;
+  padding: 26px 34px 44px;
   min-width: 0;
 }
-.main-inner { max-width: 900px; }
+/* 画面幅を有効活用：横長でも右側が大きく空かないよう上限を広げる */
+.main-inner { max-width: 1200px; margin: 0 auto; }
+/* 図中心のページ（関連図など）は全幅を使う */
+body[data-page="service-graph"] .main-inner { max-width: 1500px; }
 
 /* ── BREADCRUMB ──────────────────────────────────────── */
 .breadcrumb {
@@ -142,13 +145,13 @@ body {
 .breadcrumb a:hover { text-decoration: underline; }
 
 /* ── PAGE TITLE ──────────────────────────────────────── */
-.page-title { margin-bottom: 28px; }
+.page-title { margin-bottom: 20px; }
 .page-title h1 {
   font-size: 26px; font-weight: 800; color: var(--dark);
   margin-bottom: 10px;
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
-.page-title .desc { color: var(--muted); font-size: 15px; max-width: 720px; line-height: 1.65; }
+.page-title .desc { color: var(--muted); font-size: 15px; max-width: 860px; line-height: 1.6; }
 
 /* ── BADGES ──────────────────────────────────────────── */
 .badge {
@@ -160,7 +163,7 @@ body {
 .badge-saa { background: #EDE9FE; color: var(--saa-color); }
 
 /* ── SECTION ─────────────────────────────────────────── */
-.section { margin-bottom: 36px; }
+.section { margin-bottom: 26px; }
 
 .section-title {
   font-size: 18px; font-weight: 800; color: var(--dark);
@@ -176,8 +179,8 @@ body {
 /* ── CARD ────────────────────────────────────────────── */
 .card {
   background: var(--card); border-radius: var(--radius);
-  padding: 24px 26px; box-shadow: var(--shadow);
-  margin-bottom: 16px;
+  padding: 20px 24px; box-shadow: var(--shadow);
+  margin-bottom: 14px;
   border: 1px solid rgba(0,0,0,.04);
 }
 
