@@ -86,15 +86,26 @@
 
       <!-- サービスマップへのリンク -->
       <div class="section">
-        <a href="concepts/service-map.html" class="domain-card" style="display:block;max-width:400px;text-decoration:none">
-          <div style="display:flex;align-items:center;gap:12px">
-            <div class="domain-icon" style="font-size:2rem">🗺</div>
-            <div>
-              <div class="domain-name">AWSサービス全体マップ</div>
-              <div class="domain-count">全体像・典型アーキテクチャ・サービス比較早見表</div>
+        <div class="domain-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+          <a href="concepts/service-graph.html" class="domain-card" style="display:block;text-decoration:none">
+            <div style="display:flex;align-items:center;gap:12px;padding:16px 18px">
+              <div class="domain-icon" style="font-size:2rem">🕸</div>
+              <div>
+                <div class="domain-name">サービス関連図（ノード学習）<span class="nav-new">NEW</span></div>
+                <div class="domain-count">ノードをクリック→カードで概要・解説・試験暗記・関連先を学習</div>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+          <a href="concepts/service-map.html" class="domain-card" style="display:block;text-decoration:none">
+            <div style="display:flex;align-items:center;gap:12px;padding:16px 18px">
+              <div class="domain-icon" style="font-size:2rem">🗺</div>
+              <div>
+                <div class="domain-name">AWSサービス全体マップ</div>
+                <div class="domain-count">全体像・典型アーキテクチャ・サービス比較早見表</div>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
 
       <!-- 使い方ガイド -->

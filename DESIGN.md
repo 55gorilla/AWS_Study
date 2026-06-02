@@ -82,9 +82,19 @@ Cloudflare Workers + Cloudflare Access で配信している（公開・アク�
 3. **正典へ1行追加**: `js/app.js` の `NAV_GROUPS` の該当グループに item を追加（必要なら新グループ＋
    `DOMAIN_ICONS` も）。→ サイドバー・統計・ドメイン・前後ナビは自動更新。
 4. **新着**: 新規IDを `js/app.js` の `NEW_IDS` に追加（定着したら削除＝新着から自動で消える）。
-5. **関連図（任意・大物のみ）**: `concepts/service-map.html` の Mermaid 全体図・典型アーキ・比較表に追記。
+5. **ノード関連図に追加（サービスの場合）**: `js/service-graph-data.js` に1エントリ追加
+   （`summary` / `detail[]` / `exam[]` / `related[]`）。`related` は実在IDのみ。名前/アイコン/レベル/詳細URLは
+   `NAV_GROUPS` から自動解決されるため重複記載は不要。→ `concepts/service-graph.html` のグラフに自動反映。
+6. **関連図・Mermaid（任意・大物のみ）**: `concepts/service-map.html` の Mermaid 全体図・典型アーキ・比較表に追記。
    サービス相互の位置づけが変わる追加のときだけでよい。
-6. **公開**: `git add -A && git commit && git push` → **Cloudflare が自動デプロイ**（1〜2分）。
+7. **公開**: `git add -A && git commit && git push` → **Cloudflare が自動デプロイ**（1〜2分）。
+
+### サービス関連図ページ（`concepts/service-graph.html`）
+- インタラクティブなノード学習ページ。ノードクリックでカード（概要/詳細/試験暗記/関連）を表示し、
+  関連chipで別カードへジャンプ（`#id` ディープリンク対応）。
+- メタ情報は `app.js` が公開する `window.AWS_NAV_GROUPS` から解決（単一ソース）。学習内容は
+  `js/service-graph-data.js`。描画は `js/service-graph.js`＋Cytoscape(CDN)。
+- カバレッジ検証: `SERVICE_GRAPH` の id/`related` が NAV_GROUPS の有効サービスに一致するかを監査する。
 
 > 触らなくてよいもの: 各ページのサイドバー（空 nav のまま）、ホームの統計/新着/ドメイン（全自動）。
 > これが本ポータルの設計意図＝「足すのはページ＋NAV_GROUPS 1行」。

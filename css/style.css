@@ -838,3 +838,86 @@ hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
 .scrolltop.show { opacity: .92; visibility: visible; transform: translateY(0); }
 .scrolltop:hover { background: var(--orange); }
 @media (max-width: 560px) { .scrolltop { left: 12px; bottom: 12px; } }
+
+/* ── SERVICE GRAPH（ノード学習ページ） ─────────────────── */
+.sg-controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px;
+}
+.sg-controls .sg-search-wrap { position: relative; flex: 1; min-width: 180px; }
+#sgSearch {
+  width: 100%; box-sizing: border-box; border: 1px solid var(--border); border-radius: 8px;
+  padding: 9px 12px; font-size: 14px; outline: none; background: var(--card);
+}
+#sgSearch:focus { border-color: var(--orange); }
+#sgReset {
+  border: 1px solid var(--border); background: var(--card); color: var(--text);
+  border-radius: 8px; padding: 9px 14px; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+#sgReset:hover { border-color: var(--orange); color: var(--orange); }
+.sg-stat { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+.sg-legend { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.sg-leg {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--border); background: var(--card); color: var(--muted);
+  border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 600; cursor: pointer;
+}
+.sg-leg:hover { border-color: var(--orange); color: var(--text); }
+.sg-leg.on { background: var(--dark); color: #fff; border-color: var(--dark); }
+.sg-leg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+/* グラフ本体＋カードの2カラム（カードは右ドロワー） */
+.sg-stage { position: relative; }
+#cy {
+  width: 100%; height: 70vh; min-height: 460px;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(0,0,0,.05) 1px, transparent 0) 0 0 / 22px 22px,
+    var(--card);
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
+.sg-hint { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+.sg-card {
+  position: absolute; top: 12px; right: 12px; width: 360px; max-width: calc(100% - 24px);
+  max-height: calc(70vh - 24px); overflow-y: auto;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow-md); padding: 18px 18px 20px;
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity .2s, transform .2s, visibility .2s;
+}
+.sg-card.open { opacity: 1; visibility: visible; transform: translateY(0); }
+.sg-card-close {
+  position: absolute; top: 10px; right: 10px; border: none; background: none;
+  font-size: 16px; color: var(--muted); cursor: pointer; line-height: 1;
+}
+.sg-card-close:hover { color: var(--text); }
+.sg-card-head { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 2px solid var(--border); }
+.sg-card-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.sg-card-name { font-size: 16px; font-weight: 800; color: var(--dark); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.sg-card-group { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.sg-summary { font-size: 13.5px; line-height: 1.7; color: var(--text); margin-bottom: 12px; }
+.sg-sec { margin-bottom: 12px; }
+.sg-sec h4 { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+.sg-sec ul { padding-left: 18px; }
+.sg-sec li { font-size: 13px; line-height: 1.65; color: var(--text); margin-bottom: 4px; }
+.sg-exam { background: var(--tip-bg); border: 1px solid #FCD34D; border-radius: 8px; padding: 10px 12px 10px 0; }
+.sg-exam h4 { padding-left: 12px; }
+.sg-exam li { color: #78350F; }
+.sg-rel-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.sg-rel {
+  border: 1px solid var(--border); background: #F8FAFC; color: var(--text);
+  border-radius: 999px; padding: 5px 11px; font-size: 12.5px; font-weight: 600; cursor: pointer;
+}
+.sg-rel:hover { border-color: var(--orange); color: var(--orange); background: #fff; }
+.sg-fulllink { display: inline-block; margin-top: 4px; font-size: 13px; font-weight: 700; color: var(--blue); text-decoration: none; }
+.sg-fulllink:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  #cy { height: 62vh; min-height: 380px; }
+  .sg-card {
+    position: fixed; inset: auto 0 0 0; top: auto; width: 100%; max-width: 100%;
+    max-height: 78dvh; border-radius: 16px 16px 0 0; z-index: 1200;
+    transform: translateY(100%);
+  }
+  .sg-card.open { transform: translateY(0); }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サービス関連図（ノード学習） | AWS 資格学習ポータル</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="service-graph">
+<div id="overlay" class="overlay"></div>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="../index.html" class="logo">
+    <span class="logo-badge">AWS</span>
+    <span class="logo-text">資格学習ポータル</span>
+  </a>
+  <div class="header-levels">
+    <span class="badge badge-clf">CLF</span>
+    <span class="badge badge-saa">SAA</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main">
+    <div class="main-inner">
+
+      <nav class="breadcrumb">
+        <a href="../index.html">🏠 ホーム</a>
+        <span>›</span><span>サービス関連図（ノード学習）</span>
+      </nav>
+
+      <div class="page-title">
+        <h1>🕸 サービス関連図（ノード学習） <span class="badge badge-clf">CLF</span> <span class="badge badge-saa">SAA</span></h1>
+        <p class="desc">
+          AWSサービスをノードで探索する関連図です。<strong>ノードをクリックすると、概要・詳しい解説・試験対策の暗記ポイント・関連サービスがカードに表示</strong>され、カード内で学習が完結します。
+          カード内の関連サービスを押すと、そのサービスのカードへジャンプします。
+        </p>
+      </div>
+
+      <!-- コントロール -->
+      <div class="sg-controls">
+        <div class="sg-search-wrap">
+          <input type="search" id="sgSearch" placeholder="🔍 サービス名で絞り込み…" autocomplete="off" spellcheck="false">
+        </div>
+        <button type="button" id="sgReset">↺ リセット</button>
+        <span class="sg-stat" id="sgStat"></span>
+      </div>
+
+      <!-- ドメイン凡例（クリックで絞り込み） -->
+      <div class="sg-legend" id="sgLegend"></div>
+
+      <!-- グラフ＋カード -->
+      <div class="sg-stage">
+        <div id="cy"></div>
+        <aside class="sg-card" id="sgCard" aria-live="polite"></aside>
+      </div>
+      <p class="sg-hint">💡 ◯=CLF対象 / ◇=SAA専用。ドラッグで移動・ホイールでズーム。凡例クリックでドメイン絞り込み。空白クリックで選択解除。</p>
+
+      <div class="exam-tip">
+        <div class="exam-tip-title">🔶 使い方</div>
+        <ul>
+          <li>ノードをクリック → カードで「概要 / 詳しい解説 / 試験対策（暗記）/ 関連サービス」を学習</li>
+          <li>カード内の関連サービスをクリック → そのサービスのカードへジャンプ（URLの <code>#id</code> も更新）</li>
+          <li>各カード下部の「📄 詳細ページを開く」から、図解付きの詳細ページへ移動できます</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">関連ページ</h2>
+        <div class="chip-row">
+          <a href="service-map.html" class="chip">🗺 サービスマップ（全体図・比較表）</a>
+          <a href="../index.html" class="chip">🏠 学習ダッシュボード</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+<script src="../js/service-graph-data.js"></script>
+<script src="../js/service-graph.js"></script>
+</body>
+</html>

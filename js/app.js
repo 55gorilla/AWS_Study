@@ -19,6 +19,7 @@
         { id: 'aws-operations',        dir: 'concepts', icon: '🖱', label: 'AWSの運用方法',          levels: 'clf',     enabled: true },
         { id: 'aws-caf',               dir: 'concepts', icon: '📋', label: 'AWS CAF',               levels: 'clf',     enabled: true },
         { id: 'service-map',           dir: 'concepts', icon: '🗺', label: 'サービスマップ',         levels: 'clf saa', enabled: true, noProgress: true },
+        { id: 'service-graph',         dir: 'concepts', icon: '🕸', label: 'サービス関連図（学習）',  levels: 'clf saa', enabled: true, noProgress: true },
       ],
     },
     {
@@ -195,6 +196,7 @@
   /* ── 新着として表示するページID ──
      ドキュメントを追加したらここにIDを足す。定着したら削除すればホームの「新着」から自動で消える。 */
   const NEW_IDS = new Set([
+    'service-graph',
     'well-architected', 'wa-security', 'wa-reliability', 'wa-performance', 'wa-cost', 'wa-operational', 'pen-testing',
     'cloudfront', 'route53', 'direct-connect-vpn',
     'data-firehose', 'athena', 'glue', 'quicksight',
@@ -740,5 +742,9 @@
   }
 
   initChatWidget();
+
+  /* ── 他ページ（サービス関連図など）から参照する正典メタを公開 ── */
+  window.AWS_NAV_GROUPS = NAV_GROUPS;
+  window.AWS_DOMAIN_ICONS = DOMAIN_ICONS;
 
 })();
