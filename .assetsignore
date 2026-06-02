@@ -1,0 +1,13 @@
+# Cloudflare Workers の静的アセット配信から除外するもの（assets.directory="." のため）
+# ※ .git を含めると 25MiB 超のパックファイルでデプロイが失敗するため必須
+
+.git
+.gitignore
+.assetsignore
+.wrangler
+.dev.vars*
+.env*
+node_modules
+.DS_Store
+**/.DS_Store
+wrangler.jsonc
