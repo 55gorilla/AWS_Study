@@ -58,10 +58,10 @@ graph TB
   RT_PRI --> NAT
   RT_PRI --> PRI
 
-  style PUB fill:#1a3a2a,stroke:#10B981
-  style PRI fill:#1a2040,stroke:#0073BB
-  style IGW fill:#FF9900,color:#16191F
-  style NAT fill:#7C3AED,color:white
+  style PUB fill:#003834,stroke:#00B3A7
+  style PRI fill:#003834,stroke:#008A81
+  style IGW fill:#00B3A7,color:#16191F
+  style NAT fill:#00615A,color:white
         </div>
       </div>
 
@@ -126,7 +126,7 @@ graph TB
             <div class="feature-title">🌐 インターネットゲートウェイ（IGW）</div>
             <p>VPCとインターネット間の双方向通信を可能にするゲートウェイ。パブリックサブネットのルートテーブルにIGWへのルートを設定することで、インターネット接続が有効になります。</p>
           </div>
-          <div class="feature-item" style="border-left:4px solid #7C3AED">
+          <div class="feature-item" style="border-left:4px solid #00615A">
             <div class="feature-title">🔄 NATゲートウェイ</div>
             <p>プライベートサブネットのリソースがインターネットへ<strong>アウトバウンド通信のみ</strong>できるようにするサービス。外部からの直接アクセスは不可。パブリックサブネットに配置。<strong>AWSマネージドサービス</strong>（可用性高）。</p>
           </div>
@@ -246,6 +246,6 @@ graph TB
 </div>
 <script src="../js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#FF9900',primaryTextColor:'#16191F',lineColor:'#0073BB',background:'#f8fafc'}});</script>
+<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#00B3A7',primaryTextColor:'#16191F',lineColor:'#008A81',background:'#f8fafc'}});</script>
 </body>
 </html>

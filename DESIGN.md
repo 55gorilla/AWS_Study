@@ -36,11 +36,23 @@ Cloudflare Workers + Cloudflare Access で配信している（公開・アク�
 
 ## 2. デザイントークン（`css/style.css :root`）
 
-- 色: `--orange #FF9900`（アクセント） / `--dark #232F3E` / `--darker #16202C`（サイドバー）
-  / `--blue #0073BB` / `--clf-color #0073BB`（CLF） / `--saa-color #7C3AED`（SAA）
-  / `--bg #F0F2F5` / `--card #FFF` / `--text #16191F` / `--muted #6B7280` / `--border #E2E8F0`
+サイト全体は **ティール系ワントーン・ランプ（明→暗）** で統一。前景（文字・枠・塗り）は下記5ソリッド色のみ、
+淡色面（バッジ地・tip地・success地など）は `rgba(...)` の低不透明度で表現し、色相をティール一族に保つ。
+本文テキスト `--text #16191F` とグレー類（`--muted #6B7280` / `--border #E2E8F0` / `--bg #F0F2F5` / 白）は
+可読性のためニュートラルとして維持する。
+
+| トークン | 色 | 役割 |
+|---|---|---|
+| `--accent-br` | `#00D7CA`（T1） | 最も明るい強調（学習済みドット／nav active／ロゴ地／hover発光） |
+| `--orange` | `#00B3A7`（T2） | 主アクセント（旧オレンジの役割）／**CLFバッジ** |
+| `--blue` | `#008A81`（T3） | リンク・副アクセント |
+| `--dark` | `#00615A`（T4） | ヘッダー地・見出しテキスト／**SAAバッジ** |
+| `--darker` | `#003834`（T5） | サイドバー地・最も濃い強調・error |
+
+- セマンティック色も全面ティール化（緑=学習済み→T1、橙=試験Tips→T1枠、赤=error→T4/T5）。
+- バッジ: `.badge-clf`（**明 T2**）/ `.badge-saa`（**濃 T4**）で濃淡区別。CLF=Cloud Practitioner、SAA=Solutions Architect Associate。
+- サービス関連図（`js/service-graph.js` の `DOMAIN_COLORS`）はティール15段の明度ランプ。分類はグループ枠でも表現。
 - 角丸 `--radius 8px` ／ 影 `--shadow` `--shadow-md` ／ サイドバー幅 `--sidebar-w 264px` ／ ヘッダ高 `--header-h 56px`
-- バッジ: `.badge-clf`（青）/ `.badge-saa`（紫）。CLF=Cloud Practitioner、SAA=Solutions Architect Associate。
 - レスポンシブ: 768px 以下でサイドバーをドロワー化（ハンバーガー `#menuBtn`）。
 
 ## 3. コンポーネント目録（再利用する）

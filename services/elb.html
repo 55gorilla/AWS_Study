@@ -56,9 +56,9 @@ flowchart TD
   Q1 -->|サードパーティ<br/>セキュリティ機器を<br/>経由させたい| GWLB[🛡 GWLB\nGateway Load Balancer\nレイヤー3+4\nファイアウォール/IDS/IPS向け]
   Q2 -->|パス/ホスト/URL/ヘッダー<br/>ベースのルーティング必要| ALB[🌐 ALB\nApplication Load Balancer\nレイヤー7\nコンテナ・マイクロサービス向け]
   Q2 -->|レガシーシステムのみ| CLB[⚠️ CLB\nClassic Load Balancer\n非推奨・旧世代]
-  style ALB fill:#0073BB,color:white
-  style NLB fill:#7C3AED,color:white
-  style GWLB fill:#EF4444,color:white
+  style ALB fill:#008A81,color:white
+  style NLB fill:#00615A,color:white
+  style GWLB fill:#00615A,color:white
   style CLB fill:#6B7280,color:white
         </div>
       </div>
@@ -73,7 +73,7 @@ flowchart TD
           <img src="../知見/弾性負荷バランス.rtfd/27994.jpg" alt="ELB詳細" style="max-width:100%;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.15)">
         </div>
 
-        <div class="feature-item" style="border-left:4px solid #0073BB;margin-top:20px">
+        <div class="feature-item" style="border-left:4px solid #008A81;margin-top:20px">
           <div class="feature-title">🌐 ALB（Application Load Balancer）— レイヤー7</div>
           <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
             <li>HTTP / HTTPS / gRPC ベースのルーティング</li>
@@ -84,7 +84,7 @@ flowchart TD
           </ul>
         </div>
 
-        <div class="feature-item" style="border-left:4px solid #7C3AED;margin-top:12px">
+        <div class="feature-item" style="border-left:4px solid #00615A;margin-top:12px">
           <div class="feature-title">⚡ NLB（Network Load Balancer）— レイヤー4</div>
           <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
             <li>TCP / UDP / TLS ベースのルーティング</li>
@@ -94,7 +94,7 @@ flowchart TD
           </ul>
         </div>
 
-        <div class="feature-item" style="border-left:4px solid #EF4444;margin-top:12px">
+        <div class="feature-item" style="border-left:4px solid #00615A;margin-top:12px">
           <div class="feature-title">🛡 GWLB（Gateway Load Balancer）— レイヤー3+4</div>
           <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
             <li>すべてのIPパケットを透過的に処理</li>
@@ -156,6 +156,6 @@ flowchart TD
 </div>
 <script src="../js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#FF9900',primaryTextColor:'#16191F',lineColor:'#0073BB',background:'#f8fafc'}});</script>
+<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#00B3A7',primaryTextColor:'#16191F',lineColor:'#008A81',background:'#f8fafc'}});</script>
 </body>
 </html>

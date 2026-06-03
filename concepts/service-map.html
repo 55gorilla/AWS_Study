@@ -172,16 +172,16 @@ graph TB
   CFN -.-> EC2
   Config -.-> EC2
 
-  style EC2 fill:#FF9900,color:#16191F
-  style Lambda fill:#FF9900,color:#16191F
-  style S3 fill:#3F8624,color:white
-  style RDS fill:#2965CC,color:white
-  style DDB fill:#2965CC,color:white
-  style ELB fill:#8C4FFF,color:white
-  style SNS fill:#E7157B,color:white
-  style SQS fill:#E7157B,color:white
-  style KDS fill:#8C4FFF,color:white
-  style Athena fill:#3F8624,color:white
+  style EC2 fill:#00B3A7,color:#16191F
+  style Lambda fill:#00B3A7,color:#16191F
+  style S3 fill:#008A81,color:white
+  style RDS fill:#008A81,color:white
+  style DDB fill:#008A81,color:white
+  style ELB fill:#00615A,color:white
+  style SNS fill:#00D7CA,color:white
+  style SQS fill:#00D7CA,color:white
+  style KDS fill:#00615A,color:white
+  style Athena fill:#008A81,color:white
         </div>
       </div>
 
@@ -206,8 +206,8 @@ graph LR
   EC2A --> Cache[(ElastiCache)]
   ASG[Auto Scaling] -.->|管理| EC2A
   ASG -.->|管理| EC2B
-  style ALB fill:#8C4FFF,color:white
-  style RDS fill:#2965CC,color:white
+  style ALB fill:#00615A,color:white
+  style RDS fill:#008A81,color:white
             </div>
           </div>
 
@@ -227,8 +227,8 @@ graph LR
   L3 --> S3
   CW[CloudWatch] -.->|ログ/監視| L1
   CW -.->|ログ/監視| L2
-  style APIGW fill:#FF9900,color:#16191F
-  style DDB fill:#2965CC,color:white
+  style APIGW fill:#00B3A7,color:#16191F
+  style DDB fill:#008A81,color:white
             </div>
           </div>
 
@@ -245,8 +245,8 @@ graph LR
   KDF --> S3[S3<br/>データレイク]
   S3 --> Redshift[(Redshift<br/>DWH分析)]
   CW[CloudWatch] -.->|監視| KDS
-  style KDS fill:#FF9900,color:#16191F
-  style S3 fill:#3F8624,color:white
+  style KDS fill:#00B3A7,color:#16191F
+  style S3 fill:#008A81,color:white
             </div>
           </div>
 
@@ -266,8 +266,8 @@ graph LR
   CT[CloudTrail] -.->|全API記録| EC2
   CW[CloudWatch] -.->|監視/アラーム| EC2
   CT --> S3Log[S3<br/>監査ログ保存]
-  style WAF fill:#EF4444,color:white
-  style IAM fill:#DD344C,color:white
+  style WAF fill:#00615A,color:white
+  style IAM fill:#00615A,color:white
             </div>
           </div>
 
@@ -283,9 +283,9 @@ graph LR
   SQS1 --> W1[Lambda/EC2<br/>ワーカー]
   SQS2 --> W2[Lambda<br/>メール送信]
   W1 --> DDB[(DynamoDB)]
-  style SNS fill:#E7157B,color:white
-  style SQS1 fill:#8C4FFF,color:white
-  style SQS2 fill:#8C4FFF,color:white
+  style SNS fill:#00D7CA,color:white
+  style SQS1 fill:#00615A,color:white
+  style SQS2 fill:#00615A,color:white
             </div>
           </div>
 
@@ -302,9 +302,9 @@ graph LR
   Glue --> Athena[Athena<br/>SQL分析]
   Athena --> QS[QuickSight<br/>BI可視化]
   S3 --> Redshift[(Redshift<br/>DWH)]
-  style S3 fill:#3F8624,color:white
-  style Athena fill:#3F8624,color:white
-  style KDS fill:#FF9900,color:#16191F
+  style S3 fill:#008A81,color:white
+  style Athena fill:#008A81,color:white
+  style KDS fill:#00B3A7,color:#16191F
             </div>
           </div>
 
@@ -323,8 +323,8 @@ graph TB
   GD[GuardDuty] -.-> A1
   SH[Security Hub<br/>集約] --> GD
   SH --> Config
-  style Org fill:#FF9900,color:#16191F
-  style SH fill:#DD344C,color:white
+  style Org fill:#00B3A7,color:#16191F
+  style SH fill:#00615A,color:white
             </div>
           </div>
         </div>
@@ -528,12 +528,12 @@ graph TB
     startOnLoad: true,
     theme: 'base',
     themeVariables: {
-      primaryColor: '#FF9900',
+      primaryColor: '#00B3A7',
       primaryTextColor: '#16191F',
-      lineColor: '#0073BB',
+      lineColor: '#008A81',
       background: '#f8fafc',
-      clusterBkg: '#1a2634',
-      clusterBorder: '#0073BB'
+      clusterBkg: '#003834',
+      clusterBorder: '#008A81'
     }
   });
 

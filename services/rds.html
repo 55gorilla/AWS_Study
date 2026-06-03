@@ -77,10 +77,10 @@ flowchart LR
   PRI -.->|障害発生⚡| FAIL{自動フェイルオーバー\n60〜120秒}
   FAIL -->|DNSが自動切替| STB2[(新プライマリ\n旧スタンバイ昇格)]
   STB2 --> App2[アプリケーション\n接続継続]
-  style PRI fill:#0073BB,color:white
-  style STB fill:#10B981,color:white
-  style FAIL fill:#EF4444,color:white
-  style STB2 fill:#FF9900,color:#16191F
+  style PRI fill:#008A81,color:white
+  style STB fill:#00B3A7,color:white
+  style FAIL fill:#00615A,color:white
+  style STB2 fill:#00B3A7,color:#16191F
         </div>
       </div>
 
@@ -193,6 +193,6 @@ flowchart LR
 </div>
 <script src="../js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#FF9900',primaryTextColor:'#16191F',lineColor:'#0073BB',background:'#f8fafc'}});</script>
+<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#00B3A7',primaryTextColor:'#16191F',lineColor:'#008A81',background:'#f8fafc'}});</script>
 </body>
 </html>

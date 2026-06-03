@@ -10,7 +10,7 @@
   const DATA = window.SERVICE_GRAPH;
   const container = document.getElementById('cy');
   if (!NAV || !DATA || !container || typeof cytoscape === 'undefined') {
-    if (container) container.innerHTML = '<p style="padding:24px;color:#b91c1c">グラフを初期化できませんでした（スクリプトの読み込み順をご確認ください）。</p>';
+    if (container) container.innerHTML = '<p style="padding:24px;color:#003834">グラフを初期化できませんでした（スクリプトの読み込み順をご確認ください）。</p>';
     return;
   }
 
@@ -24,12 +24,13 @@
   function isSaaOnly(levels) { return levels.includes('saa') && !levels.includes('clf'); }
 
   /* ── ドメイン別カラー（グループ名→色） ── */
+  /* ティール一族の15段階調（明度をインターリーブして隣接カテゴリを判別しやすく） */
   const DOMAIN_COLORS = {
-    '基礎概念': '#64748B', 'Well-Architected': '#0EA5E9', 'コンピューティング': '#FF9900',
-    'ストレージ': '#3F8624', 'データベース': '#2965CC', 'ネットワーキング': '#8C4FFF',
-    'データ分析': '#14B8A6', 'アプリケーション統合': '#E7157B', '監視・管理': '#0073BB',
-    'セキュリティ': '#DD344C', 'ガバナンス・コンプライアンス': '#7C3AED', '移行・転送': '#D97706',
-    '開発者ツール': '#059669', '機械学習・AI': '#9333EA', 'エンドユーザー / ハイブリッド': '#475569',
+    '基礎概念': '#003834', 'Well-Architected': '#00D7CA', 'コンピューティング': '#00B3A7',
+    'ストレージ': '#007369', 'データベース': '#008A81', 'ネットワーキング': '#1FA89D',
+    'データ分析': '#00E5D7', 'アプリケーション統合': '#00524C', '監視・管理': '#1A5C55',
+    'セキュリティ': '#00443F', 'ガバナンス・コンプライアンス': '#009E93', '移行・転送': '#19C9BD',
+    '開発者ツール': '#00615A', '機械学習・AI': '#1C857C', 'エンドユーザー / ハイブリッド': '#013D38',
   };
   const colorOf = grp => DOMAIN_COLORS[grp] || '#6B7280';
 
@@ -134,15 +135,15 @@
         'width': 1.2, 'line-color': '#CBD5E1', 'curve-style': 'haystack', 'opacity': 0.5,
       }},
       { selector: 'node.hover', style: {
-        'border-color': '#FF9900', 'border-width': 3, 'font-size': '11px',
+        'border-color': '#00B3A7', 'border-width': 3, 'font-size': '11px',
         'min-zoomed-font-size': 0, 'z-index': 60,
       }},
       { selector: '.faded', style: { 'opacity': 0.07, 'text-opacity': 0.04 } },
       { selector: 'node.sel', style: {
-        'border-width': 4, 'border-color': '#FF9900', 'width': 40, 'height': 40,
+        'border-width': 4, 'border-color': '#00B3A7', 'width': 40, 'height': 40,
         'font-size': '13px', 'min-zoomed-font-size': 0, 'z-index': 99,
       }},
-      { selector: 'edge.hl', style: { 'line-color': '#FF9900', 'opacity': 0.95, 'width': 2.5 } },
+      { selector: 'edge.hl', style: { 'line-color': '#00B3A7', 'opacity': 0.95, 'width': 2.5 } },
       { selector: '.hidden', style: { 'display': 'none' } },
     ],
     layout: layoutOpts,

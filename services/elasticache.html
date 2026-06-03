@@ -40,8 +40,8 @@ graph LR
   Cache -.->|2b. ミス| DB[(RDS / Aurora\nディスク)]
   DB -.->|3. 結果取得| App
   App -.->|4. キャッシュに保存| Cache
-  style Cache fill:#FF9900,color:#16191F
-  style DB fill:#0073BB,color:white
+  style Cache fill:#00B3A7,color:#16191F
+  style DB fill:#008A81,color:white
         </div>
         <p style="margin-top:12px">アプリケーションはまずElastiCacheを確認し、データがあれば（キャッシュヒット）即座に返します。なければ（キャッシュミス）データベースから取得し、次回のためにキャッシュに保存します。</p>
       </div>
@@ -49,7 +49,7 @@ graph LR
       <div class="section">
         <h2 class="section-title">2つのエンジン</h2>
         <div class="feature-grid">
-          <div class="feature-item" style="border-left:4px solid #DC382D">
+          <div class="feature-item" style="border-left:4px solid #00615A">
             <div class="feature-title">🔴 Redis（推奨）</div>
             <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
               <li>高度なデータ構造（リスト、セット、ソート済みセット）</li>
@@ -58,7 +58,7 @@ graph LR
               <li>Pub/Sub メッセージング</li>
             </ul>
           </div>
-          <div class="feature-item" style="border-left:4px solid #1B9E5A">
+          <div class="feature-item" style="border-left:4px solid #008A81">
             <div class="feature-title">🟢 Memcached</div>
             <ul style="padding-left:18px;margin-top:8px;line-height:1.8">
               <li>シンプルなキーバリューキャッシュ</li>
@@ -95,6 +95,6 @@ graph LR
 </div>
 <script src="../js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#FF9900',primaryTextColor:'#16191F',lineColor:'#0073BB',background:'#f8fafc'}});</script>
+<script>mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#00B3A7',primaryTextColor:'#16191F',lineColor:'#008A81',background:'#f8fafc'}});</script>
 </body>
 </html>
